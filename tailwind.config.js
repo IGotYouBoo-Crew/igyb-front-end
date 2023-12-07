@@ -10,6 +10,9 @@ module.exports = {
         'sea-breeze': '7BB8CO',
         'indigo': '543786',
       },
+      fontFamily: {
+        jost: ["'Jost'", "sans-serif"],
+      }
     },
   },
   plugins: [],

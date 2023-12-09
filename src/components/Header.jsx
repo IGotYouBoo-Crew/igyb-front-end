@@ -16,7 +16,7 @@ const NavItem = ({name}) => {
             <a href='/' className='px-4 py-2' >
                 {name}
             </a>
-            <span className='text-white absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100'>
+            <span className='cursor-pointer text-white absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100'>
                 /
             </span>
         </li>
@@ -33,8 +33,8 @@ const Header = () => {
     }
 
     return (
-        <section>
-            <header className='container mx-auto px-5 flex justify-between py-4 items-center'>
+        <section className='sticky top-0 left-0 right-0 z-50'>
+            <header className='bg-indigo mx-auto px-5 flex justify-between py-4 items-center'>
                 <div>
                     <img className='h-10' src={images.Logo} alt="Logo" />
                 </div>

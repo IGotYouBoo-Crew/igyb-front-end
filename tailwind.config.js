@@ -6,9 +6,9 @@ module.exports = {
       colors: {
         'background': '#FFEBAD',
         'honey': '#FEB737',
-        'periwinkle': 'A7B5FE',
-        'sea-breeze': '7BB8CO',
-        'indigo': '543786',
+        'periwinkle': '#A7B5FE',
+        'sea-breeze': '#7BB8CO',
+        'indigo': '#543786',
       },
       fontFamily: {
         jost: ["'Jost'", "sans-serif"],

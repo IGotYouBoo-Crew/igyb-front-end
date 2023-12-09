@@ -4,17 +4,17 @@ import { IoPersonSharp } from "react-icons/io5";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 
 const navItemsInfo = [
-    {name: "ABOUT"},
-    {name: "FORUM"}, 
-    {name: "EVENTS"},
-    {name: "CONTACT"},
+    {name: "About"},
+    {name: "Forum"}, 
+    {name: "Events"},
+    {name: "Contact"},
 ]
 
 const NavItem = ({name}) => {
     return (
         <li className='relative group'>
-            <a href='/' className='px-4 py-2' >
-                {name}
+            <a href={`/${name}`} className='px-4 py-2' >
+                {name.toUpperCase()}
             </a>
             <span className='cursor-pointer text-white absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100'>
                 /

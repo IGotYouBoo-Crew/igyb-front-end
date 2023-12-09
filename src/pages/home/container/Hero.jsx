@@ -6,7 +6,7 @@ const Hero = () => {
     <section className='relative'>
         <img src={images.HomeHeader} alt="Header" />
         <div className='bg-indigo text-background rounded-3xl flex flex-col px-10 lg:px-20 py-7 justify-center items-center'>
-            <h1 className='font-bold text-2xl md:text-3xl text-center '>WELCOME TO THE CLUB</h1>
+            <h1 className='font-bold text-2xl md:text-3xl text-center'>WELCOME TO THE CLUB</h1>
             <p className='mt-4 text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
@@ -22,11 +22,12 @@ const Hero = () => {
                 </button>
             </div>
         </div>
-        <div>
-            <div>
-                <h2>NEED SOME ADVICE?</h2>
-                <h1>COME TO ONE OF OUR MEET UP EVENTS</h1>
-                <p>
+        <div className='w-full bg-cover bg-center flex flex-col justify-center items-center md:flex-row-reverse'>
+            <img className='md:w-1/2 md:h-full md:object-cover' src={images.EventsHero} alt="Girls laughing" />
+            <div className='text-sea rounded-3xl flex flex-col px-10 lg:px-20 py-7 justify-center items-center md:items-start'>
+                <h2 className='text-center md:text-left '>NEED SOME ADVICE?</h2>
+                <h1 className='mt-2 font-bold text-2xl md:text-3xl text-center md:text-left'>COME TO ONE OF OUR MEET UP EVENTS</h1>
+                <p className='mt-4 text-center md:text-left'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
                 exercitation ullamco laboris nisi ut aliquip ex ea.
@@ -35,11 +36,10 @@ const Hero = () => {
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
                 exercitation ullamco laboris nisi ut aliquip ex ea 
                 </p>
-                <button>
+                <button className='mt-5 border-2 font-bold border-sea rounded-3xl px-5 py-2'>
                     EVENTS
                 </button>
             </div>
-            <img src="" alt="" />
         </div>
         <div>
 

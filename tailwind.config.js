@@ -7,7 +7,7 @@ module.exports = {
         'background': '#FFEBAD',
         'honey': '#FEB737',
         'periwinkle': '#A7B5FE',
-        'sea-breeze': '#7BB8CO',
+        'sea': '#37939F',
         'indigo': '#543786',
       },
       fontFamily: {

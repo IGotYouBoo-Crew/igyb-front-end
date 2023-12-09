@@ -12,7 +12,12 @@ module.exports = {
       },
       fontFamily: {
         jost: ["'Jost'", "sans-serif"],
-      }
+      },
+      spacing: {
+        '128': '32rem',
+        '144': '34rem',
+        '160': '40rem',
+      },
     },
   },
   plugins: [],

@@ -4,8 +4,8 @@ import { images } from '../../../constants';
 const Hero = () => {
   return (
     <section className='relative'>
-        <img src={images.HomeHeader} alt="Header" />
-        <div className='bg-indigo text-background rounded-3xl flex flex-col px-10 lg:px-20 py-7 justify-center items-center'>
+        <img className='z-10 relative' src={images.HomeHeader} alt="Header" />
+        <div className=' -mt-6 z-40 relative  bg-indigo text-background rounded-3xl flex flex-col px-10 lg:px-20 py-7 justify-center items-center'>
             <h1 className='font-bold text-2xl md:text-3xl text-center'>WELCOME TO THE CLUB</h1>
             <p className='mt-4 text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
@@ -22,10 +22,10 @@ const Hero = () => {
                 </button>
             </div>
         </div>
-        <div className='w-full bg-cover bg-center flex flex-col justify-center items-center md:flex-row-reverse'>
-            <img className='md:w-1/2 md:h-full md:object-cover' src={images.EventsHero} alt="Girls laughing" />
-            <div className='text-sea rounded-3xl flex flex-col px-10 lg:px-20 py-7 justify-center items-center md:items-start'>
-                <h2 className='text-center md:text-left '>NEED SOME ADVICE?</h2>
+        <div className='md:h-144 lg:h-160 -mt-6 w-screen bg-cover bg-center flex flex-col justify-center items-center md:flex-row-reverse'>
+            <img className= 'md:w-1/2 md:h-full md:object-cover' src={images.EventsHero} alt="Girls laughing" />
+            <div className='h-full bg-background  text-sea flex flex-col px-10 lg:px-20 py-12 justify-center items-center md:items-start'>
+                <h2 className='text-center md:text-left md:mt-6 '>NEED SOME ADVICE?</h2>
                 <h1 className='mt-2 font-bold text-2xl md:text-3xl text-center md:text-left'>COME TO ONE OF OUR MEET UP EVENTS</h1>
                 <p className='mt-4 text-center md:text-left'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 

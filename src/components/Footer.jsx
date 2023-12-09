@@ -18,7 +18,7 @@ const Footer = () => {
           <h1>©2023 I Got You, Boo</h1>
           <div className='flex justify-between gap-5 md:gap-10 lg:gap-12'>
             <a href="/terms-and-conditions" >T&C's</a>
-            <a href="/" >Privacy Policy</a>
+            <a href="/privacy-policy" >Privacy Policy</a>
           </div>
         </div>
       </footer>

@@ -18,7 +18,7 @@ const ContactPage = () => {
             <h1 className="text-2xl font-bold ">GET IN TOUCH</h1>
             <div className="">
               <HiOutlineMail className="w-6 h-6 place-self-center md:items-left" />
-              <a href="mailto:admin@igotyouboo.com" target="_blank" className="mt-7 text-lg underline">admin@igotyouboo.com</a>
+              <a href="mailto:admin@igotyouboo.com" target="_blank" rel="noopener" className="mt-7 text-lg underline">admin@igotyouboo.com</a>
               <HiOutlinePhone className="w-6 h-6" />
               <p className="text-lg">+61 1234 567 890</p>
             </div>
@@ -27,8 +27,8 @@ const ContactPage = () => {
               <h1 className="text-2xl font-bold ">FIND US</h1>
               <div className="">
                 <HiOutlineLocationMarker className="w-6 h-6" />
-                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" className=" mt-7 text-lg underline">42 Wallaby Way</a><br />
-                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" className=" mt-7 text-lg underline">Sydney, Australia</a>
+                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noopener" className=" mt-7 text-lg underline">42 Wallaby Way</a><br />
+                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noopener" className=" mt-7 text-lg underline">Sydney, Australia</a>
               </div>
           </div>
         </section>

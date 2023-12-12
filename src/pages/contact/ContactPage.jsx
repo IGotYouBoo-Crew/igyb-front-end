@@ -13,22 +13,26 @@ const ContactPage = () => {
         <div>
           <h1 className="text-2xl font-bold">CONTACT US</h1>
         </div>
-        <section className="py-10 lg:py-20 flex flex-col md:flex-row justify-around text-center md:text-left">
+        <section className="py-10 lg:py-20 flex flex-col items-center md:flex-row md:justify-between md:items-start text-center md:text-left">
           <div className="w-60 md:w-100 pb-10">
             <h1 className="text-2xl font-bold ">GET IN TOUCH</h1>
-            <div className="">
-              <HiOutlineMail className="w-6 h-6 place-self-center md:items-left" />
-              <a href="mailto:admin@igotyouboo.com" target="_blank" rel="noreferrer" className="mt-7 text-lg underline">admin@igotyouboo.com</a>
-              <HiOutlinePhone className="w-6 h-6" />
+            <div className="flex flex-row mt-7">
+              <HiOutlineMail className="w-6 h-6 mr-4 place-self-center md:items-left" />
+              <a href="mailto:admin@igotyouboo.com" target="_blank" rel="noreferrer" className="text-lg underline">admin@igotyouboo.com</a>
+            </div>
+            <div className="flex flex-row">
+              <HiOutlinePhone className="w-6 h-6 mr-4" />
               <p className="text-lg">+61 1234 567 890</p>
             </div>
-		  </div> 
+		      </div> 
           <div className="w-60 md:w-100">
               <h1 className="text-2xl font-bold ">FIND US</h1>
-              <div className="">
-                <HiOutlineLocationMarker className="w-6 h-6" />
-                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className=" mt-7 text-lg underline">42 Wallaby Way</a><br />
-                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className=" mt-7 text-lg underline">Sydney, Australia</a>
+              <div className="flex flex-row mt-7">
+                <HiOutlineLocationMarker className="w-6 h-6 place-self-center md:items-left" />
+                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="ml-3 text-lg underline">42 Wallaby Way</a><br />
+              </div>
+              <div className="flex flex-row">
+                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="ml-9 text-lg underline">Sydney, Australia</a>
               </div>
           </div>
         </section>

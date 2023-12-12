@@ -29,10 +29,10 @@ const ContactPage = () => {
               <h1 className="text-2xl font-bold ">FIND US</h1>
               <div className="flex flex-row mt-7">
                 <HiOutlineLocationMarker className="w-6 h-6 place-self-center md:items-left" />
-                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="ml-3 text-lg underline">42 Wallaby Way</a><br />
+                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="ml-3 text-lg underline">42 Wallaby Way, Sydney</a><br />
               </div>
               <div className="flex flex-row">
-                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="ml-9 text-lg underline">Sydney, Australia</a>
+                <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="ml-9 text-lg underline">NSW, Australia</a>
               </div>
           </div>
         </section>

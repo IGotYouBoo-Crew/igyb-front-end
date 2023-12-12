@@ -12,8 +12,8 @@ const Footer = () => {
           </div>
           <div className='w-32 md:w-40'>
             <h1 className='text-sm font-bold md:text-base'>FIND US</h1>
-            <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="text-xs mt-1 md:text-sm underline">42 Wallaby Way</a><br />
-            <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="text-xs mt-1 md:text-sm underline">Sydney, Australia</a>
+            <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="text-xs mt-1 md:text-sm underline">42 Wallaby Way, Sydney</a><br />
+            <a href="https://maps.app.goo.gl/7yQFAqk4efkZQXZQ8" target="_blank" rel="noreferrer" className="text-xs mt-1 md:text-sm underline">NSW, Australia</a>
           </div>
         </div>
         <div className='bg-indigo text-white flex justify-between px-3 md:px-6 lg:px-12 py-4 text-sm lg:text-base'>

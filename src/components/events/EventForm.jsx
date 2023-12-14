@@ -12,6 +12,10 @@ const EventForm = ({ isVisible, onClose }) => {
 //     const [finish, setFinish] = useState("");
 //     const [ticketLink, setTicketLink] = useState("");
     
+    const handleClose = (event) => {
+        if (event.target.id === 'eventForm') onClose();
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         // Need to add validation for form fields
@@ -29,9 +33,14 @@ const EventForm = ({ isVisible, onClose }) => {
             console.log('Looks like we have a problem:', error);
         }
     };
+    
   if (!isVisible) return null;
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center">
+    <div 
+        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center"
+        id="eventForm"
+        onClick={handleClose}
+    >
         <div className="">
             <button 
                 className="mt-30 text-honey text-xl text-bold place-self-end" 
@@ -40,7 +49,10 @@ const EventForm = ({ isVisible, onClose }) => {
                 X
             </button>
         </div>
-        <div className="flex flex-wrap mt-50 bg-honey text-white">
+        <div className="p-6 lg:p-8 bg-honey text-white">
+            <h1 className="mt-2 font-bold text-2xl md:text-3xl text-center ">
+                ENTER YOUR EVENT DETAILS
+            </h1>
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
                 <input 

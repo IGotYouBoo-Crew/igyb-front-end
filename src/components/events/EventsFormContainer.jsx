@@ -14,7 +14,10 @@ const EventsFormContainer = () => {
         </button>
         <EventForm 
           isVisible={showEventForm}
-          onClose={() => setShowEventForm(false)} />
+          onClose={() => setShowEventForm(false)} 
+        >
+          <div></div>
+        </EventForm>
       </div>
       
 

@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 import { createEvent } from './createEvent';
 
 
@@ -41,20 +45,21 @@ const EventForm = ({ isVisible, onClose }) => {
         id="eventForm"
         onClick={handleClose}
     >
-        <div className="">
-            <button 
-                className="mt-30 text-honey text-xl text-bold place-self-end" 
-                onClick={() => onClose()}
-            >
-                X
-            </button>
-        </div>
-        <div className="p-6 lg:p-8 bg-honey text-white">
+
+        <div className="p-6 lg:p-8 bg-honey text-white rounded-3xl">
+            <div className="flex justify-items-end"> 
+                <button 
+                    className="text-white text-xl text-bold" 
+                    onClick={() => onClose()}
+                >
+                    X
+                </button>
+            </div>
             <h1 className="mt-2 font-bold text-2xl md:text-3xl text-center ">
                 ENTER YOUR EVENT DETAILS
             </h1>
-            <form onSubmit={handleSubmit}>
-                <label>Title:</label>
+            <form onSubmit={handleSubmit} className="flex flex-col py-5">
+                <label></label>
                 <input 
                     type="text" 
                     name="titleInput" 
@@ -62,9 +67,11 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="EVENT TITLE*"
                     value={title} 
                     onChange={(event) => setTitle(event.target.value)} 
+                    className="placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
+
                 />
 
-                <label>Date:</label>
+                <label></label>
                 <input 
                     type="text" 
                     name="dateInput" 
@@ -72,9 +79,13 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="EVENT DATE (DD/MM/YYY)*"
                     value={date} 
                     onChange={(event) => setDate(event.target.value)} 
+                    className="placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
                 />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker />
+                </LocalizationProvider>
 
-                <label>Content:</label>
+                <label></label>
                 <input 
                     type="text" 
                     name="contentInput" 
@@ -82,9 +93,16 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="WRITE A SHORT DESCRIPTION OF YOUR EVENT*"
                     value={content} 
                     onChange={(event) => setContent(event.target.value)} 
+                    className="placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
+
                 />
                         
-                <button type="submit">SUBMIT</button>
+                <button 
+                    type="submit"
+                    className="border border-white rounded-3xl px-5 py-2 text-white text-sm md:text-base" 
+                >
+                    SUBMIT
+                </button>
             </form>
         </div>
     </div>

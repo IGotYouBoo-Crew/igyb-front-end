@@ -18,7 +18,7 @@ const images = {
     AboutImage,
     ContactImage,
     EventHeader,
-    ForumImage
+    ForumImage,
     CatImage,
 };
 

@@ -6,11 +6,8 @@ import PostProfile1 from '../assets/posts/post-profile1.jpg';
 import AboutImage from '../assets/AboutImage.png';
 import ContactImage from '../assets/ContactImage.png';
 import EventHeader from '../assets/EventHeader.jpg';
-<<<<<<< HEAD
 import ForumImage from '../assets/ForumImage.png'
 import CatImage from '../assets/kitty.webp'
-=======
->>>>>>> 814cdd6 (feat: initial commit for events)
 
 const images = {
     Logo,
@@ -20,13 +17,11 @@ const images = {
     PostProfile1,
     AboutImage,
     ContactImage,
-<<<<<<< HEAD
+    EventHeader,
+    ContactImage,
     EventHeader,
     ForumImage,
     CatImage,
-=======
-    EventHeader
->>>>>>> 814cdd6 (feat: initial commit for events)
 };
 
 export default images;

@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MainLayout from '../../components/MainLayout';
 import { images } from '../../constants';
-// import EventsFormContainer from '../../components/events/EventsFormContainer';
-
+import EventForm from '../../components/events/EventForm';
+import EventsFormContainer from '../../components/events/EventsFormContainer';
 
 const EventsPage = () => {
+    const [isFormVisible, setFormVisibility] = useState(false);
+  
+    const handleOpenForm = () => {
+      setFormVisibility(true);
+    };
+  
+    const handleCloseForm = () => {
+      setFormVisibility(false);
+    };
+  
+    const handleCreateEvent = (eventData) => {
+      console.log('New Event:', eventData);
+        handleCloseForm();
+    };
+  
     return (
       <MainLayout>
         <section className="relative">
@@ -21,15 +36,20 @@ const EventsPage = () => {
                     irure dolor in reprehenderit in voluptate. 
                 </p>
             </div>
-            <div className="flex flex-col">
-                <h2 className='text-center md:text-right mt-10 md:mt-6 font-bold'>GOT AN UPCOMING EVENT?</h2>
-                <button className='bg-honey text-white rounded-3xl px-6 py-2'>
-                    CREATE AN EVENT
-                </button>
-            </div>
+        <EventsFormContainer />
         </div>
 
-        {/* <EventsFormContainer /> */}
+        {/* {isFormVisible && (
+        <div className="w-full flex justify-center items-center bg-gray-800 bg-opacity-50">
+          <div className="bg-white p-6 rounded">
+            <span className="absolute top-2 right-2 cursor-pointer text-xl" onClick={handleCloseForm}>
+              &times;
+            </span>
+            <EventForm onSubmit={handleCreateEvent} />
+          </div>
+        </div>
+      )} */}
+
         </section>
     </MainLayout>
     );

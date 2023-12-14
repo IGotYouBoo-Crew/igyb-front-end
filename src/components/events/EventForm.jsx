@@ -50,7 +50,6 @@ const EventForm = ({ isVisible, onClose }) => {
         id="eventForm"
         onClick={handleClose}
     >
-
         <div className="p-6 lg:p-8 bg-honey text-white rounded-3xl">
             <div className="flex justify-items-end"> 
                 <button 

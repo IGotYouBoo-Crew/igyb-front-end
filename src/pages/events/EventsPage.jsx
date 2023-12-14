@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MainLayout from '../../components/MainLayout';
 import { images } from '../../constants';
-
 import EventsFormContainer from '../../components/events/EventsFormContainer';
 
 const EventsPage = () => {
+    const [isFormVisible, setFormVisibility] = useState(false);
+  
+    const handleOpenForm = () => {
+      setFormVisibility(true);
+    };
+  
+    const handleCloseForm = () => {
+      setFormVisibility(false);
+    };
+  
+    const handleCreateEvent = (eventData) => {
+      console.log('New Event:', eventData);
+        handleCloseForm();
+    };
+  
     return (
       <MainLayout>
         <section className="relative">

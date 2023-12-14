@@ -7,6 +7,7 @@ import EventsPage from "./pages/events/EventsPage";
 import ContactPage from "./pages/contact/ContactPage";
 import TermsPage from "./pages/terms/TermsPage";
 import PrivacyPage from "./pages/privacy/PrivacyPage";
+import ForumPage from "./pages/forum/ForumPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route index path="/about" element={<AboutPage />} />
+        <Route index path="/forum" element={<ForumPage />} />
         <Route index path="/events" element={<EventsPage />} />
         <Route index path="/contact" element={<ContactPage />} />
         <Route index path="/terms-and-conditions" element={<TermsPage />} />

@@ -9,7 +9,7 @@ const Articles = () => {
             <h2 className=' md:mt-6 font-bold '>NEED SOME ADVICE?</h2>
             <h1 className='mt-2 font-bold text-2xl md:text-3xl'>CHECK OUT THE FORUM</h1>
         </div>
-        <div className='flex flex-col container mx-auto px-5 py-10'>
+        <div className='flex flex-col container mx-auto px-5 py-10 lg:px-0'>
             <div className='flex flex-wrap justify-between md:gap-x-6 gap-y-8 pb-10 px-5'>
                 <ArticleCard className='w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]' />
                 <ArticleCard className='w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]' />

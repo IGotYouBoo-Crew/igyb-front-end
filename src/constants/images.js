@@ -6,6 +6,7 @@ import PostProfile1 from '../assets/posts/post-profile1.jpg';
 import AboutImage from '../assets/AboutImage.png';
 import ContactImage from '../assets/ContactImage.png';
 import EventHeader from '../assets/EventHeader.jpg';
+import ForumImage from '../assets/ForumImage.png'
 import CatImage from '../assets/kitty.webp'
 
 const images = {
@@ -17,6 +18,7 @@ const images = {
     AboutImage,
     ContactImage,
     EventHeader,
+    ForumImage,
     CatImage,
 };
 

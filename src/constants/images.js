@@ -5,6 +5,7 @@ import Post1Image from '../assets/posts/post1.png';
 import PostProfile1 from '../assets/posts/post-profile1.jpg';
 import AboutImage from '../assets/AboutImage.png';
 import ContactImage from '../assets/ContactImage.png';
+import EventHeader from '../assets/EventHeader.jpg';
 
 const images = {
     Logo,
@@ -13,7 +14,8 @@ const images = {
     Post1Image,
     PostProfile1,
     AboutImage,
-    ContactImage
+    ContactImage,
+    EventHeader
 };
 
 export default images;

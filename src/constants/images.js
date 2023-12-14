@@ -7,6 +7,7 @@ import AboutImage from '../assets/AboutImage.png';
 import ContactImage from '../assets/ContactImage.png';
 import EventHeader from '../assets/EventHeader.jpg';
 import ForumImage from '../assets/ForumImage.png'
+import CatImage from '../assets/kitty.webp'
 
 const images = {
     Logo,
@@ -18,6 +19,7 @@ const images = {
     ContactImage,
     EventHeader,
     ForumImage
+    CatImage,
 };
 
 export default images;

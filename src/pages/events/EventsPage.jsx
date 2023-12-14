@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MainLayout from '../../components/MainLayout';
 import { images } from '../../constants';
+
 import EventsFormContainer from '../../components/events/EventsFormContainer';
 
 const EventsPage = () => {
-  
     return (
       <MainLayout>
         <section className="relative">

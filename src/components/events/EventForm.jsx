@@ -67,7 +67,6 @@ const EventForm = ({ isVisible, onClose }) => {
                 <input 
                     type="text" 
                     name="hostInput" 
-                    id="hostInput" 
                     placeholder="HOST/BUSINESS NAME*"
                     value={host} 
                     onChange={(event) => setHost(event.target.value)} 
@@ -88,8 +87,6 @@ const EventForm = ({ isVisible, onClose }) => {
                 <label></label>
                 <input 
                     type="text" 
-                    name="titleInput" 
-                    id="titleInput" 
                     placeholder="EVENT TITLE*"
                     value={title} 
                     onChange={(event) => setTitle(event.target.value)} 
@@ -106,6 +103,9 @@ const EventForm = ({ isVisible, onClose }) => {
                     onChange={(event) => setDate(event.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
                 />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker />
+                </LocalizationProvider>
 
 {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
     <DatePicker 

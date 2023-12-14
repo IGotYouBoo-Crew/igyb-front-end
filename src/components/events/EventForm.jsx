@@ -106,46 +106,9 @@ const EventForm = ({ isVisible, onClose }) => {
                     onChange={(event) => setDate(event.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
                 />
-
-{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <DatePicker 
-    label="EVENT DATE (MM/DD/YYY)*"
-    className="bg-white label:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
-    />
-</LocalizationProvider> */}
-
-                <label></label>
-                <input 
-                    type="text" 
-                    name="startInput" 
-                    id="startInput" 
-                    placeholder="START TIME*"
-                    value={start} 
-                    onChange={(event) => setStart(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
-                />    
-
-                <label></label>
-                <input 
-                    type="text" 
-                    name="finishInput" 
-                    id="finishInput" 
-                    placeholder="FINISH TIME*"
-                    value={finish} 
-                    onChange={(event) => setFinish(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
-                />    
-
-                <label></label>
-                <input 
-                    type="text" 
-                    name="ticketLinkInput" 
-                    id="ticketLinkInput" 
-                    placeholder="TICKETS/RSVP LINK"
-                    value={ticketLink} 
-                    onChange={(event) => setTicketLink(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
-                />    
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker />
+                </LocalizationProvider>
 
                 <label></label>
                 <input 

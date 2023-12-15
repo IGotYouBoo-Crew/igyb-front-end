@@ -7,14 +7,14 @@ import { createEvent } from './createEvent';
 
 
 const EventForm = ({ isVisible, onClose }) => {
+    const [host, setHost] = useState("");
+    const [image, setImage] = useState("");
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
+    const [start, setStart] = useState("");
+    const [finish, setFinish] = useState("");
+    const [ticketLink, setTicketLink] = useState("");
     const [content, setContent] = useState("");
-//     const [host, setHost] = useState("");
-//     const [image, setImage] = useState("");
-//     const [start, setStart] = useState("");
-//     const [finish, setFinish] = useState("");
-//     const [ticketLink, setTicketLink] = useState("");
     
     const handleClose = (event) => {
         if (event.target.id === 'eventForm') onClose();
@@ -25,11 +25,16 @@ const EventForm = ({ isVisible, onClose }) => {
         // Need to add validation for form fields
 
         try {
-            await createEvent(title, date, content);
+            await createEvent(host, image, title, date, start, finish, ticketLink, content);
 
             // Clear the form fields after submission
+            setHost('');
+            setImage('');
             setTitle('');
             setDate('');
+            setStart('');
+            setFinish('');
+            setTicketLink('');
             setContent('');
 
             onClose();

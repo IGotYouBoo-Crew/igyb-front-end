@@ -1,5 +1,5 @@
-async function createEvent(title, date, content) {
-    console.log(title, date, content);
+async function createEvent(host, image, title, date, start, finish, ticketLink, content) {
+    console.log(host, image, title, date, start, finish, ticketLink, content);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/events/newEvent",
@@ -8,7 +8,15 @@ async function createEvent(title, date, content) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({title: title, date: date, content: content}),
+            body: JSON.stringify({
+                host: host, 
+                image: image, 
+                title: title, 
+                date: date, 
+                start: start,
+                finish: finish,
+                ticketLink: ticketLink,
+                content: content}),
         }
     );
 

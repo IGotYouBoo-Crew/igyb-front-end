@@ -106,9 +106,13 @@ const EventForm = ({ isVisible, onClose }) => {
                     onChange={(event) => setDate(event.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
                 />
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker />
-                </LocalizationProvider>
+
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker 
+                    label="EVENT DATE (MM/DD/YYY)*"
+                    className="bg-white label:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
+                    />
+                </LocalizationProvider> */}
 
                 <label></label>
                 <input 

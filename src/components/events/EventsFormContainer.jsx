@@ -8,7 +8,7 @@ const EventsFormContainer = () => {
       <div className="flex flex-col">
         <h2 className='text-center md:text-right mt-10 md:mt-6 font-bold'>GOT AN UPCOMING EVENT?</h2>
         <button 
-          className='bg-honey text-white rounded-3xl px-6 py-2' 
+          className='bg-honey text-white rounded-3xl px-6 py-2 mt-2' 
           onClick={() => setShowEventForm(true)}>
           CREATE AN EVENT
         </button>

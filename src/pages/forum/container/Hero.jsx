@@ -1,6 +1,7 @@
 import React from 'react'
 import { FiSearch } from "react-icons/fi"
 import { images } from '../../../constants'
+import PostFormContainer from '../../../components/posts/PostFormContainer'
 
 const Hero = () => {
   return (
@@ -17,12 +18,14 @@ const Hero = () => {
                         ullamco laboris nisi ut aliquip ex ea.
                     </p>
                 </div>
-                <div className='mt-8 lg:mt-0 text-center lg:w-1/2 lg:text-end lg:pr-28'>
+                <PostFormContainer />
+
+                {/* <div className='mt-8 lg:mt-0 text-center lg:w-1/2 lg:text-end lg:pr-28'>
                     <h2 className='font-bold text-xs lg:mr-1'>GOT SOMETHING TO SAY?</h2>
                     <button className='font-bold bg-periwinkle rounded-3xl px-5 py-2 mt-2 lg:text-xl shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]'>
                         CREATE A POST
                     </button>
-                </div>
+                </div> */}
             </div>
             <div className='flex flex-col gap-y-2.5 mt-12 relative md:w-3/4 md:left-[12.5%] lg:w-2/3 lg:left-[16.67%] '>
                 <div className='relative'>

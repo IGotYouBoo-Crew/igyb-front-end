@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { createPost } from './createPost';
-import { createDateStrForInputFromSections } from '@mui/x-date-pickers/internals';
 
 
 const PostForm = ({ isVisible, onClose }) => {
@@ -18,7 +17,7 @@ const PostForm = ({ isVisible, onClose }) => {
         // Need to add validation for form fields
 
         try {
-            await createDateStrForInputFromSections(title, image, content);
+            await createPost(title, image, content);
 
             // Clear the form fields after submission
             setTitle('');
@@ -39,7 +38,7 @@ const PostForm = ({ isVisible, onClose }) => {
         onClick={handleClose}
     >
 
-        <div className="p-6 lg:p-8 bg-honey text-white rounded-3xl">
+        <div className="p-6 lg:p-8 bg-indigo text-white rounded-3xl">
             <div className="flex justify-items-end"> 
                 <button 
                     className="text-white text-xl text-bold" 

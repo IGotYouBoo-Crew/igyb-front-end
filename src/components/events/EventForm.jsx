@@ -67,12 +67,34 @@ const EventForm = ({ isVisible, onClose }) => {
                 <label></label>
                 <input 
                     type="text" 
+                    name="hostInput" 
+                    id="hostInput" 
+                    placeholder="HOST/BUSINESS NAME*"
+                    value={host} 
+                    onChange={(event) => setHost(event.target.value)} 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline " 
+                />
+
+                <label></label>
+                <input 
+                    type="text" 
+                    name="imageInput" 
+                    id="imageInput" 
+                    placeholder="COVER IMAGE URL"
+                    value={image} 
+                    onChange={(event) => setImage(event.target.value)} 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline " 
+                />
+
+                <label></label>
+                <input 
+                    type="text" 
                     name="titleInput" 
                     id="titleInput" 
                     placeholder="EVENT TITLE*"
                     value={title} 
                     onChange={(event) => setTitle(event.target.value)} 
-                    className="placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline " 
                 />
 
                 <label></label>
@@ -83,15 +105,48 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="EVENT DATE (DD/MM/YYY)*"
                     value={date} 
                     onChange={(event) => setDate(event.target.value)} 
-                    className="placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
                 />
 
-                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker 
-                    label="EVENT DATE (MM/DD/YYY)*"
-                    className="bg-white label:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
-                    />
-                </LocalizationProvider> */}
+{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <DatePicker 
+    label="EVENT DATE (MM/DD/YYY)*"
+    className="bg-white label:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+    />
+</LocalizationProvider> */}
+
+                <label></label>
+                <input 
+                    type="text" 
+                    name="startInput" 
+                    id="startInput" 
+                    placeholder="START TIME*"
+                    value={start} 
+                    onChange={(event) => setStart(event.target.value)} 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                />    
+
+                <label></label>
+                <input 
+                    type="text" 
+                    name="finishInput" 
+                    id="finishInput" 
+                    placeholder="FINISH TIME*"
+                    value={finish} 
+                    onChange={(event) => setFinish(event.target.value)} 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                />    
+
+                <label></label>
+                <input 
+                    type="text" 
+                    name="ticketLinkInput" 
+                    id="ticketLinkInput" 
+                    placeholder="TICKETS/RSVP LINK"
+                    value={ticketLink} 
+                    onChange={(event) => setTicketLink(event.target.value)} 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                />    
 
                 <label></label>
                 <input 
@@ -101,13 +156,12 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="WRITE A SHORT DESCRIPTION OF YOUR EVENT*"
                     value={content} 
                     onChange={(event) => setContent(event.target.value)} 
-                    className="placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-none shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" 
-
+                    className="truncate whitespace-pre-line placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
                 />
                         
                 <button 
                     type="submit"
-                    className="border border-white rounded-3xl px-5 py-2 text-white text-sm md:text-base" 
+                    className="border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base" 
                 >
                     SUBMIT
                 </button>

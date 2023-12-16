@@ -22,8 +22,8 @@ const Hero = () => {
           <img className='z-10 relative -mt-6 w-full' src={images.ForumImage} alt="Forum Header" />
           <div className='bg-honey rounded-3xl z-40 px-10 lg:px-20 py-10 text-white relative -mt-6 flex flex-col items-center md:flex-row md:items-start md:justify-between'>
               <div className="md:w-1/2 flex flex-col">
-                  <h2 className='text-center md:text-left md:mt-6 font-bold'>WHAT'S ON</h2>
-                  <h1 className='mt-2 font-bold text-2xl md:text-3xl text-center md:text-left'>UPCOMING EVENTS</h1>
+                  <h2 className='text-center md:text-left md:mt-6 font-bold'>NEED SOME ADVICE?</h2>
+                  <h1 className='mt-2 font-bold text-2xl md:text-3xl text-center md:text-left'>WELCOME TO THE FORUM</h1>
                   <p className='mt-4 text-center md:text-left'>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
                       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 

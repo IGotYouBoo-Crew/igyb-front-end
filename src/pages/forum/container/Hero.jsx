@@ -18,9 +18,7 @@ const Hero = () => {
                     irure dolor in reprehenderit in voluptate. 
                 </p>
             </div>
-
             <PostFormContainer />
-
         </div>
         <div className='px-6 md:px-0'>
             <div className='flex flex-col gap-y-2.5 mt-12 relative md:w-3/4 md:left-[12.5%] lg:w-2/3 lg:left-[16.67%]'>

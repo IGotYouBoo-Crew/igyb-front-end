@@ -6,7 +6,7 @@ import Posts from './container/Posts'
 const ForumPage = () => {
   return (
     <MainLayout>
-        <section className='relative'>
+        <section>
             <Hero />
             <Posts />
         </section>

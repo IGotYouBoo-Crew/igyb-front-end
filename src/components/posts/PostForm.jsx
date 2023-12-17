@@ -87,7 +87,7 @@ const PostForm = ({ isVisible, onClose }) => {
                     name="contentInput" 
                     value={content} 
                     onChange={(post) => setContent(post.target.value)} 
-                    className="truncate block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mt-5 focus:outline-periwinkle w-full" 
+                    className="block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mt-5 focus:outline-periwinkle w-full" 
                     placeholder="WHAT WOULD YOU LIKE TO SAY?*"
                 >    
                 </textarea>

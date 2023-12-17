@@ -3,7 +3,7 @@ import MainLayout from "../../components/MainLayout";
 import SignInContainer from "../../components/accounts/SignInContainer";
 import UserContext from "../../contexts/UserContext";
 
-const backendUrl = process.env.REACT_APP_BACKEND_TEST
+const backendUrl = process.env.REACT_APP_BACKEND
 
 export default function SignInPage() {
     let {userData, setUserData} = useContext(UserContext)

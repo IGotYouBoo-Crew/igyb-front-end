@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { images } from '../constants';
 import { IoPersonSharp } from "react-icons/io5";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
+import { NavLink} from 'react-router-dom';
 
 const navItemsInfo = [
     {name: "About"},
@@ -13,9 +14,9 @@ const navItemsInfo = [
 const NavItem = ({name}) => {
     return (
         <li className='relative group'>
-            <a href={`/${name}`} className='px-4 py-2' >
+            <NavLink to={`/${name}`} className='px-4 py-2' >
                 {name.toUpperCase()}
-            </a>
+            </NavLink>
             <span className='cursor-pointer text-white absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100'>
                 /
             </span>
@@ -36,9 +37,9 @@ const Header = () => {
         <section className='sticky top-0 left-0 right-0 z-40'>
             <header className='bg-indigo mx-auto px-5 flex justify-between py-4 items-center'>
                 <div>
-                    <a href="/">
+                    <NavLink to="/">
                         <img className='h-10' src={images.Logo} alt="Logo" />
-                    </a>
+                    </NavLink>
                 </div>
                 <div className='z-50 lg:hidden text-white'>
                     {navIsVisible ? (
@@ -56,11 +57,11 @@ const Header = () => {
                             <NavItem key={item.name} name={item.name}/>
                         ))}
                     </ul>
-                    <a href='/sign-in'>
+                    <NavLink to='/sign-in' >
                         <button className='mt-5 lg:mt-0'>
                             <IoPersonSharp size={20}/>
                         </button>
-                    </a>
+                    </NavLink>
                 </div>
             </header>
         </section>

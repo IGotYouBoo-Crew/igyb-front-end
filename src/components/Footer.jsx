@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -19,8 +20,8 @@ const Footer = () => {
         <div className='bg-indigo text-white flex justify-between px-3 md:px-6 lg:px-12 py-4 text-sm lg:text-base'>
           <h1>©2023 I Got You, Boo</h1>
           <div className='flex justify-between gap-5 md:gap-10 lg:gap-12'>
-            <a href="/terms-and-conditions" >T&C's</a>
-            <a href="/privacy-policy" >Privacy Policy</a>
+            <NavLink to="/terms-and-conditions" >T&C's</NavLink>
+            <NavLink to="/privacy-policy" >Privacy Policy</NavLink>
           </div>
         </div>
       </footer>

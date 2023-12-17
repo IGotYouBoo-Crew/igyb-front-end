@@ -4,7 +4,7 @@ import PostCard from '../../../components/PostCard'
 
 const Posts = () => {
   return (
-    <section className=' px-6 md:px-20 lg:px-36 py-10 bg-honey rounded-b-3xl relative z-30'>
+    <section className=' px-6 md:px-20 lg:px-36 py-10 bg-honey rounded-b-3xl relative'>
         <div className='flex flex-col gap-y-7 md:gap-y-9 lg:gap-y-12'>
             <PostCard className='w-full' />
             <PostCard className='w-full' />

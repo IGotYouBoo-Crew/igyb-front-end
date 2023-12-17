@@ -50,9 +50,8 @@ const EventForm = ({ isVisible, onClose }) => {
         id="eventForm"
         onClick={handleClose}
     >
-
-        <div className="p-6 lg:p-8 bg-honey text-white rounded-3xl">
-            <div className="flex justify-items-end"> 
+        <div className="pt-2 px-6 lg:p-8 w-3/4 md:w-2/3 mt-4 md:mt-14 lg:mt-16 lg:py-3 lg:px-10 bg-honey text-white rounded-3xl">
+            <div className="text-right"> 
                 <button 
                     className="text-white text-xl text-bold" 
                     onClick={() => onClose()}
@@ -63,16 +62,15 @@ const EventForm = ({ isVisible, onClose }) => {
             <h1 className="mt-2 font-bold text-2xl md:text-3xl text-center ">
                 ENTER YOUR EVENT DETAILS
             </h1>
-            <form onSubmit={handleSubmit} className="flex flex-col py-5">
+            <form onSubmit={handleSubmit} className="flex flex-col py-2 items-center">
                 <label></label>
                 <input 
                     type="text" 
                     name="hostInput" 
-                    id="hostInput" 
                     placeholder="HOST/BUSINESS NAME*"
                     value={host} 
                     onChange={(event) => setHost(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline " 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />
 
                 <label></label>
@@ -83,18 +81,16 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="COVER IMAGE URL"
                     value={image} 
                     onChange={(event) => setImage(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline " 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />
 
                 <label></label>
                 <input 
                     type="text" 
-                    name="titleInput" 
-                    id="titleInput" 
                     placeholder="EVENT TITLE*"
                     value={title} 
                     onChange={(event) => setTitle(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline " 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />
 
                 <label></label>
@@ -105,7 +101,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="EVENT DATE (DD/MM/YYY)*"
                     value={date} 
                     onChange={(event) => setDate(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />
 
 {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -123,7 +119,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="START TIME*"
                     value={start} 
                     onChange={(event) => setStart(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />    
 
                 <label></label>
@@ -134,7 +130,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="FINISH TIME*"
                     value={finish} 
                     onChange={(event) => setFinish(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />    
 
                 <label></label>
@@ -145,18 +141,19 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="TICKETS/RSVP LINK"
                     value={ticketLink} 
                     onChange={(event) => setTicketLink(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />    
 
                 <label></label>
-                <input 
+                <textarea 
                     type="text" 
                     name="contentInput" 
                     id="contentInput" 
+                    rows="5"
                     placeholder="WRITE A SHORT DESCRIPTION OF YOUR EVENT*"
                     value={content} 
                     onChange={(event) => setContent(event.target.value)} 
-                    className="truncate whitespace-pre-line placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
+                    className="block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
                 />
                         
                 <button 

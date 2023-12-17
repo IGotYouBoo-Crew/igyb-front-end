@@ -18,7 +18,7 @@ function App() {
         <Route index path="/" element={<HomePage />} />
         <Route index path="/about" element={<AboutPage />} />
         <Route index path="/forum" element={<ForumPage />} />
-        <Route index path="/forum/:id" element={<ForumPostPage />} />
+        <Route path="/forum/:id" element={<ForumPostPage />} />
         <Route index path="/events" element={<EventsPage />} />
         <Route index path="/contact" element={<ContactPage />} />
         <Route index path="/terms-and-conditions" element={<TermsPage />} />

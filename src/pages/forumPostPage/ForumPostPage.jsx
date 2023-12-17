@@ -2,6 +2,7 @@ import React from 'react'
 import MainLayout from '../../components/MainLayout'
 import BreadCrumbs from '../../components/BreadCrumbs'
 import { images } from '../../constants'
+import CommentsContainer from '../../components/comments/CommentsContainer'
 
 const breadCrumbsData = [
   {name: "Home", link: '/'},
@@ -12,8 +13,8 @@ const breadCrumbsData = [
 const ForumPostPage = () => {
   return (
     <MainLayout>
-      <section className='bg-honey rounded-3xl z-40 relative flex flex-col px-6 py-2'>
-        <article className='flex-1'>
+      <section className=''>
+        <article className='flex-1 bg-honey rounded-3xl z-40 relative flex flex-col px-6 py-2'>
           <BreadCrumbs data={breadCrumbsData}/>
           <h4 className='text-sm text-white md:px-20 lg:px-12 lg:mt-4'>By John Doe (@johndoe): May 02, 2023</h4>
           <div className='lg:flex lg:flex-row-reverse lg:justify-between md:px-20 lg:px-12 lg:pb-10'>
@@ -55,6 +56,7 @@ const ForumPostPage = () => {
               </button>
             </div>
         </article>
+        <CommentsContainer className='mt-10' loggedInUserId="a"/>
       </section>
     </MainLayout>
   )

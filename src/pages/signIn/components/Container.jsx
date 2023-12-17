@@ -14,7 +14,7 @@ export default function SignInContainer() {
     }
     return (
         <div className="h-1/2 w-1/3 min-h-fit min-w-fit p-8 text-white bg-periwinkle rounded-3xl flex flex-col items-center justify-center">
-            <iframe name="dummyframe" id="dummyframe" className="hidden"></iframe>
+            <iframe name="dummyframe" id="dummyframe" title="dummyframe" className="hidden"></iframe>
             <form action={ backendURL + "account/signIn"} target="dummyframe" method="POST" className="flex flex-col">
                 <label>USERNAME: </label>
                 <input
@@ -33,6 +33,9 @@ export default function SignInContainer() {
                     className={inputStyle}
                 />
                 <button className={buttonStyle} onClick={(e)=>handleClick(e)}>SUBMIT</button>
+            </form>
+            <form action={backendURL + "account/someOtherProtectedRoute"} method="post">
+                <button>check it out</button>
             </form>
         </div>
     );

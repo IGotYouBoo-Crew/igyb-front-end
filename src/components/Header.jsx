@@ -56,9 +56,11 @@ const Header = () => {
                             <NavItem key={item.name} name={item.name}/>
                         ))}
                     </ul>
-                    <button className='mt-5 lg:mt-0'>
-                        <IoPersonSharp size={20}/>
-                    </button>
+                    <a href='/sign-in'>
+                        <button className='mt-5 lg:mt-0'>
+                            <IoPersonSharp size={20}/>
+                        </button>
+                    </a>
                 </div>
             </header>
         </section>

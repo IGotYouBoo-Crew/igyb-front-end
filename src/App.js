@@ -9,6 +9,7 @@ import TermsPage from "./pages/terms/TermsPage";
 import PrivacyPage from "./pages/privacy/PrivacyPage";
 import ForumPage from "./pages/forum/ForumPage";
 import ForumPostPage from "./pages/forumPostPage/ForumPostPage";
+import SignInPage from "./pages/signIn/SignInPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route index path="/contact" element={<ContactPage />} />
         <Route index path="/terms-and-conditions" element={<TermsPage />} />
         <Route index path="/privacy-policy" element={<PrivacyPage />} />
+        <Route index path="/sign-in" element={<SignInPage />} />
       </Routes>
     </div>
   );

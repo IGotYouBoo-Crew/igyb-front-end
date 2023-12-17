@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <section className='-mt-6 bg-background'>
+    <section className='-mt-6 bg-background -z-30'>
       <footer>
         <div className='text-sea px-5 md:px-28 lg:px-40 pt-12 pb-8 flex justify-around text-center'>
           <div className='w-32 md:w-40'>

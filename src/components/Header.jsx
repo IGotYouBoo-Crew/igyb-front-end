@@ -36,6 +36,7 @@ const Header = () => {
 
     useEffect(() => {
         checkCookie()
+        // eslint-disable-next-line
     }, [])
 
     async function checkCookie() {

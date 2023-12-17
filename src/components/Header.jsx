@@ -33,7 +33,7 @@ const Header = () => {
     }
 
     return (
-        <section className='sticky top-0 left-0 right-0 z-50'>
+        <section className='sticky top-0 left-0 right-0 z-40'>
             <header className='bg-indigo mx-auto px-5 flex justify-between py-4 items-center'>
                 <div>
                     <a href="/">

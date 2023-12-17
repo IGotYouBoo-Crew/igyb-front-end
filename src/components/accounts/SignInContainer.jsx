@@ -9,7 +9,7 @@ const buttonStyle =
 
 export default function SignInContainer() {
     let [data, setData] = useState({ username: "", password: "" });
-    let { userData, setUserData } = useContext(UserContext);
+    let { setUserData } = useContext(UserContext);
 
     // TODO: figure out how to make the submit button just submit without redirecting
     async function handleClick(event) {
@@ -24,6 +24,7 @@ export default function SignInContainer() {
         if (data.username.length > 0) {
             getSignIn();
         }
+        // eslint-disable-next-line
     }, [data]);
 
     async function getSignIn() {

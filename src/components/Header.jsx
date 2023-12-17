@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { images } from '../constants';
 import { IoPersonSharp } from "react-icons/io5";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import { NavLink} from 'react-router-dom';
+import UserContext from '../contexts/UserContext';
 
 const navItemsInfo = [
     {name: "About"},
@@ -23,14 +24,29 @@ const NavItem = ({name}) => {
         </li>
     )
 }
-
+const backendUrl = process.env.REACT_APP_BACKEND_TEST
 const Header = () => {
     const [navIsVisible, setNavIsVisible] = useState(false);
-
+    let {userData, setUserData} = useContext(UserContext)
     const navVisibilityHandler = () => {
         setNavIsVisible((curState) => {
             return !curState
         })
+    }
+
+    useEffect(() => {
+        checkCookie()
+    }, [])
+
+    async function checkCookie() {
+        let response = await fetch(backendUrl + "account/cookieCheck", { method: "post", credentials: 'include' });
+        const responseData = await response.json();
+        if (!responseData.username){
+            setUserData(false)
+        } else {
+            setUserData(responseData)
+        }
+        return responseData;
     }
 
     return (
@@ -58,8 +74,9 @@ const Header = () => {
                         ))}
                     </ul>
                     <NavLink to='/sign-in' >
-                        <button className='mt-5 lg:mt-0'>
+                        <button className='mt-5 lg:mt-0 flex flex-col items-center'>
                             <IoPersonSharp size={20}/>
+                            {userData ? userData.username : ""}
                         </button>
                     </NavLink>
                 </div>

@@ -25,25 +25,20 @@ export default function SignInContainer() {
         }
         // eslint-disable-next-line
     }, [data]);
-
-    // TODO: save to local storage
-    // useEffect(() => {
-    //     if (data.username.length > 0) {
-    //         getSignIn();
-    //     }
-    //     // eslint-disable-next-line
-    // }, [userData]);
-
+    
     async function getSignIn() {
         let response = await fetch(backendURL + "account/signIn", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
+            credentials: 'include',
             body: JSON.stringify(data),
         });
         const responseData = await response.json();
-        console.log(responseData);
+        if (responseData.errors){
+            return
+        }
         setUserData(responseData)
         return responseData;
     }

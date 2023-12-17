@@ -8,12 +8,12 @@ const PostForm = ({ isVisible, onClose }) => {
     const [image, setImage] = useState("");
     const [content, setContent] = useState("");
     
-    const handleClose = (event) => {
-        if (event.target.id === 'postForm') onClose();
+    const handleClose = (post) => {
+        if (post.target.id === 'postForm') onClose();
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (post) => {
+        post.preventDefault();
         // Need to add validation for form fields
 
         try {
@@ -33,7 +33,7 @@ const PostForm = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
   return (
     <div 
-        className="z-50 fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center"
+        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center"
         id="postForm"
         onClick={handleClose}
     >
@@ -60,7 +60,7 @@ const PostForm = ({ isVisible, onClose }) => {
                     id="titleInput" 
                     placeholder="POST TITLE*"
                     value={title} 
-                    onChange={(event) => setTitle(event.target.value)} 
+                    onChange={(post) => setTitle(post.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm 
                     md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-3 focus:outline-periwinkle 
                     w-full" 
@@ -73,7 +73,7 @@ const PostForm = ({ isVisible, onClose }) => {
                     id="imageInput" 
                     placeholder="COVER IMAGE URL"
                     value={image} 
-                    onChange={(event) => setImage(event.target.value)} 
+                    onChange={(post) => setImage(post.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm 
                     md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-5 focus:outline-periwinkle 
                     w-full" 
@@ -86,7 +86,7 @@ const PostForm = ({ isVisible, onClose }) => {
                     type="text" 
                     name="contentInput" 
                     value={content} 
-                    onChange={(event) => setContent(event.target.value)} 
+                    onChange={(post) => setContent(post.target.value)} 
                     className="truncate block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mt-5 focus:outline-periwinkle w-full" 
                     placeholder="WHAT WOULD YOU LIKE TO SAY?*"
                 >    

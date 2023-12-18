@@ -4,12 +4,12 @@ import { inputStyle } from "../constants/styles";
 export default function FormInput({ value, location }) {
     return (
         <>
-            <label htmlFor="{value}">{value.toUpperCase()}: </label>
+            <label htmlFor={value} className="uppercase">{value}: </label>
             <input
                 type={value === "password" ? "password" : "text"}
                 name={value}
                 id={value + "Input"}
-                placeholder={value.toUpperCase()}
+                placeholder={value}
                 className={inputStyle.default + colourways[location].input}
             />
         </>

@@ -22,7 +22,7 @@ export default function SignInContainer() {
             {createAccount ? <CreateAccountForm /> : <SignInForm />}
             <p className="my-2">--------------- or ---------------</p>
             <button className={buttonStyle.default + colourways.accounts.outlineButton} onClick={(e) => handleClick(e)}>
-                {createAccount ? "BACK TO SIGN IN" : "CREATE ACCOUNT"}
+                {createAccount ? "back to sign in" : "create account"}
             </button>
         </div>
     );

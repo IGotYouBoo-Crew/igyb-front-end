@@ -36,15 +36,20 @@ export default function SignInForm() {
             credentials: "include",
             body: JSON.stringify(data),
         });
+
         const responseData = await response.json();
+
         if (responseData.errors) {
             setError(responseData.errors);
             return;
         }
+
         setUserData(responseData);
         return responseData;
     }
+
     const inputs = ["username", "password"];
+
     return (
         <form className="flex flex-col">
             {inputs.map((value, i) => {
@@ -55,7 +60,7 @@ export default function SignInForm() {
                 className={buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}
             >
-                SIGN IN
+                sign in
             </button>
         </form>
     );

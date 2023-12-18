@@ -63,7 +63,7 @@ export default function CreateAccountForm() {
                 className={buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}
             >
-                CREATE ACCOUNT
+                create account
             </button>
         </form>
     );

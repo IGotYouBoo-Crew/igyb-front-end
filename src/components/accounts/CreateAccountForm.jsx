@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../../contexts/UserContext";
-import { buttonStyle, inputStyle } from "../../constants/styles";
+import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";

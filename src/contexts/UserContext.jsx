@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const defaultUserContextData = null
+export const defaultUserContextData = false
 
 const UserContext = createContext(defaultUserContextData);
 

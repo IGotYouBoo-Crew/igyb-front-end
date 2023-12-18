@@ -3,13 +3,14 @@ import UserContext from "../../contexts/UserContext";
 import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
+import ErrorMessage from "../ErrorMessage";
 
 const backendURL = process.env.REACT_APP_BACKEND;
 
 export default function SignInForm() {
     let [data, setData] = useState({ username: "", password: "" });
     let { setUserData } = useContext(UserContext);
-    let { setErrorData } = useContext(UserContext);
+    let [error, setError] = useState(false);
 
     async function handleClick(event) {
         event.preventDefault();
@@ -37,7 +38,7 @@ export default function SignInForm() {
         });
         const responseData = await response.json();
         if (responseData.errors) {
-
+            setError(responseData.errors);
             return;
         }
         setUserData(responseData);
@@ -49,6 +50,7 @@ export default function SignInForm() {
             {inputs.map((value, i) => {
                 return <FormInput key={i} value={value} location="accounts" />;
             })}
+            <ErrorMessage error={error} />
             <button
                 className={buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}

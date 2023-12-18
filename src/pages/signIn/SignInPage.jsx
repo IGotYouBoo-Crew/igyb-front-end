@@ -16,9 +16,6 @@ export default function SignInPage() {
         <MainLayout>
             <div className="bg-honey h-[calc(80vh)] flex flex-col justify-center items-center">
                 <SignInContainer />
-                hi, my name is: what?
-                my name is: who?
-                my name is: chicka chicka {userData ? userData.username : "slim shady"}
                 <button onClick={(e)=>handleClick(e)}>LogOut</button>
             </div>
         </MainLayout>

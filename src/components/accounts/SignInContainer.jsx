@@ -1,11 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../../contexts/UserContext";
+import { buttonStyle, inputStyle } from "../../constants/styles";
+import colourways from "../../constants/colourways";
 
 const backendURL = process.env.REACT_APP_BACKEND;
-const inputStyle =
-    "focus:outline text-black placeholder:text-sm md:placeholder:text-base rounded-3xl pl-5 pr-3 py-3 mt-2 mb-4 outline-honey";
-const buttonStyle =
-    "outline-white outline w-fit py-2 px-4 rounded-3xl mx-auto hover:bg-honey hover:outline-white active:bg-indigo";
 
 export default function SignInContainer() {
     let [data, setData] = useState({ username: "", password: "" });
@@ -44,7 +42,7 @@ export default function SignInContainer() {
     }
 
     return (
-        <div className="h-1/2 w-1/3 min-h-fit min-w-fit p-8 text-white bg-periwinkle rounded-3xl flex flex-col items-center justify-center">
+        <div className={"h-1/2 w-1/3 min-h-fit min-w-fit p-8 rounded-3xl flex flex-col items-center justify-center " + colourways.accounts.container}>
             <form className="flex flex-col">
                 <label>USERNAME: </label>
                 <input
@@ -52,7 +50,7 @@ export default function SignInContainer() {
                     name="username"
                     id="usernameInput"
                     placeholder="USERNAME"
-                    className={inputStyle}
+                    className={inputStyle.default + colourways.accounts.input}
                 />
                 <label>PASSWORD: </label>
                 <input
@@ -60,9 +58,9 @@ export default function SignInContainer() {
                     name="password"
                     id="passwordInput"
                     placeholder="PASSWORD"
-                    className={inputStyle}
+                    className={inputStyle.default + colourways.accounts.input}
                 />
-                <button className={buttonStyle} onClick={(e) => handleClick(e)}>
+                <button className={buttonStyle.default + colourways.accounts.outlineButton} onClick={(e) => handleClick(e)}>
                     SUBMIT
                 </button>
             </form>

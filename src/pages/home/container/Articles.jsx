@@ -4,7 +4,7 @@ import {FaArrowRight} from 'react-icons/fa'
 
 const Articles = () => {
   return (
-    <section className='-mt-6 md:-mt-12 relative z-40 bg-sea rounded-3xl'>
+    <section className='-mt-6 md:-mt-12 relative bg-sea rounded-3xl'>
         <div className='text-background text-center md:text-left px-10 lg:px-20 py-7'>
             <h2 className=' md:mt-6 font-bold '>NEED SOME ADVICE?</h2>
             <h1 className='mt-2 font-bold text-2xl md:text-3xl'>CHECK OUT THE FORUM</h1>

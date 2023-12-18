@@ -4,8 +4,8 @@ import { images } from '../../../constants';
 const Hero = () => {
   return (
     <section className='relative'>
-        <img className='z-10 relative -mt-6' src={images.HomeHeader} alt="Header" />
-        <div className=' -mt-6 z-40 relative  bg-indigo text-background rounded-3xl flex flex-col px-10 lg:px-20 py-10 justify-center items-center'>
+        <img className='relative -mt-6' src={images.HomeHeader} alt="Header" />
+        <div className='-mt-6 relative  bg-indigo text-background rounded-3xl flex flex-col px-10 lg:px-20 py-10 justify-center items-center'>
             <h1 className='font-bold text-2xl md:text-3xl text-center'>WELCOME TO THE CLUB</h1>
             <p className='mt-4 text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 

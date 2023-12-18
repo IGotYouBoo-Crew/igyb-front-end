@@ -16,7 +16,7 @@ export default function SignInPage() {
     }
     return (
         <MainLayout>
-            <div className="bg-honey h-[calc(90vh)] min-h-fit py-24 flex flex-col justify-center items-center">
+            <div className="bg-honey h-[calc(95vh)] py-24 flex flex-col justify-center items-center">
                 {userData ? (
                     <button className={buttonStyle.default + colourways.accounts.outlineButton} onClick={(e) => handleClick(e)}>LogOut</button>
                 ) : (

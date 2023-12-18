@@ -52,13 +52,13 @@ const Header = () => {
 
     return (
         <section className='sticky top-0 left-0 right-0 z-40'>
-            <header className='bg-indigo mx-auto px-5 flex justify-between py-4 items-center'>
+            <header className='bg-indigo z-40 mx-auto px-5 flex justify-between py-4 items-center'>
                 <div>
                     <NavLink to="/">
                         <img className='h-10' src={images.Logo} alt="Logo" />
                     </NavLink>
                 </div>
-                <div className='z-50 lg:hidden text-white'>
+                <div className='z-40 lg:hidden text-white'>
                     {navIsVisible ? (
                         <AiOutlineClose className='w-6 h-6' onClick={navVisibilityHandler} /> 
                     ) : (
@@ -67,7 +67,7 @@ const Header = () => {
                 </div>
                 <div className={`${
                     navIsVisible ? "right-0" : "-right-full "
-                    } transition-all duration-300 mt-[56px] lg:mt-0 bg-indigo lg:bg-transparent z-49 flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-9 items-center text-white`}
+                    } transition-all duration-300 mt-[56px] lg:mt-0 bg-indigo lg:bg-transparent flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-9 items-center text-white`}
                 >
                     <ul className=' items-center gap-y-5 flex flex-col lg:flex-row gap-x-7 font-semibold'>
                         {navItemsInfo.map((item) => (

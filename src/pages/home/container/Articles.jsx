@@ -1,8 +1,21 @@
 import React from 'react'
-import ArticleCard from '../../../components/ArticleCard'
 import {FaArrowRight} from 'react-icons/fa'
 
+import ArticleCard from '../../../components/ArticleCard'
+import { useQuery } from '@tanstack/react-query'
+import { getAllPosts } from '../../../services/posts';
+import { toast } from 'react-hot-toast';
+
 const Articles = () => {
+const {data, isLoading, isError} = useQuery({
+    queryFn: () => getAllPosts(),
+    queryKey: ["posts"],
+    onError: (error) => {
+        toast.error(error.message)
+        console.log(error)
+    }
+});
+
   return (
     <section className='-mt-6 md:-mt-12 relative bg-sea rounded-3xl'>
         <div className='text-background text-center md:text-left px-10 lg:px-20 py-7'>
@@ -11,9 +24,13 @@ const Articles = () => {
         </div>
         <div className='flex flex-col container mx-auto px-5 py-10 lg:px-0'>
             <div className='flex flex-wrap justify-between md:gap-x-6 gap-y-8 pb-10 px-5'>
-                <ArticleCard className='w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]' />
-                <ArticleCard className='w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]' />
-                <ArticleCard className='w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]' />
+                {!isLoading && !isError && data.map((post) => (
+                    <ArticleCard 
+                        key={post._id}
+                        post={post}
+                        className='w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]' 
+                    />
+                ))}
             </div>
             <button className='mx-auto flex items-center gap-x-2 font-bold text-background border-2 border-background px-12 py-3 rounded-3xl'>
                 <span>VIEW MORE</span>

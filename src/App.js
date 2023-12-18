@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom"
+import { Toaster } from "react-hot-toast";
 
 import './App.css';
 import HomePage from './pages/home/HomePage';
@@ -25,6 +26,7 @@ function App() {
         <Route index path="/privacy-policy" element={<PrivacyPage />} />
         <Route index path="/sign-in" element={<SignInPage />} />
       </Routes>
+      <Toaster />
     </div>
   );
 }

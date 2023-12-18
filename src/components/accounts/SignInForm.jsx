@@ -1,14 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../../contexts/UserContext";
-import { buttonStyle, inputStyle } from "../../constants/styles";
+import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
-import FormInput from "./FormInput";
+import FormInput from "../FormInput";
 
 const backendURL = process.env.REACT_APP_BACKEND;
 
 export default function SignInForm() {
     let [data, setData] = useState({ username: "", password: "" });
     let { setUserData } = useContext(UserContext);
+    let { setErrorData } = useContext(UserContext);
 
     async function handleClick(event) {
         event.preventDefault();
@@ -36,6 +37,7 @@ export default function SignInForm() {
         });
         const responseData = await response.json();
         if (responseData.errors) {
+
             return;
         }
         setUserData(responseData);
@@ -45,7 +47,7 @@ export default function SignInForm() {
     return (
         <form className="flex flex-col">
             {inputs.map((value, i) => {
-                return <FormInput key={i} value={value} />;
+                return <FormInput key={i} value={value} location="accounts" />;
             })}
             <button
                 className={buttonStyle.default + colourways.accounts.outlineButton}

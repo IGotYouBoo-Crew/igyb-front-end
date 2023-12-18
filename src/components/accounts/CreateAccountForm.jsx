@@ -30,7 +30,7 @@ export default function CreateAccountForm() {
     }, [data]);
 
     async function postNewUser() {
-        let response = await fetch(backendURL + "account/newUser", {
+        let response = await fetch(backendURL + "/account/newUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

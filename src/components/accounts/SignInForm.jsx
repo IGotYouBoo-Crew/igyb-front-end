@@ -8,35 +8,35 @@ import ErrorMessage from "../ErrorMessage";
 const backendURL = process.env.REACT_APP_BACKEND;
 
 export default function SignInForm() {
-    let [data, setData] = useState({ username: "", password: "" });
+    let [stateData, setStateData] = useState({ username: "", password: "" });
     let { setUserData } = useContext(UserContext);
     let [error, setError] = useState(false);
 
     async function handleClick(event) {
         event.preventDefault();
-        let newData = { username: "", password: "" };
-        newData.username = document.getElementsByName("username")[0].value;
-        newData.password = document.getElementsByName("password")[0].value;
-        setData(newData);
+        let formData = { username: "", password: "" };
+        formData.username = document.getElementsByName("username")[0].value;
+        formData.password = document.getElementsByName("password")[0].value;
+        setStateData(formData);
     }
 
     useEffect(() => {
-        if (data.username.length > 0) {
+        if (stateData.username.length > 0) {
             getSignIn();
         }
         // eslint-disable-next-line
-    }, [data]);
+    }, [stateData]);
 
     async function getSignIn() {
-        let response = await fetch(backendURL + "account/signIn", {
+        let response = await fetch(backendURL + "/account/signIn", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             credentials: "include",
-            body: JSON.stringify(data),
+            body: JSON.stringify(stateData),
         });
-
+        
         const responseData = await response.json();
 
         if (responseData.errors) {

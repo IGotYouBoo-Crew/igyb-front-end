@@ -1,3 +1,6 @@
+import colourways from "../../constants/colourways";
+import { inputStyle } from "../../constants/styles";
+
 export default function FormInput({ value }) {
     return (
         <>

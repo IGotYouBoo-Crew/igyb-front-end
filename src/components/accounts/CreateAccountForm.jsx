@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../../contexts/UserContext";
 import { buttonStyle, inputStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
+import FormInput from "./FormInput";
 
 const backendURL = process.env.REACT_APP_BACKEND;
 
@@ -46,38 +47,9 @@ export default function CreateAccountForm() {
     const inputs = ["username", "password", "email", "pronouns"]
     return (
         <form className="flex flex-col mb-2">
-            <label for="username">USERNAME: </label>
-            <input
-                type="text"
-                name="username"
-                id="usernameInput"
-                placeholder="USERNAME"
-                className={inputStyle.default + colourways.accounts.input}
-            />
-            <label for="username">PASSWORD: </label>
-            <input
-                type="password"
-                name="password"
-                id="passwordInput"
-                placeholder="PASSWORD"
-                className={inputStyle.default + colourways.accounts.input}
-            />
-            <label>EMAIL: </label>
-            <input
-                type="text"
-                name="email"
-                id="emailInput"
-                placeholder="EMAIL"
-                className={inputStyle.default + colourways.accounts.input}
-            />
-            <label>PRONOUNS: </label>
-            <input
-                type="text"
-                name="pronouns"
-                id="pronounsInput"
-                placeholder="PRONOUNS"
-                className={inputStyle.default + colourways.accounts.input}
-            />
+            {inputs.map((value, i) => {
+                return <FormInput key={i} value={value} />
+            })}
             <button
                 className={buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}

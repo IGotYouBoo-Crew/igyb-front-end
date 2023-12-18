@@ -10,7 +10,7 @@ const backendURL = process.env.REACT_APP_BACKEND;
 export default function CreateAccountForm() {
     let [data, setData] = useState({ username: "", password: "" });
     let { setUserData } = useContext(UserContext);
-    let [error, setError] = useState(false)
+    let [error, setError] = useState(false);
 
     async function handleClick(event) {
         event.preventDefault();
@@ -40,26 +40,31 @@ export default function CreateAccountForm() {
         });
         const responseData = await response.json();
         if (responseData.errors) {
-            setError(responseData.errors)
+            if (responseData.errors.split(" ")[0] === "E11000") {
+                let key = responseData.errors.split("key: {")[1].split(":")[0]
+                console.log(key)
+                responseData.errors = `The ${key} entered is already associated with an account. \nPlease log in to the account, or try another ${key}`
+            }
+            setError(responseData.errors);
             return;
         }
         setUserData(responseData);
         return responseData;
     }
 
-    const inputs = ["username", "password", "email", "pronouns"]
+    const inputs = ["username", "password", "email", "pronouns"];
     return (
         <form className="flex flex-col mb-2">
             {inputs.map((value, i) => {
-                return <FormInput key={i} value={value} location={"accounts"} />
+                return <FormInput key={i} value={value} location={"accounts"} />;
             })}
+            <ErrorMessage error={error} />
             <button
                 className={buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}
             >
                 CREATE ACCOUNT
             </button>
-            <ErrorMessage error={error} />
         </form>
     );
 }

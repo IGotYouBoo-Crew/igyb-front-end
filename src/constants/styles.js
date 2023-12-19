@@ -1,5 +1,6 @@
 export const buttonStyle = {
     default: "w-fit py-2 px-4 rounded-3xl mx-auto capitalize ",
+    subtle: "rounded-lg px-4 py-2 mb-4 border bg-opacity-30"
 };
 
 export const inputStyle = {

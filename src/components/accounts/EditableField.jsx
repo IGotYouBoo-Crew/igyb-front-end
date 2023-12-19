@@ -1,5 +1,7 @@
 import { useState } from "react";
 import FormInput from "../FormInput";
+import { buttonStyle } from "../../constants/styles";
+import colourways from "../../constants/colourways";
 
 export default function EditableField({ fieldName, fieldData }) {
     let [editing, setEditing] = useState(false);
@@ -11,11 +13,11 @@ export default function EditableField({ fieldName, fieldData }) {
     return (
         <div>
             {editing ? (
-                <button onClick={(e) => handleClick(e)}>
-                    {fieldName} : {fieldData}
-                </button>
+                <FormInput value={fieldName} location={"accounts"} />
             ) : (
-                <FormInput value={fieldName} />
+                <button onClick={(e) => handleClick(e)} className={buttonStyle.subtle + colourways.accounts.subtleButton}>
+                    {fieldName} : {fieldData || "--- Change ---"}
+                </button>
             )}
         </div>
     );

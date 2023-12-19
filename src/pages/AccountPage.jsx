@@ -27,16 +27,13 @@ export default function AccountPage() {
         let responseData = await response.json()
         responseData = responseData.data
         responseData.role = responseData.role.name
-        console.log(responseData)
         setSignedInUserData(responseData)
     }
     console.log(signedInUserData)
 
     // TODO: fix up all this
     return (
-        <div className={"flex flex-col justify-around h-screen w-9/12 items-center"}>
-            <p>This is the account page</p>
-            <p>{JSON.stringify(userData)}</p>
+        <div className={"flex flex-col justify-start h-screen w-9/12 items-center pt-16"}>
             {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
 
             <button

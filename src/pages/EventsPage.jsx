@@ -1,8 +1,8 @@
 import React from 'react';
 
-import MainLayout from '../../components/MainLayout';
-import { images } from '../../constants';
-import EventsFormContainer from '../../components/events/EventsFormContainer';
+import MainLayout from '../components/MainLayout';
+import { images } from '../constants';
+import EventsFormContainer from '../components/events/EventsFormContainer';
 
 const EventsPage = () => {
   

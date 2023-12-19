@@ -3,8 +3,8 @@ import { HiOutlineMail } from "react-icons/hi";
 import { HiOutlinePhone } from "react-icons/hi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-import MainLayout from "../../components/MainLayout";
-import { images } from "../../constants";
+import MainLayout from "../components/MainLayout";
+import { images } from "../constants";
 
 const ContactPage = () => {
   return (

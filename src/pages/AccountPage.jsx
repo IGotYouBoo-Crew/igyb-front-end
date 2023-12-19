@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { buttonStyle } from "../constants/styles";
 import colourways from "../constants/colourways";
+import AccountContainer from "../components/AccountContainer";
 
 const backendUrl = process.env.REACT_APP_BACKEND;
 
@@ -29,21 +30,17 @@ export default function AccountPage() {
         console.log(responseData)
         setSignedInUserData(responseData)
     }
+    console.log(signedInUserData)
 
     // TODO: fix up all this
     return (
-        <div className={"flex-col justify-center h-screen "}>
+        <div className={"flex flex-col justify-around h-screen w-9/12 items-center"}>
             <p>This is the account page</p>
             <p>{JSON.stringify(userData)}</p>
-
-            {Object.keys(signedInUserData).map((key, index)=>{
-                return(
-                    <p key={index}>{key} : {signedInUserData[key]}</p>
-                )
-            })}
+            {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
 
             <button
-                className={buttonStyle.default + colourways.accounts.outlineButton}
+                className={"mt-6 " + buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}
             >
                 LogOut

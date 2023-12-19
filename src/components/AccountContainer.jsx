@@ -10,7 +10,7 @@ export default function AccountContainer({ accountData }) {
     let [editable, setEditable] = useState(false);
     let [data, setData] = useState({ username: "", password: "" });
     let { userData, setUserData } = useContext(UserContext);
-    let [error, setError] = useState(false);
+    let [setError] = useState(false);
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -65,7 +65,7 @@ export default function AccountContainer({ accountData }) {
         <div className={containerStyle.account + colourways.accounts.container}>
             {editable
                 ? Object.keys(editableFields).map((key, index) => {
-                      return <FormInput location={"accounts"} value={key} key={index} />;
+                      return <FormInput location={"accounts"} value={"new " + key} key={index} />;
                   })
                 : Object.keys(accountData).map((key, index) => {
                       return (

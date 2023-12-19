@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import MainLayout from "../../components/MainLayout";
-import SignInContainer from "../../components/accounts/SignInContainer";
-import UserContext from "../../contexts/UserContext";
-import AccountPage from "../../components/accounts/AccountPage";
+import MainLayout from "../components/MainLayout";
+import SignInContainer from "../components/accounts/SignInContainer";
+import UserContext from "../contexts/UserContext";
+import AccountPage from "./AccountPage";
 
 
 

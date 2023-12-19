@@ -2,14 +2,14 @@ import { Routes, Route } from "react-router-dom"
 
 import './App.css';
 import HomePage from './pages/home/HomePage';
-import AboutPage from "./pages/about/AboutPage";
-import EventsPage from "./pages/events/EventsPage";
-import ContactPage from "./pages/contact/ContactPage";
-import TermsPage from "./pages/terms/TermsPage";
-import PrivacyPage from "./pages/privacy/PrivacyPage";
+import AboutPage from "./pages/AboutPage";
+import EventsPage from "./pages/EventsPage";
+import ContactPage from "./pages/ContactPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import ForumPage from "./pages/forum/ForumPage";
 import ForumPostPage from "./pages/forumPostPage/ForumPostPage";
-import SignInPage from "./pages/signIn/SignInPage";
+import SignInPage from "./pages/SignInPage";
 
 function App() {
   return (

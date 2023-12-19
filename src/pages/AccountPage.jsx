@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import UserContext from "../../contexts/UserContext";
-import { buttonStyle } from "../../constants/styles";
-import colourways from "../../constants/colourways";
+import UserContext from "../contexts/UserContext";
+import { buttonStyle } from "../constants/styles";
+import colourways from "../constants/colourways";
 
 const backendUrl = process.env.REACT_APP_BACKEND;
 

@@ -18,6 +18,59 @@ export default function AccountContainer({ accountData }) {
         setEditable(!editable);
     }
 
+    async function handleSubmit(event) {
+        event.preventDefault();
+        let newData = {};
+        let editedUsername = document.getElementsByName("username");
+        let editedPassword = document.getElementsByName("password");
+        let editedEmail = document.getElementsByName("email");
+        let editedPronouns = document.getElementsByName("pronouns");
+
+        if (editedUsername && editedUsername[0].value) {
+            newData.username = editedUsername[0].value;
+        }
+        if (editedPassword.length > 0 && editedPassword[0].value) {
+            newData.password = editedPassword[0].value;
+        }
+        if (editedEmail.length > 0 && editedEmail[0].value) {
+            newData.email = editedEmail[0].value;
+        }
+        if (editedPronouns.length > 0 && editedPronouns[0].value) {
+            newData.pronouns = editedPronouns[0].value;
+        }
+        console.log(newData);
+        // setData(newData);
+    }
+
+    // useEffect(() => {
+    //     if (data.username.length > 0) {
+    //         patchUser();
+    //     }
+    //     // eslint-disable-next-line
+    // }, [data]);
+
+    // async function patchUser() {
+    //     let response = await fetch(backendURL + "/account/" + userData.username, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         credentials: "include",
+    //         body: JSON.stringify(data),
+    //     });
+    //     const responseData = await response.json();
+    //     if (responseData.errors) {
+    //         if (responseData.errors.split(" ")[0] === "E11000") {
+    //             let key = responseData.errors.split("key: {")[1].split(":")[0]
+    //             responseData.errors = `The ${key} entered is already associated with an account. \nPlease log in to the account, or try another ${key}`
+    //         }
+    //         setError(responseData.errors);
+    //         return;
+    //     }
+    //     setUserData(responseData);
+    //     return responseData;
+    // }
+
     return (
         <div className={containerStyle.account + colourways.accounts.container}>
             <div className="flex flex-row justify-between items-center w-full md:w-1/2 mb-2">
@@ -35,7 +88,6 @@ export default function AccountContainer({ accountData }) {
                     )}
                 </button>
             </div>
-            
             {/* When editing, displays list of editable fields. When not editing, displays list of data */}
             {editable
                 ? Object.keys(editableFields).map((key, index) => {
@@ -57,6 +109,8 @@ export default function AccountContainer({ accountData }) {
                           </p>
                       );
                   })}
+
+            {editable ? <button onClick={(e) => handleSubmit(e)}>submit</button> : ""}
         </div>
     );
 }

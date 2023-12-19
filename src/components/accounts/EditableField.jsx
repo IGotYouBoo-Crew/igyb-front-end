@@ -6,6 +6,7 @@ import colourways from "../../constants/colourways";
 export default function EditableField({ fieldName, fieldData }) {
     let [editing, setEditing] = useState(false);
 
+    
     function handleClick(e) {
         e.preventDefault();
         setEditing(!editing);

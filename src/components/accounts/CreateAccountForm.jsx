@@ -85,9 +85,11 @@ export default function CreateAccountForm() {
             setError(responseData.errors);
             return;
         }
-        console.log(responseData)
-        setUserData(responseData);
-        return responseData;
+        let newData = {}
+        newData.username = responseData.username
+        newData.role = responseData.role
+        setUserData(newData);
+        return newData;
     }
 
     const inputs = ["username", "password", "email", "pronouns"];

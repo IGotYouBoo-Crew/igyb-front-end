@@ -2,7 +2,7 @@ async function createPost(title, photo, caption, body) {
     console.log(title, photo, caption, body);
 
     let result = await fetch(
-        process.env.REACT_APP_BACKEND + "/posts/",
+        process.env.REACT_APP_BACKEND_URL + "/posts/",
         {
             method: "POST",
             headers: {

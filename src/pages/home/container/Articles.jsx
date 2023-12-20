@@ -3,7 +3,7 @@ import ArticleCard from '../../../components/ArticleCard'
 import {FaArrowRight} from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
 
-const backendURL = process.env.REACT_APP_BACKEND;
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 const Articles = () => {
 

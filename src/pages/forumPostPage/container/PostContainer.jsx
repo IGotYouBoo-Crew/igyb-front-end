@@ -7,7 +7,7 @@ const breadCrumbsData = [
   // {name: "Post title", link: '/forum/1'},
 ]
 
-const backendURL = process.env.REACT_APP_BACKEND;
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 const PostContainer = () => {
 

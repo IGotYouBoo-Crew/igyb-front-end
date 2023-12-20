@@ -4,7 +4,7 @@ import { buttonStyle, containerStyle } from "../constants/styles";
 import FormInput from "./FormInput";
 import UserContext from "../contexts/UserContext";
 
-const backendURL = process.env.REACT_APP_BACKEND;
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 export default function AccountContainer({ accountData }) {
     let [editable, setEditable] = useState(false);

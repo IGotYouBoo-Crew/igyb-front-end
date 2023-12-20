@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PostCard from '../../../components/PostCard'
 
-const backendURL = process.env.REACT_APP_BACKEND;
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 const Posts = () => {
 

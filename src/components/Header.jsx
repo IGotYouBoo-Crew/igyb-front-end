@@ -24,7 +24,7 @@ const NavItem = ({name}) => {
         </li>
     )
 }
-const backendUrl = process.env.REACT_APP_BACKEND
+const backendUrl = process.env.REACT_APP_BACKEND_URL
 const Header = () => {
     const [navIsVisible, setNavIsVisible] = useState(false);
     let {userData, setUserData} = useContext(UserContext)

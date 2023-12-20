@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { buttonStyle } from "../constants/styles";
 import colourways from "../constants/colourways";
-import AccountContainer from "../components/AccountContainer";
+import AccountContainer from "../components/accounts/AccountContainer";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -18,29 +18,25 @@ export default function AccountPage() {
     }
 
     useEffect(() => {
-        callApi()
+        getSignedInUserData()
         // eslint-disable-next-line
     }, [])
     
-    async function callApi(){
+    async function getSignedInUserData(){
         let response = await fetch(backendUrl + "/account/" + userData.username)
         let responseData = await response.json()
         responseData = responseData.data
         responseData.role = responseData.role.name
-        console.log(responseData)
         setSignedInUserData(responseData)
     }
-    console.log(signedInUserData)
 
     // TODO: fix up all this
     return (
-        <div className={"flex flex-col justify-around h-screen w-9/12 items-center"}>
-            <p>This is the account page</p>
-            <p>{JSON.stringify(userData)}</p>
+        <div className={"flex flex-col justify-start h-screen w-9/12 items-center pt-16"}>
             {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
 
             <button
-                className={"mt-6 " + buttonStyle.default + colourways.accounts.outlineButton}
+                className={"mt-6 bg-red-400 hover:bg-red-600 active:bg-red-700 " + buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}
             >
                 LogOut

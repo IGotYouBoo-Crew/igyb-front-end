@@ -40,7 +40,7 @@ const Header = () => {
     }, [])
 
     async function checkCookie() {
-        let response = await fetch(backendUrl + "/account/cookieCheck", { method: "post", credentials: 'include' });
+        let response = await fetch(backendUrl + "/account/cookieCheck", { method: "POST", credentials: 'include' });
         const responseData = await response.json();
         if (!responseData.username){
             setUserData(false)

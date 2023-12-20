@@ -17,13 +17,7 @@ export default function CreateAccountForm() {
     async function handleClick(event) {
         event.preventDefault();
         let newData = getDataFromListOfInputs(inputsList)
-        newData.email = newData.email.toLowerCase();
-        let validationError = passwordCheckFailed(newData.password)
-        if (validationError) {
-            setError(validationError)
-            return;
-        }
-        validationError = emailCheckFailed(newData.email)
+        let validationError = passwordCheckFailed(newData.password) ||emailCheckFailed(newData.email)
         if (validationError) {
             setError(validationError)
             return;

@@ -18,11 +18,13 @@ export default function AccountPage() {
     }
 
     useEffect(() => {
+        console.log(signedInUserData)
         getSignedInUserData()
         // eslint-disable-next-line
     }, [])
     
     async function getSignedInUserData(){
+        console.log(userData.username)
         let response = await fetch(backendUrl + "/account/" + userData.username)
         let responseData = await response.json()
         responseData = responseData.data

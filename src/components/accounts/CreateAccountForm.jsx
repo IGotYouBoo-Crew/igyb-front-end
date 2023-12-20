@@ -4,6 +4,8 @@ import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
+import { emailCheckFailed, passwordCheckFailed } from "./functions/accountDataValidation";
+import getDataFromListOfInputs from "../getDataFromListOfInputs";
 
 const backendURL = process.env.REACT_APP_BACKEND_URL;
 
@@ -14,50 +16,14 @@ export default function CreateAccountForm() {
 
     async function handleClick(event) {
         event.preventDefault();
-        let newData = {};
-        inputs.forEach((inputName) => {
-            newData[inputName] = document.getElementsByName(inputName)[0].value;
-        });
-        newData.email = newData.email.toLowerCase();
-        if(!passwordCheckFailed(newData.password)){
-            console.log("flag inside if check")
-            return
+        let newData = getDataFromListOfInputs(inputsList);
+        let validationError =
+            passwordCheckFailed(newData.password) || emailCheckFailed(newData.email);
+        if (validationError) {
+            setError(validationError);
+            return;
         }
-        console.log("flag after if check")
         setData(newData);
-    }
-
-    function passwordCheckFailed(password) {
-        console.log(password)
-        console.log(password.length)
-        let passwordRequirements = [
-            {
-                errorMessage: "Password length must be greater than 8",
-                test: password.length > 8,
-            },
-            {
-                errorMessage: "Password must contain at least one uppercase letter",
-                test: password.match(/[A-Z]+/g) || false,
-            },
-            {
-                errorMessage: "Password must contain at least one number",
-                test: password.match(/[0-9]/) || false,
-            },
-        ];
-        
-        let response = true
-
-        for (const requirement of passwordRequirements) {
-            console.log(requirement.errorMessage + ", " + requirement.test)
-            if(!requirement.test){
-                setError(requirement.errorMessage)
-                response = false
-                break
-            }
-            
-        }
-        console.log(response)
-        return response
     }
 
     useEffect(() => {
@@ -85,18 +51,18 @@ export default function CreateAccountForm() {
             setError(responseData.errors);
             return;
         }
-        let newData = {}
-        newData.username = responseData.username
-        newData.role = responseData.role
+        let newData = {};
+        newData.username = responseData.username;
+        newData.role = responseData.role;
         setUserData(newData);
         return newData;
     }
 
-    const inputs = ["username", "password", "email", "pronouns"];
+    const inputsList = ["username", "password", "email", "pronouns"];
 
     return (
         <form className="flex flex-col mb-2">
-            {inputs.map((value, i) => {
+            {inputsList.map((value, i) => {
                 return <FormInput key={i} value={value} location={"accounts"} />;
             })}
             <ErrorMessage error={error} />

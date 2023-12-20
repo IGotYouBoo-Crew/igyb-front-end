@@ -4,8 +4,9 @@ import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
-
-const backendURL = process.env.REACT_APP_BACKEND_URL;
+import getDataFromListOfInputs from "../getDataFromListOfInputs";
+import checkErrorInResponse from "./functions/checkErrorInResponse";
+import postSignIn from "./functions/postSignIn";
 
 export default function SignInForm() {
     let [stateData, setStateData] = useState({ username: "", password: "" });
@@ -14,39 +15,26 @@ export default function SignInForm() {
 
     async function handleClick(event) {
         event.preventDefault();
-        let formData = { username: "", password: "" };
-        formData.username = document.getElementsByName("username")[0].value;
-        formData.password = document.getElementsByName("password")[0].value;
+        let formData = getDataFromListOfInputs(inputs);
         setStateData(formData);
     }
 
     useEffect(() => {
         if (stateData.username.length > 0) {
             getSignIn();
+
+            async function getSignIn() {
+                let responseData = await postSignIn(stateData);
+                if (checkErrorInResponse(responseData)) {
+                    setError(responseData.errors);
+                    return;
+                }
+                setUserData(responseData);
+                return responseData;
+            }
         }
         // eslint-disable-next-line
     }, [stateData]);
-
-    async function getSignIn() {
-        let response = await fetch(backendURL + "/account/signIn", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            credentials: "include",
-            body: JSON.stringify(stateData),
-        });
-        
-        const responseData = await response.json();
-
-        if (responseData.errors) {
-            setError(responseData.errors);
-            return;
-        }
-
-        setUserData(responseData);
-        return responseData;
-    }
 
     const inputs = ["username", "password"];
 

@@ -16,8 +16,8 @@ export default function EditableField({ fieldName, fieldData }) {
         <div>
             {editing ? (
                 <div className="flex flex-row items-center justify-between">
-                    <FormInput value={fieldName} location={"accounts"} />
-                    <IoClose className="text-2xl -mt-6" onClick={(e)=>handleClick(e)} />
+                    <FormInput value={fieldName} location={"accounts"} placeholder={fieldData} />
+                    <IoClose className="text-2xl -mt-6" onClick={(e) => handleClick(e)} />
                 </div>
             ) : (
                 <button

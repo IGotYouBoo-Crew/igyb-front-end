@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import BreadCrumbs from '../../../components/BreadCrumbs'
-import { images } from '../../../constants'
 
 const breadCrumbsData = [
   {name: "Home", link: '/'},
@@ -12,7 +11,7 @@ const backendURL = process.env.REACT_APP_BACKEND;
 
 const PostContainer = () => {
 
-  let [post, setPost] = useState([]);
+  let [post, setPost] = useState("");
   let urlPostId = window.location.pathname.split("/")[2]
   console.log(urlPostId)
 
@@ -36,10 +35,13 @@ const PostContainer = () => {
       return responseData;
   }
 
+  
   return (
     <article className='flex-1 bg-honey rounded-3xl z-40 relative flex flex-col px-6 py-2'>
           <BreadCrumbs data={breadCrumbsData}/>
-          <h4 className='text-sm text-white md:px-20 lg:px-12 lg:mt-4'>By {post.author.fullName || "Deleted User"} (@{post.author.username || deleteduser}): {post.date}</h4>
+          {post ?
+          <>
+          <h4 className='text-sm text-white md:px-20 lg:px-12 lg:mt-4'>By {post.title || "Deleted User"} @{post.author.username}: {post.date}</h4>
           <div className='lg:flex lg:flex-row-reverse lg:justify-between md:px-20 lg:px-12 lg:pb-10'>
             <img src={post.photo} alt="post title" className='rounded-3xl mt-2 w-full h-auto object-cover lg:w-1/2' />
             <div className='text-white mt-6 text-center lg:text-left'>
@@ -55,7 +57,9 @@ const PostContainer = () => {
               <button className='border-2 border-white rounded-3xl px-7 md:px-10 py-1'>
                 NEXT POST
               </button>
-            </div>
+          </div>
+          </>
+          : "loading post data"}
         </article>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { createPost } from './createPost';
+import { Navigate } from 'react-router-dom';
 
 
 const PostForm = ({ isVisible, onClose }) => {
@@ -8,6 +9,7 @@ const PostForm = ({ isVisible, onClose }) => {
     const [photo, setPhoto] = useState("");
     const [caption, setCaption] = useState("")
     const [body, setBody] = useState("");
+    const [route, setRoute] = useState("");
     
     const handleClose = (post) => {
         if (post.target.id === 'postForm') onClose();
@@ -18,7 +20,10 @@ const PostForm = ({ isVisible, onClose }) => {
         // Need to add validation for form fields
 
         try {
-            await createPost(title, photo, caption, body);
+            let createdPost = await createPost(title, photo, caption, body);
+            console.log(createdPost._id)
+
+            setRoute("/forum/" + createdPost._id)
 
             // Clear the form fields after submission
             setTitle('');
@@ -26,7 +31,6 @@ const PostForm = ({ isVisible, onClose }) => {
             setCaption('');
             setBody('');
 
-            onClose();
         } catch (error) {
             console.log('Looks like we have a problem:', error);
         }
@@ -113,6 +117,7 @@ const PostForm = ({ isVisible, onClose }) => {
                 >
                     SUBMIT
                 </button>
+                {route ? <Navigate to={route}/> : ""}
             </form>
         </div>
     </div>

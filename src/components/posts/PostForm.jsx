@@ -6,7 +6,8 @@ import { createPost } from './createPost';
 const PostForm = ({ isVisible, onClose }) => {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
-    const [content, setContent] = useState("");
+    const [caption, setCaption] = useState("")
+    const [body, setBody] = useState("");
     
     const handleClose = (post) => {
         if (post.target.id === 'postForm') onClose();
@@ -17,12 +18,13 @@ const PostForm = ({ isVisible, onClose }) => {
         // Need to add validation for form fields
 
         try {
-            await createPost(title, image, content);
+            await createPost(title, image, caption, body);
 
             // Clear the form fields after submission
             setTitle('');
             setImage('');
-            setContent('');
+            setCaption('');
+            setBody('');
 
             onClose();
         } catch (error) {
@@ -71,7 +73,7 @@ const PostForm = ({ isVisible, onClose }) => {
                     type="text" 
                     name="imageInput" 
                     id="imageInput" 
-                    placeholder="COVER IMAGE URL"
+                    placeholder="COVER IMAGE URL*"
                     value={image} 
                     onChange={(post) => setImage(post.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm 
@@ -80,13 +82,26 @@ const PostForm = ({ isVisible, onClose }) => {
                 />
 
                 <label></label>
+                <input 
+                    type="text" 
+                    name="captionInput" 
+                    id="captionInput" 
+                    placeholder="POST CAPTION*"
+                    value={caption} 
+                    onChange={(post) => setCaption(post.target.value)} 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm 
+                    md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-5 focus:outline-periwinkle 
+                    w-full" 
+                />
+
+                <label></label>
                 <textarea 
-                    id="contentInput" 
+                    id="bodyInput" 
                     rows="5" 
                     type="text" 
-                    name="contentInput" 
-                    value={content} 
-                    onChange={(post) => setContent(post.target.value)} 
+                    name="bodyInput" 
+                    value={body} 
+                    onChange={(post) => setBody(post.target.value)} 
                     className="block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mt-5 focus:outline-periwinkle w-full" 
                     placeholder="WHAT WOULD YOU LIKE TO SAY?*"
                 >    

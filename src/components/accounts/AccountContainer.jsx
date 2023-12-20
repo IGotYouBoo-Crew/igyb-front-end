@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import colourways from "../../constants/colourways";
-import { containerStyle } from "../../constants/styles";
+import { buttonStyle, containerStyle } from "../../constants/styles";
 import EditableField from "./EditableField";
 import { IoClose, IoPencil } from "react-icons/io5";
+import UserContext from "../../contexts/UserContext";
 
 export default function AccountContainer({ accountData }) {
     let [editable, setEditable] = useState(false);
+    let [formData, setFormData] = useState({})
+    let [errorMessage, setErrorMessage] = useState(false)
+    let {userData, setUserData} = useContext(UserContext)
 
     let editableFields = { ...accountData };
     delete editableFields._id;
     delete editableFields.role;
     editableFields.password = "";
-    console.log(editableFields);
+    let editableFieldsKeys = Object.keys(editableFields)
 
     function toggleEdit(e) {
         e.preventDefault();
@@ -19,57 +23,66 @@ export default function AccountContainer({ accountData }) {
     }
 
     async function handleSubmit(event) {
-        event.preventDefault();
         let newData = {};
-        let editedUsername = document.getElementsByName("username");
-        let editedPassword = document.getElementsByName("password");
-        let editedEmail = document.getElementsByName("email");
-        let editedPronouns = document.getElementsByName("pronouns");
+        editableFieldsKeys.forEach(editableFieldName => {
+            let checkValue = document.getElementsByName(editableFieldName)
+            if (checkValue.length > 0 && checkValue[0].value) {
+                newData[editableFieldName] = checkValue[0].value
+            }
+        });
+        // let editedUsername = document.getElementsByName("username");
+        // let editedPassword = document.getElementsByName("password");
+        // let editedEmail = document.getElementsByName("email");
+        // let editedPronouns = document.getElementsByName("pronouns");
 
-        if (editedUsername && editedUsername[0].value) {
-            newData.username = editedUsername[0].value;
-        }
-        if (editedPassword.length > 0 && editedPassword[0].value) {
-            newData.password = editedPassword[0].value;
-        }
-        if (editedEmail.length > 0 && editedEmail[0].value) {
-            newData.email = editedEmail[0].value;
-        }
-        if (editedPronouns.length > 0 && editedPronouns[0].value) {
-            newData.pronouns = editedPronouns[0].value;
-        }
-        console.log(newData);
-        // setData(newData);
+        // if (editedUsername.length > 0 && editedUsername[0].value) {
+        //     newData.username = editedUsername[0].value;
+        // }
+        // if (editedPassword.length > 0 && editedPassword[0].value) {
+        //     newData.password = editedPassword[0].value;
+        // }
+        // if (editedEmail.length > 0 && editedEmail[0].value) {
+        //     newData.email = editedEmail[0].value;
+        // }
+        // if (editedPronouns.length > 0 && editedPronouns[0].value) {
+        //     newData.pronouns = editedPronouns[0].value;
+        // }
+        console.log(newData)
+        setFormData(newData);
     }
 
-    // useEffect(() => {
-    //     if (data.username.length > 0) {
-    //         patchUser();
-    //     }
-    //     // eslint-disable-next-line
-    // }, [data]);
+    useEffect(() => {
+        if (Object.keys(formData).length > 0) {
+            patchUser();
+        }
+        // eslint-disable-next-line
+    }, [formData]);
 
-    // async function patchUser() {
-    //     let response = await fetch(backendURL + "/account/" + userData.username, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         credentials: "include",
-    //         body: JSON.stringify(data),
-    //     });
-    //     const responseData = await response.json();
-    //     if (responseData.errors) {
-    //         if (responseData.errors.split(" ")[0] === "E11000") {
-    //             let key = responseData.errors.split("key: {")[1].split(":")[0]
-    //             responseData.errors = `The ${key} entered is already associated with an account. \nPlease log in to the account, or try another ${key}`
-    //         }
-    //         setError(responseData.errors);
-    //         return;
-    //     }
-    //     setUserData(responseData);
-    //     return responseData;
-    // }
+    async function patchUser() {
+        let response = await fetch(process.env.REACT_APP_BACKEND + "/account/" + accountData._id, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(formData),
+        });
+        const responseData = await response.json();
+        if (responseData.errors) {
+            if (responseData.errors.split(" ")[0] === "E11000") {
+                let key = responseData.errors.split("key: {")[1].split(":")[0]
+                responseData.errors = `The ${key} entered is already associated with an account. \nPlease log in to the account, or try another ${key}`
+            }
+            setErrorMessage(responseData.errors);
+            return;
+        }
+        let cookieResponse = await fetch(process.env.REACT_APP_BACKEND + "/account/cookieCheck", { method: "POST", credentials: 'include' });
+        let cookieResponseData = await cookieResponse.json()
+        // TODO FIX THIS
+        setUserData(cookieResponseData)
+        location.reload()
+        return responseData;
+    }
 
     return (
         <div className={containerStyle.account + colourways.accounts.container}>
@@ -110,7 +123,8 @@ export default function AccountContainer({ accountData }) {
                       );
                   })}
 
-            {editable ? <button onClick={(e) => handleSubmit(e)}>submit</button> : ""}
+            {editable ? <button type="submit" onClick={(e) => handleSubmit(e)} className={buttonStyle.default + colourways.accounts.outlineButton}>submit</button> : ""}
+            <span className="text-red-500">{errorMessage ? errorMessage : ""}</span>
         </div>
     );
 }

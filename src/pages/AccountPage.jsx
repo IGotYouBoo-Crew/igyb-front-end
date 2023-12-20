@@ -18,18 +18,17 @@ export default function AccountPage() {
     }
 
     useEffect(() => {
-        callApi()
+        getSignedInUserData()
         // eslint-disable-next-line
     }, [])
     
-    async function callApi(){
+    async function getSignedInUserData(){
         let response = await fetch(backendUrl + "/account/" + userData.username)
         let responseData = await response.json()
         responseData = responseData.data
         responseData.role = responseData.role.name
         setSignedInUserData(responseData)
     }
-    console.log(signedInUserData)
 
     // TODO: fix up all this
     return (
@@ -37,7 +36,7 @@ export default function AccountPage() {
             {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
 
             <button
-                className={"mt-6 " + buttonStyle.default + colourways.accounts.outlineButton}
+                className={"mt-6 bg-red-400 hover:bg-red-600 active:bg-red-700 " + buttonStyle.default + colourways.accounts.outlineButton}
                 onClick={(e) => handleClick(e)}
             >
                 LogOut

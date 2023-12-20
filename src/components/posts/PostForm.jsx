@@ -26,7 +26,7 @@ const PostForm = ({ isVisible, onClose }) => {
         try {
             let createdPost = await createPost(title, photo, caption, body);
 
-            setRoute("/forum/" + createdPost._id)
+            setRoute("/forum/" + createdPost._id);
 
             // Clear the form fields after submission
             setTitle('');
@@ -116,9 +116,8 @@ const PostForm = ({ isVisible, onClose }) => {
                     onChange={(post) => setBody(post.target.value)} 
                     className="block placeholder:font-bold text-black text-sm placeholder:text-sm placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mt-5 focus:outline-periwinkle w-full placeholder:uppercase" 
                     placeholder="What would you like to say?*"
-                >    
-                </textarea>
-                        
+                />  
+
                 <button 
                     type="submit"
                     className="border border-white rounded-3xl px-5 py-2 mt-4 mb-2 w-32 text-white text-sm md:text-base uppercase" 

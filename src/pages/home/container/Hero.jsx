@@ -1,5 +1,6 @@
 import React from 'react';
 import { images } from '../../../constants';
+import { NavLink } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -13,14 +14,11 @@ const Hero = () => {
                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
                 irure dolor in reprehenderit in voluptate. 
             </p>
-            <div className='mt-5 flex gap-x-6'>
-                <button className='border border-background rounded-3xl px-5 py-2' >
-                    Sign Up
+            <NavLink to="/sign-in">
+                <button className='mt-5 border border-background rounded-3xl px-5 py-2' >
+                    Log In / Sign Up
                 </button>
-                <button className='bg-background text-indigo rounded-3xl px-6 py-2'>
-                    Log In
-                </button>
-            </div>
+            </NavLink>
         </div>
         <div className='md:h-160 -mt-6 w-screen bg-cover bg-center flex flex-col justify-center items-center md:flex-row-reverse'>
             <img className= 'md:w-1/2 md:h-full md:object-cover' src={images.EventsHero} alt="Girls laughing" />
@@ -36,9 +34,12 @@ const Hero = () => {
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
                 exercitation ullamco laboris nisi ut aliquip ex ea 
                 </p>
-                <button className='mt-4 border-2 font-bold border-sea rounded-3xl px-5 py-2'>
-                    EVENTS
-                </button>
+                <NavLink to="/events">
+                    <button className='mt-4 border-2 font-bold border-sea rounded-3xl px-5 py-2'>
+                        EVENTS
+                    </button>
+                </NavLink>
+                
             </div>
         </div>
         <div>

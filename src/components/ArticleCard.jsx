@@ -1,9 +1,11 @@
 import React from 'react'
 import { images } from '../constants'
+import { NavLink } from 'react-router-dom'
 
 const ArticleCard = ({className, postData}) => {
   return (
-    <div 
+    <NavLink
+        to="/forum/1" 
         className={`bg-honey rounded-3xl overflow-hidden shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] ${className}`}
     >
         <img 
@@ -28,7 +30,7 @@ const ArticleCard = ({className, postData}) => {
                 <span className='text-white font-bold italic text-sm md:text-base'>{postData.date}</span>
             </div>
         </div>
-    </div>
+    </NavLink>
   )
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ArticleCard from '../../../components/ArticleCard'
 import {FaArrowRight} from 'react-icons/fa'
+import { NavLink } from 'react-router-dom';
 
 const backendURL = process.env.REACT_APP_BACKEND;
 
@@ -51,10 +52,12 @@ async function getAllPosts() {
                     ""
                 }
             </div>
-            <button className='mx-auto flex items-center gap-x-2 font-bold text-background border-2 border-background px-12 py-3 rounded-3xl'>
-                <span>VIEW MORE</span>
-                <FaArrowRight className='w-4 h-4'/>
-            </button>
+            <NavLink to="/forum">
+                <button className='mx-auto flex items-center gap-x-2 font-bold text-background border-2 border-background px-12 py-3 rounded-3xl'>
+                    <span>VIEW MORE</span>
+                    <FaArrowRight className='w-4 h-4'/>
+                </button>
+            </NavLink>
         </div>
     </section>
   );

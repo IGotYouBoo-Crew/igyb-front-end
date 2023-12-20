@@ -50,7 +50,7 @@ const EventForm = ({ isVisible, onClose }) => {
         id="eventForm"
         onClick={handleClose}
     >
-        <div className="max-h-[83vh] mt-20 overflow-y-auto pt-2 px-6 lg:p-8 w-3/4 md:w-2/3 mt-4 md:mt-14 lg:mt-16 lg:py-3 lg:px-10 bg-honey text-white rounded-3xl">
+        <div className="max-h-[83vh] mt-20 overflow-y-auto pt-2 px-6 lg:p-8 w-3/4 md:w-2/3 md:mt-14 lg:mt-16 lg:py-3 lg:px-10 bg-honey text-white rounded-3xl">
             <div className="text-right"> 
                 <button 
                     className="text-white text-xl text-bold" 

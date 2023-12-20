@@ -19,51 +19,46 @@ export default function CreateAccountForm() {
             newData[inputName] = document.getElementsByName(inputName)[0].value;
         });
         newData.email = newData.email.toLowerCase();
-        // console.log(newData.password)
-        // console.log(passwordCheckFailed(newData.password))
-        // if(passwordCheckFailed(newData.password)){
-        //     console.log("flag inside if check")
-        //     return
-        // }
-        // console.log("flag after if check")
+        if(!passwordCheckFailed(newData.password)){
+            console.log("flag inside if check")
+            return
+        }
+        console.log("flag after if check")
         setData(newData);
     }
 
-    // function passwordCheckFailed(password) {
-    //     console.log(password)
-    //     console.log(password.length)
-    //     let passwordRequirements = [
-    //         {
-    //             errorMessage: "Password length must be greater than 8",
-    //             test: password.length > 8,
-    //         },
-    //         {
-    //             errorMessage: "Password must contain at least one uppercase letter",
-    //             test: password.match(/[A-Z]+/g) || true,
-    //         },
-    //         {
-    //             errorMessage: "Password must contain at least one number",
-    //             test: password.match(/[0-9]/) || true,
-    //         },
-    //     ];
-    //     let pass = false
-    //     for (let index = 0; index < passwordRequirements.length; index++) {
-    //         const requirement = array[index];
-    //         console.log(requirement.errorMessage + ", " + requirement.test)
-    //         if(!requirement.test){
-    //             setError(requirement.errorMessage)
-    //             return
-    //         } else {
-    //             pass = true
-                
-    //         }
+    function passwordCheckFailed(password) {
+        console.log(password)
+        console.log(password.length)
+        let passwordRequirements = [
+            {
+                errorMessage: "Password length must be greater than 8",
+                test: password.length > 8,
+            },
+            {
+                errorMessage: "Password must contain at least one uppercase letter",
+                test: password.match(/[A-Z]+/g) || false,
+            },
+            {
+                errorMessage: "Password must contain at least one number",
+                test: password.match(/[0-9]/) || false,
+            },
+        ];
+        
+        let response = true
 
+        for (const requirement of passwordRequirements) {
+            console.log(requirement.errorMessage + ", " + requirement.test)
+            if(!requirement.test){
+                setError(requirement.errorMessage)
+                response = false
+                break
+            }
             
-    //     }
-    //     passwordRequirements.forEach(requirement => {
-    //     });
-    //     return pass
-    // }
+        }
+        console.log(response)
+        return response
+    }
 
     useEffect(() => {
         if (data.username.length > 0) {
@@ -90,6 +85,7 @@ export default function CreateAccountForm() {
             setError(responseData.errors);
             return;
         }
+        console.log(responseData)
         setUserData(responseData);
         return responseData;
     }

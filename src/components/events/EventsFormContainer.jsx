@@ -6,11 +6,11 @@ const EventsFormContainer = () => {
 
     return (
       <div className="flex flex-col">
-        <h2 className='text-center md:text-right mt-10 md:mt-6 font-bold'>GOT AN UPCOMING EVENT?</h2>
+        <h2 className='text-center md:text-right mt-10 md:mt-6 font-bold uppercase'>Got an upcoming event?</h2>
         <button 
-          className='bg-honey text-white font-bold rounded-3xl px-6 py-2 mt-2' 
+          className='bg-honey text-white font-bold rounded-3xl px-6 py-2 mt-2 uppercase' 
           onClick={() => setShowEventForm(true)}>
-          CREATE AN EVENT
+          Create an Event
         </button>
         <EventForm 
           isVisible={showEventForm}

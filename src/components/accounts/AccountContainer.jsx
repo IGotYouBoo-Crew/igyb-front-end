@@ -4,11 +4,11 @@ import { buttonStyle, containerStyle } from "../../constants/styles";
 import EditableField from "./EditableField";
 import { IoClose, IoPencil } from "react-icons/io5";
 import UserContext from "../../contexts/UserContext";
-import patchUser from "./patchUser";
-import checkErrorInResponse from "./checkErrorInResponse";
-import getCookieResponse from "./getCookieResponse";
+import patchUser from "./functions/patchUser";
+import checkErrorInResponse from "./functions/checkErrorInResponse";
+import getCookieResponse from "./functions/getCookieResponse";
 import getDataFromListOfInputs from "../getDataFromListOfInputs";
-import { emailCheckFailed, passwordCheckFailed } from "./accountDataValidation";
+import { emailCheckFailed, passwordCheckFailed } from "./functions/accountDataValidation";
 
 export default function AccountContainer({ accountData }) {
     let [editable, setEditable] = useState(false);

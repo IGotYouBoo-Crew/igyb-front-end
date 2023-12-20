@@ -4,7 +4,7 @@ import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
-import { emailCheckFailed, passwordCheckFailed } from "./accountDataValidation";
+import { emailCheckFailed, passwordCheckFailed } from "./functions/accountDataValidation";
 import getDataFromListOfInputs from "../getDataFromListOfInputs";
 
 const backendURL = process.env.REACT_APP_BACKEND_URL;

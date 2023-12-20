@@ -5,8 +5,8 @@ import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
 import getDataFromListOfInputs from "../getDataFromListOfInputs";
-import checkErrorInResponse from "./checkErrorInResponse";
-import postSignIn from "./postSignIn";
+import checkErrorInResponse from "./functions/checkErrorInResponse";
+import postSignIn from "./functions/postSignIn";
 
 export default function SignInForm() {
     let [stateData, setStateData] = useState({ username: "", password: "" });

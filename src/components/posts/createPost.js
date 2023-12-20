@@ -1,17 +1,19 @@
-async function createPost(title, image, content) {
-    console.log(title, image, content);
+async function createPost(title, photo, caption, body) {
+    console.log(title, photo, caption, body);
 
     let result = await fetch(
-        process.env.REACT_APP_BACKEND_URL + "/posts/newPost",
+        process.env.REACT_APP_BACKEND + "/posts/",
         {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
+            credentials: "include",
             body: JSON.stringify({
                 title: title, 
-                image: image, 
-                content: content}),
+                photo: photo,
+                caption: caption, 
+                body: body}),
         }
     );
 

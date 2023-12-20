@@ -5,7 +5,7 @@ import { createPost } from './createPost';
 
 const PostForm = ({ isVisible, onClose }) => {
     const [title, setTitle] = useState("");
-    const [image, setImage] = useState("");
+    const [photo, setPhoto] = useState("");
     const [caption, setCaption] = useState("")
     const [body, setBody] = useState("");
     
@@ -18,11 +18,11 @@ const PostForm = ({ isVisible, onClose }) => {
         // Need to add validation for form fields
 
         try {
-            await createPost(title, image, caption, body);
+            await createPost(title, photo, caption, body);
 
             // Clear the form fields after submission
             setTitle('');
-            setImage('');
+            setPhoto('');
             setCaption('');
             setBody('');
 
@@ -71,11 +71,11 @@ const PostForm = ({ isVisible, onClose }) => {
                 <label></label>
                 <input 
                     type="text" 
-                    name="imageInput" 
-                    id="imageInput" 
-                    placeholder="COVER IMAGE URL*"
-                    value={image} 
-                    onChange={(post) => setImage(post.target.value)} 
+                    name="photoInput" 
+                    id="photoInput" 
+                    placeholder="COVER PHOTO URL*"
+                    value={photo} 
+                    onChange={(post) => setPhoto(post.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm 
                     md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-5 focus:outline-periwinkle 
                     w-full" 

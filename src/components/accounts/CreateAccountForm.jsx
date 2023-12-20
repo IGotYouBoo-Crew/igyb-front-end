@@ -5,6 +5,7 @@ import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
 import { emailCheckFailed, passwordCheckFailed } from "./accountDataValidation";
+import getDataFromListOfInputs from "../getDataFromListOfInputs";
 
 const backendURL = process.env.REACT_APP_BACKEND_URL;
 
@@ -15,10 +16,7 @@ export default function CreateAccountForm() {
 
     async function handleClick(event) {
         event.preventDefault();
-        let newData = {};
-        inputs.forEach((inputName) => {
-            newData[inputName] = document.getElementsByName(inputName)[0].value;
-        });
+        let newData = getDataFromListOfInputs(inputsList)
         newData.email = newData.email.toLowerCase();
         let validationError = passwordCheckFailed(newData.password)
         if (validationError) {
@@ -65,11 +63,11 @@ export default function CreateAccountForm() {
         return newData;
     }
 
-    const inputs = ["username", "password", "email", "pronouns"];
+    const inputsList = ["username", "password", "email", "pronouns"];
 
     return (
         <form className="flex flex-col mb-2">
-            {inputs.map((value, i) => {
+            {inputsList.map((value, i) => {
                 return <FormInput key={i} value={value} location={"accounts"} />;
             })}
             <ErrorMessage error={error} />

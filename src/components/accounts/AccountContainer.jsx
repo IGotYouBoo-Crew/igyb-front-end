@@ -4,6 +4,11 @@ import { buttonStyle, containerStyle } from "../../constants/styles";
 import EditableField from "./EditableField";
 import { IoClose, IoPencil } from "react-icons/io5";
 import UserContext from "../../contexts/UserContext";
+import patchUser from "./patchUser";
+import checkErrorInResponse from "./checkErrorInResponse";
+import getCookieResponse from "./getCookieResponse";
+import getDataFromListOfInputs from "../getDataFromListOfInputs";
+import { emailCheckFailed, passwordCheckFailed } from "./accountDataValidation";
 
 export default function AccountContainer({ accountData }) {
     let [editable, setEditable] = useState(false);
@@ -23,57 +28,47 @@ export default function AccountContainer({ accountData }) {
     }
 
     async function handleSubmit(event) {
-        let newData = {};
-        editableFieldsKeys.forEach((editableFieldName) => {
-            let checkValue = document.getElementsByName(editableFieldName);
-            if (checkValue.length > 0 && checkValue[0].value) {
-                newData[editableFieldName] = checkValue[0].value;
-            }
-        });
+        event.preventDefault();
+        let newData = getDataFromListOfInputs(editableFieldsKeys);
+        let validationError =
+            passwordCheckFailed(newData.password) || emailCheckFailed(newData.email);
+        if (validationError) {
+            setErrorMessage(validationError);
+            return
+        }
         setFormData(newData);
     }
 
     useEffect(() => {
         if (Object.keys(formData).length > 0) {
-            patchUser();
+            updateUser();
+
+            async function updateUser() {
+                // patchUser sends formData to API patch route
+                let responseData = await patchUser(accountData, formData);
+
+                // checks for error message and sets the errorMessage state to display.
+                // return breaks off function so no errors are set as userdata
+                if (checkErrorInResponse(responseData)) {
+                    setErrorMessage(responseData.errors);
+                    return;
+                }
+                // getCookieResponse() sends the user cookie to the API
+                // This is technically not the most efficient of ways to do it, but it means that both the updated data is checked,
+                // and the response plays nicely with the setUserData() function
+                let cookieResponseData = await getCookieResponse();
+                setUserData(cookieResponseData);
+
+                // refreshes the page to update the user data on display
+                window.location.reload();
+                return responseData;
+            }
         }
         // eslint-disable-next-line
     }, [formData]);
 
-    async function patchUser() {
-        let response = await fetch(
-            process.env.REACT_APP_BACKEND_URL + "/account/" + accountData._id,
-            {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-                body: JSON.stringify(formData),
-            }
-        );
-        const responseData = await response.json();
-        if (responseData.errors) {
-            if (responseData.errors.split(" ")[0] === "E11000") {
-                let key = responseData.errors.split("key: {")[1].split(":")[0];
-                responseData.errors = `The ${key} entered is already associated with an account. \nPlease log in to the account, or try another ${key}`;
-            }
-            setErrorMessage(responseData.errors);
-            return;
-        }
-        let cookieResponse = await fetch(
-            process.env.REACT_APP_BACKEND_URL + "/account/cookieCheck",
-            { method: "POST", credentials: "include" }
-        );
-        let cookieResponseData = await cookieResponse.json();
-        // TODO FIX THIS
-        setUserData(cookieResponseData);
-        window.location.reload();
-        return responseData;
-    }
-
     return (
-        <div className={containerStyle.account + colourways.accounts.container}>
+        <form className={containerStyle.account + colourways.accounts.container}>
             <div className="flex flex-row justify-between items-center w-full md:w-1/2 mb-2">
                 {/* Title alternates between edit state */}
                 <h1 className="text-xl md:text-2xl">
@@ -91,12 +86,12 @@ export default function AccountContainer({ accountData }) {
             </div>
             {/* When editing, displays list of editable fields. When not editing, displays list of data */}
             {editable
-                ? Object.keys(editableFields).map((key, index) => {
+                ? editableFieldsKeys.map((key, index) => {
                       return (
                           <EditableField
                               fieldName={key}
-                              key={index}
                               fieldData={editableFields[key]}
+                              key={index}
                           />
                       );
                   })
@@ -113,7 +108,6 @@ export default function AccountContainer({ accountData }) {
 
             {editable ? (
                 <button
-                    type="submit"
                     onClick={(e) => handleSubmit(e)}
                     className={buttonStyle.default + colourways.accounts.outlineButton}
                 >
@@ -123,6 +117,6 @@ export default function AccountContainer({ accountData }) {
                 ""
             )}
             <span className="text-red-500">{errorMessage ? errorMessage : ""}</span>
-        </div>
+        </form>
     );
 }

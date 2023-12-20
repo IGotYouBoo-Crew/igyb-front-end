@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const ArticleCard = ({className, postData}) => {
   return (
     <NavLink
-        to="/forum/1" 
+        to={"/forum/" + postData._id}
         className={`bg-honey rounded-3xl overflow-hidden shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] ${className}`}
     >
         <img 

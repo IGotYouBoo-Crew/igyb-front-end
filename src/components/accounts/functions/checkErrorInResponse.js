@@ -1,4 +1,14 @@
-export default function checkErrorInResponse(responseData){
+
+
+/**
+ * Description placeholder
+ * @date 21/12/2023 - 01:53:57
+ *
+ * @export
+ * @param {responseData} Object
+ * @returns {responseData.errors} Object
+ */
+export default function checkErrorInResponse(responseData) {
     if (responseData.errors) {
         if (responseData.errors.includes("E11000")) {
             let key = responseData.errors.split("key: {")[1].split(":")[0];
@@ -6,6 +16,6 @@ export default function checkErrorInResponse(responseData){
         }
         return responseData.errors;
     } else {
-        return false
+        return false;
     }
 }

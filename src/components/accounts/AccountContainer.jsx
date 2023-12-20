@@ -34,7 +34,7 @@ export default function AccountContainer({ accountData }) {
             passwordCheckFailed(newData.password) || emailCheckFailed(newData.email);
         if (validationError) {
             setErrorMessage(validationError);
-            return
+            return;
         }
         setFormData(newData);
     }

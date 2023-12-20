@@ -1,4 +1,3 @@
-
 /**
  * Description placeholder
  * @date 21/12/2023 - 01:15:47
@@ -17,6 +16,6 @@ export default async function postSignIn(stateData) {
         credentials: "include",
         body: JSON.stringify(stateData),
     });
-    
+
     return await response.json();
 }

@@ -16,10 +16,11 @@ export default function CreateAccountForm() {
 
     async function handleClick(event) {
         event.preventDefault();
-        let newData = getDataFromListOfInputs(inputsList)
-        let validationError = passwordCheckFailed(newData.password) ||emailCheckFailed(newData.email)
+        let newData = getDataFromListOfInputs(inputsList);
+        let validationError =
+            passwordCheckFailed(newData.password) || emailCheckFailed(newData.email);
         if (validationError) {
-            setError(validationError)
+            setError(validationError);
             return;
         }
         setData(newData);

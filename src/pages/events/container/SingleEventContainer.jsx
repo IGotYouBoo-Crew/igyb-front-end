@@ -1,68 +1,95 @@
-import React, { useEffect, useState } from 'react'
-import BreadCrumbs from '../../../components/BreadCrumbs';
-
-
-const breadCrumbsData = [
-    {name: "Home", link: '/'},
-    {name: "Events", link: '/events'}
-]
+import React, { useEffect, useState } from "react";
 
 const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 const SingleEventContainer = () => {
+  let [event, setEvent] = useState("");
+  let urlEventId = window.location.pathname.split("/")[2];
+  console.log(urlEventId);
 
-    let [event, setEvent] = useState("");
-    let urlEventId = window.location.pathname.split("/")[2]
-    console.log(urlEventId)
-  
-    useEffect(() => {
-        getEvent()
+  useEffect(() => {
+    getEvent();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+  }, []);
 
-    async function getEvent() {
-        let response = await fetch(backendURL + "/events/" + urlEventId , {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            credentials: "include",
-        });
-        
-        const responseData = await response.json();
-    
-        console.log(responseData);
-        setEvent(responseData);
-        return responseData;
-    }
+  async function getEvent() {
+    let response = await fetch(backendURL + "/events/" + urlEventId, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
 
-    return (
-        <section className='flex-1 bg-indigo rounded-3xl relative flex flex-col px-6 py-2'>
-              <BreadCrumbs data={breadCrumbsData}/>
-              {event ?
-              <>
-              <div className='lg:flex lg:flex-row-reverse lg:justify-between md:px-20 lg:px-12 lg:pb-10'>
-              <h4 className='text-sm font-bold text-white opacity-70 md:px-20 lg:px-12 lg:mt-4'>Event created by @{event.author.username || " one of our Superstars!"}</h4>
-              <h4 className='text-sm text-white opacity-70 md:px-20 lg:px-12 '>Happening: {event.date}</h4>
-                <img src={event.image} alt="event title" className='rounded-3xl mt-2 w-full h-auto object-cover lg:w-1/2' />
-                <div className='text-white mt-6 text-center lg:text-left'>
-                  <h1 className='text-2xl font-bold md:text-3xl capitalize'>{event.title}</h1>
-                  <div className='text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 py-3'>
-                    <p>
-                      {event.content}
-                    </p>
-                  </div>
+    const responseData = await response.json();
+
+    console.log(responseData);
+    setEvent(responseData);
+    return responseData;
+  }
+
+  return (
+    <section className="bg-indigo bg-cover bg-center w-screen rounded-3xl relative flex flex-col pb-10 px-10 lg:px-56 text-center text-white justify-center items-center">
+      {event ? (
+        <>
+          <section className="pb-10 lg:pb-20 text-center lg:flex-row-reverse lg:justify-between items-center lg:items-start lg:text-left">
+            <div className = "">
+              <img
+                src={event.image}
+                alt="event image"
+                className="rounded-3xl mt-2 object-cover w-full h-auto lg:w-1/2"
+              />
+            </div>
+            <div className="flex flex-col justify-center items-center h-full lg:items-start md:px-20 lg:px-12 lg:pb-10">
+              <h1 className="text-3xl font-bold lg:text-4xl py-10 capitalize">
+                {event.title}
+              </h1>
+              <h3 className="text-lg text-white uppercase">
+                Happening: {event.date}
+              </h3>
+              <h3 className="text-lg text-white uppercase">
+                Start Time: {event.start}
+              </h3>
+              <h3 className="text-lg text-white uppercase">
+                Finish Time: {event.finish}
+              </h3>
+              <div className="text-white mt-6 text-center lg:text-left">
+                <div className="text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 py-3">
+                  <p>{event.content}</p>
+                  <h4 className="text-sm font-bold text-white opacity-70 md:px-20 lg:px-12 lg:mt-4">
+                    Event created by @
+                    {event.author.username || " one of our Superstars!"}
+                  </h4>
                 </div>
               </div>
-              <div className='flex justify-end text-white text-xs md:text-base pt-2 pb-10 px-5 md:px-20 lg:px-12'>
-                  <button className='border-2 border-white rounded-3xl px-7 md:px-10 py-1 uppercase'>
-                    Next event
-                  </button>
-              </div>
-              </>
-              : "We're either busy loading the event data, or it doesn't exist... Hang tight!"}
-            </section>
-      )
-}
+            </div>
+          </section>
+          {event.ticketLink ? (
+              <a 
+                target="_blank"
+                href={event.ticketLink}>
+              <button
+                rel="noreferrer"
+                className="bg-white text-indigo font-bold rounded-3xl px-6 py-2 my-10 uppercase"
+                >
+                Tickets/RSVP
+              </button>
+            </a>
+          ) : null}
+          <div className="flex justify-around text-white text-xs md:text-base pb-5 px-5 md:px-20 lg:px-12">
+            <button className="border-2 border-white font-bold rounded-3xl px-6 py-2 mt-2 uppercase">
+              Previous
+            </button>
+            <button className="border-2 border-white font-bold rounded-3xl px-6 py-2 mt-2 uppercase">
+              Next
+            </button>
+          </div>
+        </>
+      ) : (
+        "We're either busy loading the event data, or it doesn't exist... Hang tight, Superstar!"
+      )}
+    </section>
+  );
+};
 
 export default SingleEventContainer;

@@ -9,7 +9,7 @@ const EventCard = ({className, eventData}) => {
         to={"/events/" + eventData._id}
         className={`flex justify-between rounded-3xl max-h-[30vh] overflow-hidden shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] bg-white text-honey ${className}`}
     >
-        <div className="flex">
+        <div className="flex flex-row justify-center w-full">
         <div className="w-2/5 bg-sea py-3 px-5 md:py-5 md:px-7 lg:py-7 lg:px-9 flex flex-col justify-between">
             <div>
                 <h2 className="font-bold text-s mt-5 md:mt-3 uppercase">Happening: {eventData.date}</h2>
@@ -22,9 +22,7 @@ const EventCard = ({className, eventData}) => {
                 </div>
             </div>
         </div>
-        <div className="w-3/5 object-cover bg-honey">
-        <img src={eventData.image} alt="title" className=""/>
-        </div>
+        <img src={eventData.image} alt="title" className="w-3/5 h-auto object-cover bg-honey"/>
         </div>
     </NavLink>
   )

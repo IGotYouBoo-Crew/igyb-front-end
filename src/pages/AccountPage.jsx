@@ -4,7 +4,7 @@ import { buttonStyle } from "../constants/styles";
 import colourways from "../constants/colourways";
 import AccountContainer from "../components/AccountContainer";
 
-const backendUrl = process.env.REACT_APP_BACKEND;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 export default function AccountPage() {
     let { userData, setUserData } = useContext(UserContext);

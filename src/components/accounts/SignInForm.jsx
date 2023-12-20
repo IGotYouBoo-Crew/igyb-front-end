@@ -5,7 +5,7 @@ import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
 
-const backendURL = process.env.REACT_APP_BACKEND;
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 export default function SignInForm() {
     let [stateData, setStateData] = useState({ username: "", password: "" });

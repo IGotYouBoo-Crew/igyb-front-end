@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 import { createPost } from './createPost';
+import { Navigate } from 'react-router-dom';
 
 
 const PostForm = ({ isVisible, onClose }) => {
     const [title, setTitle] = useState("");
-    const [image, setImage] = useState("");
-    const [content, setContent] = useState("");
+    const [photo, setPhoto] = useState("");
+    const [caption, setCaption] = useState("")
+    const [body, setBody] = useState("");
+    const [route, setRoute] = useState("");
     
     const handleClose = (post) => {
         if (post.target.id === 'postForm') onClose();
@@ -17,14 +20,17 @@ const PostForm = ({ isVisible, onClose }) => {
         // Need to add validation for form fields
 
         try {
-            await createPost(title, image, content);
+            let createdPost = await createPost(title, photo, caption, body);
+            console.log(createdPost._id)
+
+            setRoute("/forum/" + createdPost._id)
 
             // Clear the form fields after submission
             setTitle('');
-            setImage('');
-            setContent('');
+            setPhoto('');
+            setCaption('');
+            setBody('');
 
-            onClose();
         } catch (error) {
             console.log('Looks like we have a problem:', error);
         }
@@ -69,11 +75,24 @@ const PostForm = ({ isVisible, onClose }) => {
                 <label></label>
                 <input 
                     type="text" 
-                    name="imageInput" 
-                    id="imageInput" 
-                    placeholder="COVER IMAGE URL"
-                    value={image} 
-                    onChange={(post) => setImage(post.target.value)} 
+                    name="photoInput" 
+                    id="photoInput" 
+                    placeholder="COVER PHOTO URL*"
+                    value={photo} 
+                    onChange={(post) => setPhoto(post.target.value)} 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm 
+                    md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-5 focus:outline-periwinkle 
+                    w-full" 
+                />
+
+                <label></label>
+                <input 
+                    type="text" 
+                    name="captionInput" 
+                    id="captionInput" 
+                    placeholder="POST CAPTION*"
+                    value={caption} 
+                    onChange={(post) => setCaption(post.target.value)} 
                     className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm 
                     md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-5 focus:outline-periwinkle 
                     w-full" 
@@ -81,12 +100,12 @@ const PostForm = ({ isVisible, onClose }) => {
 
                 <label></label>
                 <textarea 
-                    id="contentInput" 
+                    id="bodyInput" 
                     rows="5" 
                     type="text" 
-                    name="contentInput" 
-                    value={content} 
-                    onChange={(post) => setContent(post.target.value)} 
+                    name="bodyInput" 
+                    value={body} 
+                    onChange={(post) => setBody(post.target.value)} 
                     className="block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mt-5 focus:outline-periwinkle w-full" 
                     placeholder="WHAT WOULD YOU LIKE TO SAY?*"
                 >    
@@ -98,6 +117,7 @@ const PostForm = ({ isVisible, onClose }) => {
                 >
                     SUBMIT
                 </button>
+                {route ? <Navigate to={route}/> : ""}
             </form>
         </div>
     </div>

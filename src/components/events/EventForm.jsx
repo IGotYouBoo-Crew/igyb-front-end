@@ -59,18 +59,18 @@ const EventForm = ({ isVisible, onClose }) => {
                     X
                 </button>
             </div>
-            <h1 className="mt-2 font-bold text-2xl md:text-3xl text-center ">
-                ENTER YOUR EVENT DETAILS
+            <h1 className="mt-2 font-bold text-2xl md:text-3xl text-center uppercase">
+                Enter your event details
             </h1>
             <form onSubmit={handleSubmit} className="flex flex-col py-2 items-center">
                 <label></label>
                 <input 
                     type="text" 
                     name="hostInput" 
-                    placeholder="HOST/BUSINESS NAME*"
+                    placeholder="Host/business name*"
                     value={host} 
                     onChange={(event) => setHost(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />
 
                 <label></label>
@@ -78,19 +78,19 @@ const EventForm = ({ isVisible, onClose }) => {
                     type="text" 
                     name="imageInput" 
                     id="imageInput" 
-                    placeholder="COVER IMAGE URL"
+                    placeholder="Cover image url"
                     value={image} 
                     onChange={(event) => setImage(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />
 
                 <label></label>
                 <input 
                     type="text" 
-                    placeholder="EVENT TITLE*"
+                    placeholder="Event title*"
                     value={title} 
                     onChange={(event) => setTitle(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />
 
                 <label></label>
@@ -98,10 +98,10 @@ const EventForm = ({ isVisible, onClose }) => {
                     type="text" 
                     name="dateInput" 
                     id="dateInput" 
-                    placeholder="EVENT DATE (DD/MM/YYY)*"
+                    placeholder="Event Date (YYYY/MM/DD)*"
                     value={date} 
                     onChange={(event) => setDate(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />
 
 {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -116,10 +116,10 @@ const EventForm = ({ isVisible, onClose }) => {
                     type="text" 
                     name="startInput" 
                     id="startInput" 
-                    placeholder="START TIME*"
+                    placeholder="Start time (HH:MM, 24hr)*"
                     value={start} 
                     onChange={(event) => setStart(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />    
 
                 <label></label>
@@ -127,10 +127,10 @@ const EventForm = ({ isVisible, onClose }) => {
                     type="text" 
                     name="finishInput" 
                     id="finishInput" 
-                    placeholder="FINISH TIME*"
+                    placeholder="Finish time (HH:MM, 24hr)*"
                     value={finish} 
                     onChange={(event) => setFinish(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />    
 
                 <label></label>
@@ -138,10 +138,10 @@ const EventForm = ({ isVisible, onClose }) => {
                     type="text" 
                     name="ticketLinkInput" 
                     id="ticketLinkInput" 
-                    placeholder="TICKETS/RSVP LINK"
+                    placeholder="Tickets/RSVP link"
                     value={ticketLink} 
                     onChange={(event) => setTicketLink(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />    
 
                 <label></label>
@@ -150,17 +150,17 @@ const EventForm = ({ isVisible, onClose }) => {
                     name="contentInput" 
                     id="contentInput" 
                     rows="5"
-                    placeholder="WRITE A SHORT DESCRIPTION OF YOUR EVENT*"
+                    placeholder="Write a short description of your event*"
                     value={content} 
                     onChange={(event) => setContent(event.target.value)} 
-                    className="block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full" 
+                    className="block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
                 />
                         
                 <button 
                     type="submit"
-                    className="border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base" 
+                    className="border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base uppercase" 
                 >
-                    SUBMIT
+                    Submit
                 </button>
             </form>
         </div>

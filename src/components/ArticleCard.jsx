@@ -26,7 +26,7 @@ const ArticleCard = ({className, postData}) => {
                 <div className='flex items-center gap-x-2 md:gap-x-2.5'>
                     <img src={images.PostProfile1} alt="Post Author Profile" className='rounded-full object-scale-down h-9 w-9 md:h-10 md:w-10' />
                     <h4 className='italic text-sm md:text-xs' >
-                        {postData.author.fullName || "Deleted User"} (@{postData.author.username || "deleteduser"})
+                        (@{postData.author.username || "deleteduser"})
                     </h4>
                 </div>
                 <span className='text-white font-bold italic text-sm md:text-xs'>{postData.date}</span>

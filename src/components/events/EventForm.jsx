@@ -29,7 +29,8 @@ const EventForm = ({ isVisible, onClose }) => {
         // Need to add validation for form fields
 
         try {
-            await createEvent(host, image, title, date, start, finish, ticketLink, content);
+            let eventDate = date.startDate
+            await createEvent(host, image, title, eventDate, start, finish, ticketLink, content);
 
             // Clear the form fields after submission
             setHost('');
@@ -109,20 +110,6 @@ const EventForm = ({ isVisible, onClose }) => {
                 /> */}
                 
 
-                <div >
-                <Datepicker
-                    primaryColor={"amber"} 
-                    asSingle={true} 
-                    placeholder={"EVENT DATE*"}
-                    class=".datepicker"
-                    value={date} 
-                    onChange={(chosenDate) => {
-                        console.log("chosen date:", chosenDate); 
-                        setDate(chosenDate.startDate);
-                    }} 
-                />
-                </div>
-
                 <label></label>
                 <input 
                     type="text" 
@@ -156,6 +143,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     className="formInput " 
                 />    
 
+
                 <label></label>
                 <textarea 
                     type="text" 
@@ -168,6 +156,19 @@ const EventForm = ({ isVisible, onClose }) => {
                     className="formContentInput " 
                 />
                         
+                <div>
+                <Datepicker
+                    primaryColor={"amber"} 
+                    asSingle={true} 
+                    readOnly={true} 
+                    placeholder={"EVENT DATE*"}
+                    value={date} 
+                    onChange={(chosenDate) => {
+                        console.log("chosen date:", chosenDate); 
+                        setDate(chosenDate);
+                    }} 
+                />
+                </div>
                 <button 
                     type="submit"
                     className="buttonSubmit " 

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 // import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import { createEvent } from './createEvent';
+import Datepicker from 'react-tailwindcss-datepicker';
 
 
 const EventForm = ({ isVisible, onClose }) => {
@@ -16,6 +17,15 @@ const EventForm = ({ isVisible, onClose }) => {
     const [ticketLink, setTicketLink] = useState("");
     const [content, setContent] = useState("");
     
+    const [selectedDate, setSelectedDate] = useState({
+        startDate: null,
+        endDate: null});
+
+    const handleDateChange = (dateValue) => {
+        console.log("dateValue:", dateValue);
+        setSelectedDate(dateValue);
+    }
+
     const handleClose = (event) => {
         if (event.target.id === 'eventForm') onClose();
     };
@@ -70,7 +80,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Host/business name*"
                     value={host} 
                     onChange={(event) => setHost(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formInput" 
                 />
 
                 <label></label>
@@ -81,7 +91,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Cover image url"
                     value={image} 
                     onChange={(event) => setImage(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formInput" 
                 />
 
                 <label></label>
@@ -90,10 +100,10 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Event title*"
                     value={title} 
                     onChange={(event) => setTitle(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formInput" 
                 />
 
-                <label></label>
+                {/* <label></label>
                 <input 
                     type="text" 
                     name="dateInput" 
@@ -101,15 +111,17 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Event Date (YYYY/MM/DD)*"
                     value={date} 
                     onChange={(event) => setDate(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formInput" 
+                /> */}
+                
+                <div className="formInput">
+                <Datepicker
+                    useRange={false} 
+                    asSingle={true} 
+                    value={selectedDate} 
+                    onChange={handleDateChange}
                 />
-
-{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <DatePicker 
-    label="EVENT DATE (MM/DD/YYY)*"
-    className="bg-white label:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline" 
-    />
-</LocalizationProvider> */}
+                </div>
 
                 <label></label>
                 <input 
@@ -119,7 +131,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Start time (HH:MM, 24hr)*"
                     value={start} 
                     onChange={(event) => setStart(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formInput" 
                 />    
 
                 <label></label>
@@ -130,7 +142,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Finish time (HH:MM, 24hr)*"
                     value={finish} 
                     onChange={(event) => setFinish(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formInput" 
                 />    
 
                 <label></label>
@@ -141,7 +153,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Tickets/RSVP link"
                     value={ticketLink} 
                     onChange={(event) => setTicketLink(event.target.value)} 
-                    className="truncate placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formInput" 
                 />    
 
                 <label></label>
@@ -153,12 +165,12 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Write a short description of your event*"
                     value={content} 
                     onChange={(event) => setContent(event.target.value)} 
-                    className="block placeholder:font-bold text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase" 
+                    className="formContentInput" 
                 />
                         
                 <button 
                     type="submit"
-                    className="border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base uppercase" 
+                    className="buttonSubmit" 
                 >
                     Submit
                 </button>
@@ -168,4 +180,4 @@ const EventForm = ({ isVisible, onClose }) => {
   );
 };
 
-export default EventForm
+export default EventForm;

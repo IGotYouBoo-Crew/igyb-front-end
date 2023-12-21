@@ -35,7 +35,7 @@ const SingleEventContainer = () => {
           <section className="text-center lg:flex-row-reverse lg:justify-between items-center lg:items-start lg:text-left lg:pb-10 lg:px-12">
             <img
             src={event.image}
-            alt="event image"
+            alt="event title"
             className="rounded-3xl mt-2 object-cover w-full h-auto lg:w-1/2"/>
             <div className="mt-6 text-center lg:text-left">
               <h1 className="text-3xl font-bold lg:text-4xl pt-10 capitalize">{event.title}</h1>
@@ -50,8 +50,8 @@ const SingleEventContainer = () => {
             </div>
           </section>
           {event.ticketLink ? (
-              <a target="_blank"href={event.ticketLink}>
-                <button rel="noreferrer" className="bg-white text-indigo font-bold rounded-3xl px-6 py-2 my-5 uppercase">
+              <a target="_blank" href={event.ticketLink} rel="noreferrer">
+                <button  className="bg-white text-indigo font-bold rounded-3xl px-6 py-2 my-5 uppercase">
                     Tickets/RSVP
                 </button>
               </a>

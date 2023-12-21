@@ -29,6 +29,10 @@ body {
     @apply border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base uppercase;
   }
 
+  .textPage {
+    @apply rounded-3xl relative px-20 py-14 md:px-40 lg:px-56 text-center ;
+  }
+
   .textH1 {
     @apply text-2xl font-bold uppercase ;
   }

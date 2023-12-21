@@ -7,10 +7,10 @@ const AboutPage = () => {
     <MainLayout>
       <section>
         <img className="relative -mt-4" src={images.AboutImage} alt="Header" />
-        <div className="bg-sea rounded-3xl -mt-12 relative px-20 py-14 md:px-40 lg:px-56 text-center text-background">
+        <div className="textPage bg-sea text-background ">
           <h1 className="textH1 ">About Us</h1>
           
-          <h2 className="textH1 ">Our 'Why'</h2>
+          <h2 className="textH2 ">Our 'Why'</h2>
           <p className="textP ">
             DudeBros Incorporated {"(DudeBros Inc.)"} were experiencing staff
             retention problems. Despite their best intentions and efforts, their

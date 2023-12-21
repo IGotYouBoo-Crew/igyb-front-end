@@ -32,13 +32,13 @@ const SingleEventContainer = () => {
     <section className="flex-1 bg-indigo rounded-3xl relative flex flex-col pb-5 px-8 text-center text-white">
       {event ? (
         <>
-          <section className="text-center lg:flex-row-reverse lg:justify-between items-center lg:items-start lg:text-left lg:pb-10 lg:px-12">
+          <section className="text-center lg:flex lg:flex-row-reverse lg:justify-between items-center lg:items-start lg:text-left lg:pb-10 lg:px-12">
             <img
             src={event.image}
             alt="event title"
-            className="rounded-3xl mt-2 object-cover w-full h-auto lg:w-1/2"/>
+            className="rounded-3xl mt-2 lg:mt-4 object-cover w-full h-auto lg:w-1/2 items-center "/>
             <div className="mt-6 text-center lg:text-left">
-              <h1 className="text-3xl font-bold lg:text-4xl pt-10 capitalize">{event.title}</h1>
+              <h1 className="text-3xl font-bold lg:text-4xl pt-10 lg:pt-0 capitalize">{event.title}</h1>
               <h3 className="text-md text-white uppercase">{event.date}</h3>
               <h3 className="text-md text-white uppercase">{event.start} - {event.finish}</h3>
               <div className="text-white mt-6 text-center lg:text-left">
@@ -56,14 +56,6 @@ const SingleEventContainer = () => {
                 </button>
               </a>
           ) : null}
-          <div className="flex flex-row justify-between text-white text-xs md:text-base pb-5 ">
-            <button className="border-2 border-white font-bold rounded-3xl px-6 py-2 mt-2 uppercase">
-              Previous
-            </button>
-            <button className="border-2 border-white font-bold rounded-3xl px-6 py-2 mt-2 uppercase">
-              Next
-            </button>
-          </div>
         </>
       ) : (
         "We're either busy loading the event, or it doesn't exist... Hang tight, Superstar!"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BreadCrumbs from "../../../components/BreadCrumbs";
 import CommentSection from "./CommentSection";
+import { images } from '../../../constants'
 
 const breadCrumbsData = [
   { name: "Home", link: "/" },
@@ -42,12 +43,21 @@ const PostContainer = () => {
         <BreadCrumbs data={breadCrumbsData} />
         {post ? (
           <>
-            <h4 className="text-sm font-bold text-white opacity-70 md:px-20 lg:px-12 lg:mt-4">
-              By (@{post.author.username || "deleteduser"})
-            </h4>
-            <h4 className="text-sm text-white opacity-70 md:px-20 lg:px-12 ">
-              created on {post.date}
-            </h4>
+            <div className="flex items-center md:px-20 lg:px-12 lg:mt-4">
+              <img 
+                src={post.author.profilePicture || images.ProfileDefault} 
+                alt="profile"
+                className="rounded-full h-9 mr-1"
+              />
+              <div className="ml-2">
+                <h4 className="text-sm font-bold text-white opacity-70">
+                  By @{post.author.username || "deleteduser"}
+                </h4>
+                <h4 className="text-sm text-white opacity-60 ">
+                  created on {post.date}
+                </h4>
+              </div>
+            </div>
             <div className="lg:flex lg:flex-row-reverse lg:justify-between md:px-20 lg:px-12 lg:pb-10">
               <img
                 src={post.photo}

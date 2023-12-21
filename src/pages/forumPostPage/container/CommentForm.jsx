@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { createComment } from "./createComment";
-import { Navigate } from "react-router-dom";
 
 const CommentForm = () => {
   const [desc, setDesc] = useState("");
-  const [route, setRoute] = useState("");
 
 
   const handleSubmit = async (e) => {
@@ -13,7 +11,7 @@ const CommentForm = () => {
     try{
       await createComment(desc, parentPostId);
 
-      setRoute("/forum/" + parentPostId);
+      window.location.reload();
 
       // Clear the form fields after submission
       setDesc('');
@@ -40,10 +38,9 @@ const CommentForm = () => {
           type="submit"
           className="px-6 py-2.5 rounded-3xl bg-periwinkle border border-periwinkle text-white"
         >
-          Submit
+          Send
         </button>
       </div>
-      {route ? <Navigate to={route}/> : ""}
     </form>
   );
 };

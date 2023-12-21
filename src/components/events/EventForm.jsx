@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-
 import { createEvent } from './createEvent';
-import Datepicker from 'react-tailwindcss-datepicker';
 
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Datepicker from 'react-tailwindcss-datepicker';   
 
 const EventForm = ({ isVisible, onClose }) => {
     const [host, setHost] = useState("");
     const [image, setImage] = useState("");
     const [title, setTitle] = useState("");
-    const [date, setDate] = useState("");
+    const [date, setDate] = useState({
+        startDate: null,
+        endDate: null,
+    });
+
     const [start, setStart] = useState("");
     const [finish, setFinish] = useState("");
     const [ticketLink, setTicketLink] = useState("");
     const [content, setContent] = useState("");
     
-    const [selectedDate, setSelectedDate] = useState({
-        startDate: null,
-        endDate: null});
 
-    const handleDateChange = (dateValue) => {
-        console.log("dateValue:", dateValue);
-        setSelectedDate(dateValue);
-    }
 
     const handleClose = (event) => {
         if (event.target.id === 'eventForm') onClose();
@@ -80,7 +74,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Host/business name*"
                     value={host} 
                     onChange={(event) => setHost(event.target.value)} 
-                    className="formInput" 
+                    className="formInput " 
                 />
 
                 <label></label>
@@ -91,7 +85,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Cover image url"
                     value={image} 
                     onChange={(event) => setImage(event.target.value)} 
-                    className="formInput" 
+                    className="formInput " 
                 />
 
                 <label></label>
@@ -100,7 +94,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Event title*"
                     value={title} 
                     onChange={(event) => setTitle(event.target.value)} 
-                    className="formInput" 
+                    className="formInput " 
                 />
 
                 {/* <label></label>
@@ -114,12 +108,17 @@ const EventForm = ({ isVisible, onClose }) => {
                     className="formInput" 
                 /> */}
                 
-                <div className="formInput">
+
+                <div className=" ">
                 <Datepicker
+                    primaryColor={"yellow"} 
                     useRange={false} 
                     asSingle={true} 
-                    value={selectedDate} 
-                    onChange={handleDateChange}
+                    value={date} 
+                    onChange={(chosenDate) => {
+                        console.log("chosen date:", chosenDate); 
+                        setDate(chosenDate.startDate);
+                    }} 
                 />
                 </div>
 
@@ -131,7 +130,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Start time (HH:MM, 24hr)*"
                     value={start} 
                     onChange={(event) => setStart(event.target.value)} 
-                    className="formInput" 
+                    className="formInput " 
                 />    
 
                 <label></label>
@@ -142,7 +141,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Finish time (HH:MM, 24hr)*"
                     value={finish} 
                     onChange={(event) => setFinish(event.target.value)} 
-                    className="formInput" 
+                    className="formInput " 
                 />    
 
                 <label></label>
@@ -153,7 +152,7 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Tickets/RSVP link"
                     value={ticketLink} 
                     onChange={(event) => setTicketLink(event.target.value)} 
-                    className="formInput" 
+                    className="formInput " 
                 />    
 
                 <label></label>
@@ -165,12 +164,12 @@ const EventForm = ({ isVisible, onClose }) => {
                     placeholder="Write a short description of your event*"
                     value={content} 
                     onChange={(event) => setContent(event.target.value)} 
-                    className="formContentInput" 
+                    className="formContentInput " 
                 />
                         
                 <button 
                     type="submit"
-                    className="buttonSubmit" 
+                    className="buttonSubmit " 
                 >
                     Submit
                 </button>

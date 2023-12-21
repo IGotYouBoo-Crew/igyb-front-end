@@ -18,7 +18,7 @@ export default function CreateAccountForm() {
         event.preventDefault();
         let newFormData = getDataFromListOfInputs(inputsList);
         let validationError =
-            passwordCheckFailed(newFormData.password) || emailCheckFailed(newFormData.email);
+            (newFormData.password && passwordCheckFailed(newFormData.password)) || (newFormData.email && emailCheckFailed(newFormData.email))
         if (validationError) {
             setError(validationError);
             return;
@@ -31,9 +31,9 @@ export default function CreateAccountForm() {
         if (formData.username.length > 0) {
             createAccount();
         }
-        
+
         async function createAccount(){
-            let responseData = postNewUser(formData)
+            let responseData = await postNewUser(formData)
             if (checkErrorInResponse(responseData)){
                 setError(responseData.errors);
                 return;

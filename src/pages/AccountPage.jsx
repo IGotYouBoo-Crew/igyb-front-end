@@ -24,8 +24,7 @@ export default function AccountPage() {
     }, [])
     
     async function getSignedInUserData(){
-        console.log(userData.username)
-        let response = await fetch(backendUrl + "/account/" + userData.username)
+        let response = await fetch(backendUrl + "/account/" + userData.username, {credentials: "include"})
         let responseData = await response.json()
         responseData = responseData.data
         responseData.role = responseData.role.name

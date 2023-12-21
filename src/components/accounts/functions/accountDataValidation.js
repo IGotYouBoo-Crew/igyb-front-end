@@ -8,6 +8,7 @@
  * @returns {boolean}
  */
 export function passwordCheckFailed(password) {
+    let response = false;
     let passwordRequirements = [
         {
             errorMessage: "Password length must be greater than 8",
@@ -22,7 +23,6 @@ export function passwordCheckFailed(password) {
             test: /[0-9]/.test(password),
         },
     ];
-    let response = false;
     for (const requirement of passwordRequirements) {
         if (!requirement.test) {
             // setError(requirement.errorMessage);
@@ -57,4 +57,8 @@ export function emailCheckFailed(email) {
         }
     }
     return response;
+}
+
+export function usernameCheckFailed(username){
+    
 }

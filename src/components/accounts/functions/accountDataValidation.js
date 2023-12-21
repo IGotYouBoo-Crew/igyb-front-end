@@ -1,3 +1,12 @@
+
+/**
+ * Description placeholder
+ * @date 21/12/2023 - 11:04:19
+ *
+ * @export
+ * @param {String} password
+ * @returns {boolean}
+ */
 export function passwordCheckFailed(password) {
     let passwordRequirements = [
         {
@@ -23,6 +32,16 @@ export function passwordCheckFailed(password) {
     }
     return response;
 }
+
+
+/**
+ * Description placeholder
+ * @date 21/12/2023 - 11:04:37
+ *
+ * @export
+ * @param {*} email
+ * @returns {boolean}
+ */
 export function emailCheckFailed(email) {
     let emailRequirements = [
         {

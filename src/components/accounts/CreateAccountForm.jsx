@@ -5,7 +5,7 @@ import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
 import { emailCheckFailed, passwordCheckFailed } from "./functions/accountDataValidation";
-import getDataFromListOfInputs from "../getDataFromListOfInputs";
+import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
 
 const backendURL = process.env.REACT_APP_BACKEND_URL;
 

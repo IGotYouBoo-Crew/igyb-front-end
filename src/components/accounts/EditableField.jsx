@@ -1,32 +1,63 @@
 import { useState } from "react";
 import FormInput from "../FormInput";
-import { buttonStyle } from "../../constants/styles";
+import { buttonStyle, imageStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoPencil } from "react-icons/io5";
 
-export default function EditableField({ fieldName, fieldData }) {
+export default function EditableField({ fieldName, fieldData, isPhoto = false }) {
     let [editing, setEditing] = useState(false);
+    let [hovering, setHovering] = useState(false)
+
+    function handleHover(){
+        setHovering(true)
+    }
+    function handleHoverEnd(){
+        setHovering(false)
+    }
 
     function handleClick(e) {
         e.preventDefault();
         setEditing(!editing);
     }
 
-    return (
-        <div>
-            {editing ? (
-                <div className="flex flex-row items-center justify-between">
-                    <FormInput value={fieldName} location={"accounts"} placeholder={fieldData} />
-                    <IoClose className="text-2xl -mt-6" onClick={(e) => handleClick(e)} />
-                </div>
-            ) : (
+    let visibility = {
+        true: " opacity-100 ml-4 ",
+        false: " opacity-0 "
+    }
+
+    if (editing) {
+        return (
+            <div className="flex flex-row items-center justify-between">
+                <FormInput value={fieldName} location={"accounts"} placeholder={fieldData} />
+                <IoClose className="text-2xl -mt-6" onClick={(e) => handleClick(e)} />
+            </div>
+        );
+    } else {
+        return (
+            <div className="flex flex-row items-center">
                 <button
                     onClick={(e) => handleClick(e)}
-                    className={buttonStyle.subtle + colourways.accounts.subtleButton}
+                    className={
+                        buttonStyle.subtle +
+                        colourways.accounts.subtleButton +
+                        " flex flex-row items-center whitespace-nowrap"
+                    }
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleHoverEnd}
                 >
-                    {fieldName} : {fieldData || "--- Change ---"}
+                    {fieldName} :{" "}
+                    {isPhoto ? (
+                        <img
+                            src={fieldData}
+                            alt="Profile Pic"
+                            className={imageStyle.profilePicture}
+                        ></img>
+                    ) : (
+                        fieldData || "--- Change ---"
+                    )}
                 </button>
-            )}
-        </div>
-    );
+                <IoPencil className={"text-xl duration-300 ease-in-out transition-all mb-6 -ml-2  " + visibility[hovering]} />
+            </div>
+        );
+    }
 }

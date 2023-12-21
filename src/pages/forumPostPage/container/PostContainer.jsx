@@ -9,12 +9,6 @@ import PostUpdateForm from "./PostUpdateForm";
 import { deletePost } from "./deletePost";
 import PostDeleteForm from "./PostDeleteForm";
 
-const breadCrumbsData = [
-  { name: "Home", link: "/" },
-  { name: "Forum", link: "/forum" },
-  // {name: "Post title", link: '/forum/1'},
-];
-
 const PostContainer = ({post}) => {
   let { userData } = useContext(UserContext);
   console.log(post.author)
@@ -34,10 +28,18 @@ const PostContainer = ({post}) => {
     setAffectedPost(null);
   }
 
+  const breadCrumbsData = [
+    { name: "Home", link: "/" },
+    { name: "Forum", link: "/forum" },
+    {name: post.title, link: `/forum/${post._id}`},
+  ];
+
   return (
     <div>
       <article className="flex-1 bg-honey rounded-3xl relative flex flex-col px-6 py-1">
-        <BreadCrumbs data={breadCrumbsData} />
+        <BreadCrumbs data={breadCrumbsData} 
+          className="capitalize"
+        />
         {post ? (
           <>
             <div className='text-white text-lg flex items-center gap-x-5 mt-3 justify-end md:px-20 lg:px-12 relative z-20'>
@@ -61,7 +63,7 @@ const PostContainer = ({post}) => {
                 )}
             </div>
             
-            <div className="flex items-center md:px-20 lg:px-12 -mt-7">
+            <div className="flex items-center md:px-20 lg:px-12 pb-3 pt-5 -mt-7">
               <img 
                 src={post.author.profilePicture || images.ProfileDefault} 
                 alt="profile"
@@ -89,7 +91,7 @@ const PostContainer = ({post}) => {
                     {post.title}
                   </h1>
                   <div className="text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 py-3">
-                    <p>{post.body}</p>
+                    <p className="mb-4 lg:mb-0">{post.body}</p>
                   </div>
                 </div>
               </div>

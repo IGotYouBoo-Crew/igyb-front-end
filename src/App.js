@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom"
 import './App.css';
 import HomePage from './pages/home/HomePage';
 import AboutPage from "./pages/AboutPage";
-import EventsPage from "./pages/EventsPage";
+import EventsPage from "./pages/events/EventsPage";
 import ContactPage from "./pages/ContactPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
@@ -11,6 +11,7 @@ import ForumPage from "./pages/forum/ForumPage";
 import ForumPostPage from "./pages/forumPostPage/ForumPostPage";
 import SignInPage from "./pages/SignInPage";
 import { useEffect } from "react";
+import SingleEventPage from "./pages/events/SingleEventPage";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Route index path="/forum" element={<ForumPage />} />
         <Route path="/forum/:id" element={<ForumPostPage />} />
         <Route index path="/events" element={<EventsPage />} />
+        <Route index path="/events/:id" element={<SingleEventPage />} />
         <Route index path="/contact" element={<ContactPage />} />
         <Route index path="/terms-and-conditions" element={<TermsPage />} />
         <Route index path="/privacy-policy" element={<PrivacyPage />} />

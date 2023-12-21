@@ -1,18 +1,19 @@
-async function createEvent(host, image, title, date, start, finish, ticketLink, content) {
-    console.log(host, image, title, date, start, finish, ticketLink, content);
+async function createEvent(host, image, title, eventDate, start, finish, ticketLink, content) {
+    console.log(host, image, title, eventDate, start, finish, ticketLink, content);
 
     let result = await fetch(
-        process.env.REACT_APP_BACKEND_URL + "/events/newEvent",
+        process.env.REACT_APP_BACKEND_URL + "/events",
         {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
+            credentials: "include",
             body: JSON.stringify({
                 host: host, 
                 image: image, 
                 title: title, 
-                date: date, 
+                date: eventDate, 
                 start: start,
                 finish: finish,
                 ticketLink: ticketLink,

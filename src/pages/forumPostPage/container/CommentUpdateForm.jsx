@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import CommentSection from "./CommentSection";
-// import { updateComment } from "./updateComment";
 
 const CommentUpdateForm = ({commentData, initialText = "", formCancelHandler = null, formSubmitHandler, loading = false}) => {
   const [desc, setDesc] = useState(initialText);
@@ -20,7 +18,6 @@ const CommentUpdateForm = ({commentData, initialText = "", formCancelHandler = n
     } 
   }
 
-//   let parentPostId = window.location.pathname.split("/")[2];
   return (
     <form onSubmit={handleSubmit} className="flex flex-col bg-white rounded-3xl items-end p-4 mt-6 mb-4">
       <textarea
@@ -31,7 +28,6 @@ const CommentUpdateForm = ({commentData, initialText = "", formCancelHandler = n
         onChange={(e) => setDesc(e.target.value)}
         className="w-full focus:outline-none bg-transparent"
         rows="2"
-        // initialText={commentData.desc}
       />
       <div className="flex flex-col-reverse gap-y-2 items-center gap-x-2 pt-2 min-[420px]:flex-row">
         {formCancelHandler && (
@@ -46,7 +42,6 @@ const CommentUpdateForm = ({commentData, initialText = "", formCancelHandler = n
             className="px-6 py-2.5 rounded-3xl bg-periwinkle border border-periwinkle text-white"
             type="submit"
             disabled={loading}
-            // onClick={}
         >
             Update
         </button>

@@ -4,6 +4,7 @@ import Hero from './container/Hero'
 import Posts from './container/Posts'
 
 const ForumPage = () => {
+
   return (
     <MainLayout>
         <section>

@@ -51,23 +51,23 @@ const EventForm = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
   return (
     <div 
-        className="z-10 fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center"
+        className="z-10 fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center "
         id="eventForm"
         onClick={handleClose}
     >
-        <div className="max-h-[83vh] mt-20 overflow-y-auto pt-2 px-6 lg:p-8 w-3/4 md:w-2/3 md:mt-14 lg:mt-16 lg:py-3 lg:px-10 bg-honey text-white rounded-3xl">
-            <div className="text-right"> 
+        <div className="max-h-[83vh] mt-20 overflow-y-auto pt-2 px-6 lg:p-8 w-3/4 md:w-2/3 md:mt-14 lg:mt-16 lg:py-3 lg:px-10 bg-honey text-white rounded-3xl ">
+            <div className="text-right "> 
                 <button 
-                    className="text-white text-xl text-bold" 
+                    className="text-white text-xl text-bold " 
                     onClick={() => onClose()}
                 >
                     X
                 </button>
             </div>
-            <h1 className="mt-2 font-bold text-2xl md:text-3xl text-center uppercase">
+            <h1 className="mt-2 font-bold text-2xl md:text-3xl text-center uppercase ">
                 Enter your event details
             </h1>
-            <form onSubmit={handleSubmit} className="flex flex-col py-2 items-center">
+            <form onSubmit={handleSubmit} className="flex flex-col py-2 items-center ">
                 <label></label>
                 <input 
                     type="text" 

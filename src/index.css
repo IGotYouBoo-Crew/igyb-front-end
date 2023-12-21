@@ -14,18 +14,30 @@ body {
 
 @layer components {
   .formInput {
-    @apply bg-white rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase;
+    @apply bg-white rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full placeholder:uppercase;
     @apply text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD];
     @apply truncate placeholder:font-bold;
   }
 
   .formContentInput {
-    @apply bg-white rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase;
+    @apply bg-white rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full placeholder:uppercase;
     @apply text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD];
-    @apply block placeholder:font-bold; 
+    @apply block placeholder:font-bold;
   }
 
   .buttonSubmit {
-    @apply border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base uppercase
+    @apply border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base uppercase;
+  }
+
+  .textH1 {
+    @apply text-2xl font-bold uppercase ;
+  }
+
+  .textH2 {
+    @apply text-xl font-bold uppercase mt-5 ;
+  }
+
+  .textP {
+    @apply text-base text-justify my-3;
   }
 }

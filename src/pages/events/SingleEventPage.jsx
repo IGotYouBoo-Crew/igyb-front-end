@@ -13,7 +13,7 @@ const SingleEventPage = () => {
   return (
     <MainLayout>
         <section>
-            <div className="px-6 py-2">
+            <div className="px-6 py-2 ">
                 <BreadCrumbs data={breadCrumbsData} />
             </div>
             <SingleEventContainer />

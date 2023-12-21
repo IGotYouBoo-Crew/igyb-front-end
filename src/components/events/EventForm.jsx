@@ -50,7 +50,7 @@ const EventForm = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
   return (
     <div 
-        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center"
+        className="z-10 fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center"
         id="eventForm"
         onClick={handleClose}
     >
@@ -109,11 +109,12 @@ const EventForm = ({ isVisible, onClose }) => {
                 /> */}
                 
 
-                <div className=" ">
+                <div >
                 <Datepicker
-                    primaryColor={"yellow"} 
-                    useRange={false} 
+                    primaryColor={"amber"} 
                     asSingle={true} 
+                    placeholder={"EVENT DATE*"}
+                    class=".datepicker"
                     value={date} 
                     onChange={(chosenDate) => {
                         console.log("chosen date:", chosenDate); 

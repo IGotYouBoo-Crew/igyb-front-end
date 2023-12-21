@@ -6,6 +6,12 @@ body {
   background-color: #543786;
 }
 
+.datePicker {
+  border-radius: 1.5rem;
+  width: 100%;
+  margin: 1rem;
+}
+
 @layer components {
   .formInput {
     @apply bg-white rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full uppercase;

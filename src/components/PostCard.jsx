@@ -17,7 +17,7 @@ const PostCard = ({className, postData}) => {
             </div>
             <div className='mt-5 flex justify-between flex-wrap items-center gap-x-4 text-gray-400'>
                 <div className='flex items-center justify-between'>
-                    <img src={postData.author.photo || images.PostProfile1} alt="post 1 author" className='rounded-full h-8 mr-1' />
+                    <img src={postData.author.profilePicture || images.ProfileDefault} alt="post 1 author" className='rounded-full h-8 mr-1' />
                     <h4 className='italic text-xs'>
                         By (@{postData.author.username || "deleteduser"})
                     </h4>

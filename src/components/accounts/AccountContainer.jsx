@@ -5,9 +5,9 @@ import EditableField from "./EditableField";
 import { IoClose, IoPencil } from "react-icons/io5";
 import UserContext from "../../contexts/UserContext";
 import patchUser from "./functions/patchUser";
-import checkErrorInResponse from "./functions/checkErrorInResponse";
+import checkErrorInResponse from "../functions/checkErrorInResponse";
 import getCookieResponse from "./functions/getCookieResponse";
-import getDataFromListOfInputs from "../getDataFromListOfInputs";
+import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
 import { emailCheckFailed, passwordCheckFailed } from "./functions/accountDataValidation";
 
 export default function AccountContainer({ accountData }) {

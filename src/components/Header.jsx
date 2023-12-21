@@ -4,6 +4,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import { NavLink} from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
+import getCookieResponse from './accounts/functions/getCookieResponse';
 
 const navItemsInfo = [
     {name: "About"},
@@ -24,7 +25,7 @@ const NavItem = ({name}) => {
         </li>
     )
 }
-const backendUrl = process.env.REACT_APP_BACKEND_URL
+
 const Header = () => {
     const [navIsVisible, setNavIsVisible] = useState(false);
     let {userData, setUserData} = useContext(UserContext)
@@ -40,8 +41,7 @@ const Header = () => {
     }, [])
 
     async function checkCookie() {
-        let response = await fetch(backendUrl + "/account/cookieCheck", { method: "POST", credentials: 'include' });
-        const responseData = await response.json();
+        const responseData = await getCookieResponse()
         if (!responseData.username){
             setUserData(false)
         } else {

@@ -4,8 +4,8 @@ import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
-import getDataFromListOfInputs from "../getDataFromListOfInputs";
-import checkErrorInResponse from "./functions/checkErrorInResponse";
+import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
+import checkErrorInResponse from "../functions/checkErrorInResponse";
 import postSignIn from "./functions/postSignIn";
 
 export default function SignInForm() {

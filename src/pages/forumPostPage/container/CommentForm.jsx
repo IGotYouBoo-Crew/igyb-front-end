@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { createComment } from "./createComment";
+import UserContext from "../../../contexts/UserContext";
+import { NavLink } from "react-router-dom";
 
 const CommentForm = () => {
   const [desc, setDesc] = useState("");
+  let { userData } = useContext(UserContext);
+
 
 
   const handleSubmit = async (e) => {
@@ -22,6 +26,9 @@ const CommentForm = () => {
 
   let parentPostId = window.location.pathname.split("/")[2];
   return (
+    <>
+    {userData ? 
+
     <form onSubmit={handleSubmit} className="flex flex-col bg-white rounded-3xl items-end p-4 mt-6 mb-4">
       <textarea
         id="descInput"
@@ -42,6 +49,14 @@ const CommentForm = () => {
         </button>
       </div>
     </form>
+    :
+    <NavLink to="/sign-in" className="underline text-center text-white">
+      <button className="px-4 py-2 border-2 border-white rounded-3xl">
+        Sign In to create a comment
+      </button>
+    </NavLink>
+    }
+    </>
   );
 };
 

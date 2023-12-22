@@ -42,6 +42,10 @@ Yep, we did it guys! Our MERN app uses all those four building blocks and more ð
 
 You can see it in action in both our [Frontend Repo](https://github.com/IGotYouBoo-Crew/igyb-front-end) and our [Backend Repo](https://github.com/IGotYouBoo-Crew/igyb-back-end).
 
+Additional libraries that we incorporated are detailed below:
+
+# <span style="color:red"> *Libraries /packages details* </span>
+
 
 
 # R2: Write well designed code that:
@@ -52,15 +56,46 @@ You can see it in action in both our [Frontend Repo](https://github.com/IGotYouB
 ## - Applies Object Oriented (OO) principles/patterns
 ## - Uses appropriate data structures
 
-We also learned that full stack projects have loooots of files - even files that are well organised!
+We learned that full stack projects have loooots of files - even files that are well organised and following a set pattern!
 
-We also learned that even though Tailwind is AMAZING to set formatting and styles in line, it doesn't end up looking super DRY when similar objects are needing slightly different formatting.
+We also learned that while Tailwind is AMAZING to set formatting and styles inline, it doesn't always end up looking super DRY when similar objects are needing slightly different specs (which can't just be put into a custom class and passed across elements). Technically, it's still DRY - as you *aren't* able to repeat the bulk of those styles - it just doesn't look super slick.
+
+TAILWIND IN USE, WITH DIFFERENT FORMATTING REQUIRED: 
+
+![Tailwind classnames](docs/tailwindClassnames.png)
+
+TAILWIND CUSTOM STYLES: 
+
+![Tailwind components](docs/tailwindComponents.png)
+
+![Tailwind updates](docs/tailwindUpdates.png)
+
+
+# <span style="color:red"> *more here* </span>
 
 <br>
 
 # R3: Employ and utilise proper source control methodology (git)
 
 Goodness gracious, we went HARD on this one! 
+
+As of the 17th December, our code frequency graphs show how dedicated we've been:
+
+![Backend graph](docs/backendGraph.png)
+
+![Frontend graph](docs/frontendGraph.png)
+
+The approach we took was to stay away from anyone working in the **main branch**, in order to lessen any potential/accidental conflicts or overrides.
+
+We each created our **own branches** off the main based on our individual focus/features. Within these branches, we would make our changes and commits.
+
+When we were ready to merge into main, we'd **rebase our branch** first. This ensured that any pull requests that happened *while* we were working on our branch would automatically be incorporated in the merge, and no one accidentally 'undoes' any of the progress we had collectively been making.
+
+Once this rebase was complete, we'd make a **pull request**. We decided to include a requirement for a second team member to approve any pull request: this way, it just covered our butts having a second set of eyes scanning over the additions and deletions that were being brought into the main code for additional peace of mind.
+
+
+
+
 
 <br>
 
@@ -196,13 +231,9 @@ FINISHED DEPLOYED PAGES FOR FORUM/POSTS:
 
 # R5: Produce a working application that meets client and user needs
 
-We're very proud of the I Got You, Boo forum (as are DudeBros Inc. and our users!). The IGYB page can be found here: https://igotyouboo.netlify.app/
+We're very proud of the I Got You, Boo forum (as are DudeBros Inc. and our users!). 
 
-Once the majority of our site was deployed and functional, we were able to cross reference with an easy-to-read production testing table (based on the *Revised User Stories* that were completed in Part A), and ensure that we covered all bases:
-
-![Production testing table](docs/production_test_progress.png)
-
-# <span style="color:red"> *ADD UPDATED/COMPLETE PRODUCTION TESTING TABLE BEFORE SUBMISSION* </span>
+The IGYB page can be found here: https://igotyouboo.netlify.app/
 
 <br>
 
@@ -219,6 +250,13 @@ We've utilised Netlify for the front end, and Heroku for the back end - so hoste
 # R8: Provides evidence of user testing:
 ## - In the development environment
 ## - In the production environment
+
+Once the majority of our site was deployed and functional, we were able to cross reference with an easy-to-read production testing table (based on the *Revised User Stories* that were completed in Part A), and ensure that we covered all bases:
+
+![Production testing table](docs/production_test_progress.png)
+
+# <span style="color:red"> *ADD UPDATED/COMPLETE PRODUCTION TESTING TABLE BEFORE SUBMISSION* </span>
+
 <br>
 
 # R9: A link (URL) to your deployed website

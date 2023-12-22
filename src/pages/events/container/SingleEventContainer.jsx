@@ -39,12 +39,12 @@ const SingleEventContainer = () => {
             className="rounded-3xl mt-2 lg:mt-4 object-cover w-full h-auto lg:w-1/2 items-center "/>
             <div className="mt-6 text-center lg:text-left ">
               <h1 className="text-3xl font-bold lg:text-4xl pt-10 lg:pt-0 capitalize ">{event.title}</h1>
-              <h3 className="text-md text-white uppercase ">{event.date}</h3>
-              <h3 className="text-md text-white uppercase ">{event.start} - {event.finish}</h3>
-              <div className="text-white mt-6 text-center lg:text-left ">
+              <h3 className="text-md uppercase ">{event.date}</h3>
+              <h3 className="text-md uppercase ">{event.start} - {event.finish}</h3>
+              <div className= "mt-6 text-center lg:text-left ">
                 <div className="text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 py-3 ">
                   <p>{event.content}</p>
-                  <h4 className="text-sm font-bold text-white opacity-70 md:px-20 lg:px-12 mt-4 ">Event created by @{event.author.username || " one of our Superstars!"}</h4>
+                  <h4 className="text-sm font-bold opacity-70 md:px-20 lg:px-12 mt-4 ">Event created by @{event.author.username || " one of our Superstars!"}</h4>
                 </div>
               </div>
             </div>

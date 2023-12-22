@@ -52,7 +52,7 @@ const UpdateEventForm = ({
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="formInput "
+              className="formInputHalf "
               rows="2"
             />
           </div>
@@ -67,7 +67,7 @@ const UpdateEventForm = ({
               type="text"
               value={host}
               onChange={(e) => setHost(e.target.value)}
-              className="formInput "
+              className="formInputHalf  "
               rows="2"
             />
           </div>
@@ -84,7 +84,7 @@ const UpdateEventForm = ({
               type="text"
               value={start}
               onChange={(e) => setStart(e.target.value)}
-              className="formInput "
+              className="formInputHalf  "
               rows="2"
             />
           </div>
@@ -99,7 +99,7 @@ const UpdateEventForm = ({
               type="text"
               value={finish}
               onChange={(e) => setFinish(e.target.value)}
-              className="formInput "
+              className="formInputHalf "
               rows="2"
             />
           </div>

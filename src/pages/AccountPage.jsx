@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
-import { buttonStyle, disneyStudios } from "../constants/styles";
+import { buttonStyle } from "../constants/styles";
 import colourways from "../constants/colourways";
 import AccountContainer from "../components/accounts/AccountContainer";
 import ConfirmationModal from "../components/accounts/ConfirmationModal";

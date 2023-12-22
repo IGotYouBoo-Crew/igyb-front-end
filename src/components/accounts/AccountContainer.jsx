@@ -8,8 +8,17 @@ import patchUser from "./functions/patchUser";
 import checkErrorInResponse from "../functions/checkErrorInResponse";
 import getCookieResponse from "./functions/getCookieResponse";
 import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
-import { emailCheckFailed, passwordCheckFailed } from "./functions/accountDataValidation";
+import { emailCheckFailed, passwordCheckFailed, usernameCheckFailed } from "./functions/accountDataValidation";
+import ErrorMessage from "../ErrorMessage";
 
+/**
+ * A container for holding editable account data
+ * @date 22/12/2023 - 12:06:05
+ *
+ * @export
+ * @param {{ accountData: {_id:string, username:string, role:string, email:string, profilePicture:string, pronouns:string} } }  
+ * @returns {HTMLElement}
+ */
 export default function AccountContainer({ accountData }) {
     let [editable, setEditable] = useState(false);
     let [formData, setFormData] = useState({});
@@ -29,9 +38,11 @@ export default function AccountContainer({ accountData }) {
     async function handleSubmit(event) {
         event.preventDefault();
         let newData = getDataFromListOfInputs(editableFieldsKeys);
+        console.log(newData)
         let validationError =
             (newData.password && passwordCheckFailed(newData.password)) ||
-            (newData.email && emailCheckFailed(newData.email));
+            (newData.email && emailCheckFailed(newData.email)) ||
+            (newData.username && usernameCheckFailed(newData.username));
         if (validationError) {
             setErrorMessage(validationError);
             return;
@@ -48,20 +59,16 @@ export default function AccountContainer({ accountData }) {
                 let responseData = await patchUser(accountData, formData);
 
                 // checks for error message and sets the errorMessage state to display.
-                // return breaks off function so no errors are set as userdata
                 if (checkErrorInResponse(responseData)) {
                     setErrorMessage(responseData.errors);
                     return;
                 }
                 // getCookieResponse() sends the user cookie to the API
-                // This is technically not the most efficient of ways to do it,
-                // but it means that both the updated data is checked,
-                // and the response plays nicely with the setUserData() function
                 let cookieResponseData = await getCookieResponse();
                 setUserData(cookieResponseData);
 
                 // refreshes the page to update the user data on display
-                // window.location.reload();
+                window.location.reload();
                 return responseData;
             }
         }
@@ -70,7 +77,7 @@ export default function AccountContainer({ accountData }) {
 
     return (
         <form className={containerStyle.account + colourways.accounts.container}>
-            <div className="flex flex-row justify-between items-center w-full min-w-fit md:w-1/2 mb-2">
+            <div className="flex flex-row justify-between items-center w-full min-w-fit md:w-1/2 mb-2 duration-1000 transition-all ease-in-out">
                 {/* Title alternates between edit state */}
                 <h1 className="text-xl md:text-2xl mb-4">
                     {editable ? "Edit Account Details" : "Account Details"}
@@ -99,22 +106,25 @@ export default function AccountContainer({ accountData }) {
                   })
                 : Object.keys(accountData).map((key, index) => {
                       return (
-                          <p
+                          <div
                               key={index}
-                              className="text-left w-full mb-1 md:w-1/2 md:text-lg md:mb-2 "
+                              className="text-left w-full mb-1 md:w-1/2 md:text-lg md:mb-2 duration-1000 transition-all ease-in-out "
                           >
                               {key === "profilePicture" ? (
                                   <div className="flex flex-row justify-start items-center">
                                       <span className="capitalize">{key}</span> :{" "}
-                                      <img src={accountData[key]} alt="Profile Pic" className={imageStyle.profilePicture} />
+                                      <img
+                                          src={accountData[key]}
+                                          alt="Profile Pic"
+                                          className={imageStyle.profilePicture}
+                                      />
                                   </div>
                               ) : (
-                                  <div>
-                                      <span className="capitalize">{key}</span>:{" "}
-                                      {accountData[key]}
-                                  </div>
+                                  <p>
+                                      <span className="capitalize">{key}</span>: {accountData[key]}
+                                  </p>
                               )}
-                          </p>
+                          </div>
                       );
                   })}
 
@@ -128,7 +138,7 @@ export default function AccountContainer({ accountData }) {
             ) : (
                 ""
             )}
-            <span className="text-red-500">{errorMessage ? errorMessage : ""}</span>
+            <ErrorMessage error={errorMessage} />
         </form>
     );
 }

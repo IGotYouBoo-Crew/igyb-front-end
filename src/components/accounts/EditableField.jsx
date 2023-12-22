@@ -6,28 +6,29 @@ import { IoClose, IoPencil } from "react-icons/io5";
 
 export default function EditableField({ fieldName, fieldData, isPhoto = false }) {
     let [editing, setEditing] = useState(false);
-    let [hovering, setHovering] = useState(false)
+    let [hovering, setHovering] = useState(false);
 
-    function handleHover(){
-        setHovering(true)
+    function handleHover() {
+        setHovering(true);
     }
-    function handleHoverEnd(){
-        setHovering(false)
+    function handleHoverEnd() {
+        setHovering(false);
     }
 
     function handleClick(e) {
         e.preventDefault();
+        setHovering(false)
         setEditing(!editing);
     }
 
     let visibility = {
         true: " opacity-100 ml-4 ",
-        false: " opacity-0 "
-    }
+        false: " opacity-0 ",
+    };
 
     if (editing) {
         return (
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-row items-center justify-between w-full min-w-fit max-w-[410px]">
                 <FormInput value={fieldName} location={"accounts"} placeholder={fieldData} />
                 <IoClose className="text-2xl -mt-6" onClick={(e) => handleClick(e)} />
             </div>
@@ -40,12 +41,12 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
                     className={
                         buttonStyle.subtle +
                         colourways.accounts.subtleButton +
-                        " flex flex-row items-center whitespace-nowrap"
+                        " flex flex-row items-center whitespace-nowrap" 
                     }
                     onMouseEnter={handleHover}
                     onMouseLeave={handleHoverEnd}
                 >
-                    {fieldName} :{" "}
+                    <span className="capitalize mr-2">{fieldName}:</span> {" "}
                     {isPhoto ? (
                         <img
                             src={fieldData}
@@ -56,7 +57,15 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
                         fieldData || "--- Change ---"
                     )}
                 </button>
-                <IoPencil className={"text-xl duration-300 ease-in-out transition-all mb-6 -ml-2  " + visibility[hovering]} />
+                <button onClick={handleClick}
+                    className={
+                        "text-xl duration-300 ease-in-out transition-all mb-6 -ml-2  " +
+                        visibility[hovering]
+                    }
+                >
+                    <IoPencil
+                    />
+                </button>
             </div>
         );
     }

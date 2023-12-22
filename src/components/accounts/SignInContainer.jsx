@@ -15,15 +15,21 @@ const containerStyle = {
 
 export default function SignInContainer() {
     let [createAccount, setCreateAccount] = useState(false);
+    let [fade, setFade] = useState(false)
 
     async function handleClick(e) {
         e.preventDefault();
-        setCreateAccount(!createAccount);
+        setFade(true)
+        setTimeout(() => {
+            setCreateAccount(!createAccount);
+            setFade(false)
+        }, 600);
     }
+    console.log(fade)
 
     return (
-        <div className={containerStyle[createAccount]}>
-            {createAccount ? <CreateAccountForm /> : <SignInForm />}
+        <div className={containerStyle[createAccount] + (fade ? " animate-fade-away" : " animate-fade-towards")}>
+            {createAccount ? <CreateAccountForm /> : <SignInForm fade={()=>setFade(true)}  />}
             <p className="my-2">--------------- or ---------------</p>
             <button
                 className={buttonStyle.default + colourways.accounts.outlineButton}

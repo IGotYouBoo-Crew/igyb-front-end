@@ -4,7 +4,7 @@ import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
-import { emailCheckFailed, passwordCheckFailed } from "./functions/accountDataValidation";
+import { emailCheckFailed, passwordCheckFailed, usernameCheckFailed } from "./functions/accountDataValidation";
 import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
 import checkErrorInResponse from "../functions/checkErrorInResponse";
 import postNewUser from "./functions/postNewUser";
@@ -18,7 +18,9 @@ export default function CreateAccountForm() {
         event.preventDefault();
         let newFormData = getDataFromListOfInputs(inputsList);
         let validationError =
-            (newFormData.password && passwordCheckFailed(newFormData.password)) || (newFormData.email && emailCheckFailed(newFormData.email))
+            (newFormData.password && passwordCheckFailed(newFormData.password)) ||
+            (newFormData.email && emailCheckFailed(newFormData.email)) ||
+            (newFormData.username && usernameCheckFailed(newFormData.username));
         if (validationError) {
             setError(validationError);
             return;
@@ -32,9 +34,9 @@ export default function CreateAccountForm() {
             createAccount();
         }
 
-        async function createAccount(){
-            let responseData = await postNewUser(formData)
-            if (checkErrorInResponse(responseData)){
+        async function createAccount() {
+            let responseData = await postNewUser(formData);
+            if (checkErrorInResponse(responseData)) {
                 setError(responseData.errors);
                 return;
             }
@@ -46,7 +48,6 @@ export default function CreateAccountForm() {
         }
         // eslint-disable-next-line
     }, [formData]);
-
 
     const inputsList = ["username", "password", "email", "pronouns"];
 

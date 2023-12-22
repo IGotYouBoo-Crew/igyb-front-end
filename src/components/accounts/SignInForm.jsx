@@ -8,7 +8,7 @@ import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
 import checkErrorInResponse from "../functions/checkErrorInResponse";
 import postSignIn from "./functions/postSignIn";
 
-export default function SignInForm() {
+export default function SignInForm({ fade = false }) {
     let [stateData, setStateData] = useState({ username: "", password: "" });
     let { setUserData } = useContext(UserContext);
     let [error, setError] = useState(false);
@@ -16,7 +16,10 @@ export default function SignInForm() {
     async function handleClick(event) {
         event.preventDefault();
         let formData = getDataFromListOfInputs(inputs);
-        setStateData(formData);
+        fade()
+        setTimeout(() => {
+            setStateData(formData);
+        }, 600);
     }
 
     useEffect(() => {

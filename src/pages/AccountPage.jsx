@@ -11,11 +11,16 @@ export default function AccountPage() {
     let { userData, setUserData } = useContext(UserContext);
     let [signedInUserData, setSignedInUserData] = useState(false);
     let [showConfirmation, setShowConfirmation] = useState(false);
+    let [fade, setFade] = useState(false)
 
     async function handleClickLogOut(e) {
         e.preventDefault();
         await fetch(backendUrl + "/account/signOut", { method: "POST", credentials: "include" });
-        setUserData(null);
+        setFade(true)
+        setTimeout(() => {
+            setUserData(null);
+            setFade(false)
+        }, 800);
     }
 
     async function handleClickDelete(e) {
@@ -24,7 +29,6 @@ export default function AccountPage() {
     }
 
     useEffect(() => {
-        console.log(signedInUserData);
         getSignedInUserData();
         // eslint-disable-next-line
     }, []);
@@ -38,10 +42,11 @@ export default function AccountPage() {
         responseData.role = responseData.role.name;
         setSignedInUserData(responseData);
     }
+    console.log(signedInUserData.profilePicture)
 
     // TODO: fix up all this
     return (
-        <div className={"flex flex-col justify-start h-screen w-9/12 items-center pt-16"}>
+        <div className={"flex flex-col justify-start h-screen w-9/12 items-center pt-16 " + (fade ? " animate-fade-away " : " animate-fade-towards ")}>
             <ConfirmationModal isVisible={showConfirmation} handleClose={() => setShowConfirmation(false)} />
             {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
 

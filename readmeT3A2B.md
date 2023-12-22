@@ -42,11 +42,27 @@ Yep, we did it guys! Our MERN app uses all those four building blocks and more ð
 
 You can see it in action in both our [Frontend Repo](https://github.com/IGotYouBoo-Crew/igyb-front-end) and our [Backend Repo](https://github.com/IGotYouBoo-Crew/igyb-back-end).
 
-Additional libraries that we incorporated are detailed below:
-
-# <span style="color:red"> *Libraries /packages details* </span>
+Additional libraries that we incorporated across both front and backend for additional functionality such as date handling, routing, icon integration, and testing are detailed below:
 
 
+IN ALPHABETICAL ORDER:
+- **bcrypt** - everyone's favourite library for hashing passwords
+- **cookie-parser** - this is the middleware that we chose to utilise for parsing cookies in Express
+- **cors** - the sometimes troublesome, but necessary middleware for enabling Cross-Origin Resource Sharing (CORS)
+- **dates-fns** and **dayjs** - both JavaScript libraries used for parsing, validating, manipulating, and formatting dates across the site
+- **dot env** - the module that loads environment variables from our .env file
+- **express** - because it's literally in the MERN name! This is the web framework for Node.js
+- **helmet** - collection of middleware that allowed us to secure our app by setting HTTP headers
+- **jest** - our chosen JavaScript testing framework. This was exceptional in helping find our testing coverage of code as well!
+- **jsonwebtoken** - the library for generating and verifying JSON Web Tokens (JWTs), for security
+- **mongoose** - again, M is in the MERN name! mongoose is the tool we used for object modelling
+- **nodemon** - So. Helpful. This here is a tool that helped us by automatically restarting the app (as it's a Node application) when file changes in the directory were detected
+- **react-icons** - a big, beautiful collection of React icons that were perfect for IGYB. This is where we got our icons for everything from the phone and email for our Contact Page, to the pencil on editable fields, or arrows on buttons to view more posts.
+- **react-router-dom** - the good old standard routing library for a lot of React apps (if it ain't broke, don't fix it!). This was easy to integrate, and we were all familiar with it, so made sense to utilise for enabling navigation.
+- **react-tailwindcss-datepicker** - this was a nightmare to work with intially, as it's typically a date *range* picker. In order to select just a single date and shoot that through to the backend took a little tweaking, as did being able to view the pop up calendar in different screensizes, as forms were in modals - which cuts overflow! 
+- **supertest** and **supertest-session** - these libraries were used for testing HTTP assertions, and managing the sessions in supertest
+
+<br>
 
 # R2: Write well designed code that:
 ## - Separates the program into modules that each deal with one particular focus, or concern
@@ -70,9 +86,13 @@ TAILWIND CUSTOM STYLES:
 
 ![Tailwind updates](docs/tailwindUpdates.png)
 
+And honestly, using React made using libraries and packages, and overall code flow and object oriented patterns super easy!
 
-# <span style="color:red"> *more here* </span>
+We were able to set files out in bite sized chunks, and follow a pattern for building pages in different components and then bringing them all together as imports one after the other. 
 
+The real beauty of this was that files weren't crazy large and hard to follow; they made sense, and tackling the overall project piece by piece like this worked like a charm.
+
+More details on the libraries used is back in R1 - figured you probably wouldn't want to read it twice, so left it with 'technologies' question.
 <br>
 
 # R3: Employ and utilise proper source control methodology (git)
@@ -93,9 +113,9 @@ When we were ready to merge into main, we'd **rebase our branch** first. This en
 
 Once this rebase was complete, we'd make a **pull request**. We decided to include a requirement for a second team member to approve any pull request: this way, it just covered our butts having a second set of eyes scanning over the additions and deletions that were being brought into the main code for additional peace of mind.
 
+In order to flag with one another that there was a pull request waiting, we'd use the good old **pull-requests** channel in Discord:
 
-
-
+![Discord pull requests](docs/discordPR.png)
 
 <br>
 
@@ -208,6 +228,8 @@ Within the 'bulkier' items on our cards, we could add descriptions of what was r
 
 ![Trello card](docs/trelloCard.png)
 
+![Trello card2](docs/trelloCard2.png)
+
 # <span style="color:red"> *NOTE: Need to add git to trello board and update screenshots before submission* </span>
 
 We weren't about sticking to a rigid plan, because it wasn't realistic and didn't feel like 'us'. Instead, we found our process was about embracing change, learning, and refining based on insights gained through meetings, discussions and collaborative feedback.
@@ -240,6 +262,16 @@ The IGYB page can be found here: https://igotyouboo.netlify.app/
 # R6: Deploy the application to a cloud hosting service
 
 We've utilised Netlify for the front end, and Heroku for the back end - so hosted on both sides by cloud services and having a great time up here!
+
+Netlify allowed us to set environment variables. Obviously, these are automatically hidden from GitHub repositories for security, so the ability to set them in Netlify without having to make them public ensured the site functioned as intended:
+
+![Netlify](docs/netlify.png)
+
+Netlify further has automatic testing built in, which blocked a merge request if the pull request didn't meet the required parameters. 
+
+![Netlify fail](docs/netlifyFail.png)
+
+The beauty of this meant that once we had the site up and running, it has basically stayed that way ever since!
 
 <br>
 

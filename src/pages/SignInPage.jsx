@@ -3,6 +3,7 @@ import MainLayout from "../components/MainLayout";
 import SignInContainer from "../components/accounts/SignInContainer";
 import UserContext from "../contexts/UserContext";
 import AccountPage from "./AccountPage";
+import SearchBar from "../components/SearchBar";
 
 
 
@@ -12,6 +13,7 @@ export default function SignInPage() {
     return (
         <MainLayout>
             <div className="bg-honey h-[calc(95vh)] py-24 my-auto flex flex-col justify-center items-center ">
+                {(userData && userData.role === "Admin") && <SearchBar />}
                 {userData ? (
                     <AccountPage />
                 ) : (

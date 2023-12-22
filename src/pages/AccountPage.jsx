@@ -11,11 +11,15 @@ export default function AccountPage() {
     let { userData, setUserData } = useContext(UserContext);
     let [signedInUserData, setSignedInUserData] = useState(false);
     let [showConfirmation, setShowConfirmation] = useState(false);
+    let [fade,setFade] = useState(false)
 
     async function handleClickLogOut(e) {
         e.preventDefault();
         await fetch(backendUrl + "/account/signOut", { method: "POST", credentials: "include" });
-        setUserData(null);
+        setFade(true)
+        setTimeout(() => {
+            setUserData(null);
+        }, 800);
     }
 
     async function handleClickDelete(e) {
@@ -41,9 +45,9 @@ export default function AccountPage() {
 
     // TODO: fix up all this
     return (
-        <div className={"flex flex-col justify-start h-screen w-9/12 items-center pt-16"}>
+        <div className={"flex flex-col justify-start h-screen w-9/12 items-center pt-16 animate-fade-in"}>
             <ConfirmationModal isVisible={showConfirmation} handleClose={() => setShowConfirmation(false)} />
-            {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
+            {signedInUserData ? <AccountContainer accountData={signedInUserData} fade={fade} /> : ""}
 
             <button
                 className={buttonStyle.default + colourways.accounts.redWarningButton}

@@ -1,11 +1,10 @@
-
 /**
- * Description placeholder
+ * Checks password passes validation.
  * @date 21/12/2023 - 11:04:19
  *
  * @export
  * @param {String} password
- * @returns {boolean}
+ * @returns {boolean|errorMessage} returns false on pass, string on fail
  */
 export function passwordCheckFailed(password) {
     let response = false;
@@ -33,21 +32,20 @@ export function passwordCheckFailed(password) {
     return response;
 }
 
-
 /**
- * Description placeholder
- * @date 21/12/2023 - 11:04:37
+ * Checks email passes validation.
+ * @date 21/12/2023 - 11:04:19
  *
  * @export
- * @param {*} email
- * @returns {boolean}
+ * @param {String} email
+ * @returns {boolean|errorMessage} returns false on pass, string on fail
  */
 export function emailCheckFailed(email) {
     let emailRequirements = [
         {
             errorMessage: "Valid email address is required",
             test: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email),
-        }
+        },
     ];
     let response = false;
     for (const requirement of emailRequirements) {
@@ -59,6 +57,31 @@ export function emailCheckFailed(email) {
     return response;
 }
 
-export function usernameCheckFailed(username){
-    
+/**
+ * Checks username passes validation.
+ * @date 21/12/2023 - 11:04:19
+ *
+ * @export
+ * @param {String} username
+ * @returns {boolean|errorMessage} returns false on pass, string on fail
+ */
+export function usernameCheckFailed(username) {
+    let usernameRequirements = [
+        {
+            errorMessage: "Username can be a max of 16 characters ",
+            test: username.length <= 16,
+        },
+        {
+            errorMessage: "Username cannot contain whitespace",
+            test: !/\s/g.test(username),
+        },
+    ];
+    let response = false;
+    for (const requirement of usernameRequirements) {
+        if (!requirement.test) {
+            response = requirement.errorMessage;
+            break;
+        }
+    }
+    return response;
 }

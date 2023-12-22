@@ -6,13 +6,13 @@ import { IoClose, IoPencil } from "react-icons/io5";
 
 export default function EditableField({ fieldName, fieldData, isPhoto = false }) {
     let [editing, setEditing] = useState(false);
-    let [hovering, setHovering] = useState(false)
+    let [hovering, setHovering] = useState(false);
 
-    function handleHover(){
-        setHovering(true)
+    function handleHover() {
+        setHovering(true);
     }
-    function handleHoverEnd(){
-        setHovering(false)
+    function handleHoverEnd() {
+        setHovering(false);
     }
 
     function handleClick(e) {
@@ -22,8 +22,8 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
 
     let visibility = {
         true: " opacity-100 ml-4 ",
-        false: " opacity-0 "
-    }
+        false: " opacity-0 ",
+    };
 
     if (editing) {
         return (
@@ -56,7 +56,12 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
                         fieldData || "--- Change ---"
                     )}
                 </button>
-                <IoPencil className={"text-xl duration-300 ease-in-out transition-all mb-6 -ml-2  " + visibility[hovering]} />
+                <IoPencil
+                    className={
+                        "text-xl duration-300 ease-in-out transition-all mb-6 -ml-2  " +
+                        visibility[hovering]
+                    }
+                />
             </div>
         );
     }

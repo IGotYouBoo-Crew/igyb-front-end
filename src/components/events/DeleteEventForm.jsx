@@ -9,7 +9,7 @@ const DeleteEventForm = ({event, initialText = "", formCancelHandler = null, for
 
     try{
     formSubmitHandler();
-    setRoute("/forum/");
+    setRoute("/events/");
 
 
     } catch (error) {

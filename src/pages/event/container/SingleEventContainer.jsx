@@ -131,7 +131,7 @@ const SingleEventContainer = ({ event }) => {
             )}
           </>
         ) : (
-          "We're either busy loading the event, or it doesn't exist... Hang tight, Superstar!"
+          "We're either busy loading the event, or it doesn't exist... Hang tight, Superstar (or try another event)!"
         )}
       </section>
     </div>

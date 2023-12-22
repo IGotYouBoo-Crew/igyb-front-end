@@ -1,6 +1,6 @@
 import { FiSearch } from "react-icons/fi";
 
-export default function SearchBar({ location = "forum", searchTarget = "post", onChange =() => {}, onSearch=() =>{} }) {
+export default function SearchBar({ location = "forum", searchTarget = "post", onChange =() => {}, onSearch=() =>{}, searchableValue={} }) {
     return (
         <div className="flex flex-row justify-center items-center w-10/12 md:w-1/2 lg:w-1/3 ">
             <FiSearch className="h-6 w-6 -mr-8 z-10 text-[#959EAD] " />
@@ -24,6 +24,7 @@ export default function SearchBar({ location = "forum", searchTarget = "post", o
             >
                 Search
             </button>
+            
         </div>
     );
 }

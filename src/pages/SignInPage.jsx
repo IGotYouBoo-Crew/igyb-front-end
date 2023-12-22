@@ -5,20 +5,16 @@ import UserContext from "../contexts/UserContext";
 import AccountPage from "./AccountPage";
 import SearchBar from "../components/SearchBar";
 
-
-
 export default function SignInPage() {
     let { userData } = useContext(UserContext);
-    
+
     return (
         <MainLayout>
-            <div className="bg-honey min-h-fit h-full py-24 my-auto flex flex-col justify-center items-center ">
-                {(userData && userData.role === "Admin") && <SearchBar />}
-                {userData ? (
-                    <AccountPage />
-                ) : (
-                    <SignInContainer />
-                )}
+            <div className="bg-honey min-h-[700px] h-full py-8 ">
+                <div className="my-auto flex flex-col justify-center items-center ">
+                    {userData && userData.role === "Admin" && <SearchBar />}
+                    {userData ? <AccountPage /> : <SignInContainer />}
+                </div>
             </div>
         </MainLayout>
     );

@@ -1,5 +1,5 @@
-async function updateEvent(host, image, title, date, start, finish, ticketLink, content) {
-    console.log(host, image, title, date, start, finish, ticketLink, content);
+async function updateEvent(title, host, image, start, finish, ticketLink, content, date) {
+    console.log(title, host, image, start, finish, ticketLink, content, date);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/events/" + event._id + "/" + event.author._id,
@@ -10,14 +10,14 @@ async function updateEvent(host, image, title, date, start, finish, ticketLink, 
             },
             credentials: "include",
             body: JSON.stringify({
+                title: title, 
                 host: host, 
                 image: image, 
-                title: title, 
-                date: eventDate, 
                 start: start,
                 finish: finish,
                 ticketLink: ticketLink,
-                content: content
+                content: content,
+                date: date
             }),
         }
     );

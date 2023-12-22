@@ -11,7 +11,7 @@ import ForumPage from "./pages/forum/ForumPage";
 import ForumPostPage from "./pages/forumPostPage/ForumPostPage";
 import SignInPage from "./pages/SignInPage";
 import { useEffect } from "react";
-import SingleEventPage from "./pages/events/SingleEventPage";
+import SingleEventPage from "./pages/event/SingleEventPage";
 
 function App() {
 

@@ -24,7 +24,7 @@ module.exports = ({
       animation: {
         'fade-away': 'fade-up 0.75s forwards',
         'fade-towards': 'fade 0.75s reverse',
-        'fade-out': 'fade 0.75s forwards'
+        'fade-out': 'fade 0.75s forwards',
       },
 
       keyframes: { 

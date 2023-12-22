@@ -7,6 +7,8 @@ export const buttonStyle = {
 export const inputStyle = {
     default:
         "focus:outline text-black placeholder:text-sm md:placeholder:text-base mx-2 rounded-3xl pl-5 pr-3 py-3 mt-2 mb-4 placeholder:uppercase ",
+    smaller:
+        "focus:outline text-black placeholder:text-sm md:placeholder:text-base mx-2 rounded-3xl pl-4 p-2 mt-2 mb-4 placeholder:uppercase ",
 };
 
 export const containerStyle = {
@@ -25,7 +27,8 @@ export const disneyStudios = {
         true: " animate-fade-away [&>*]:animate-fade-away ",
         false: "",
     },
-    fadeIn: {
-        
+    fadeAndGrow: {
+        true: "",
+        false: ""
     }
 };

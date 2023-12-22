@@ -17,6 +17,7 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
 
     function handleClick(e) {
         e.preventDefault();
+        setHovering(false)
         setEditing(!editing);
     }
 
@@ -27,7 +28,7 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
 
     if (editing) {
         return (
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-row items-center justify-between w-full min-w-fit max-w-[410px]">
                 <FormInput value={fieldName} location={"accounts"} placeholder={fieldData} />
                 <IoClose className="text-2xl -mt-6" onClick={(e) => handleClick(e)} />
             </div>
@@ -40,12 +41,12 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
                     className={
                         buttonStyle.subtle +
                         colourways.accounts.subtleButton +
-                        " flex flex-row items-center whitespace-nowrap"
+                        " flex flex-row items-center whitespace-nowrap" 
                     }
                     onMouseEnter={handleHover}
                     onMouseLeave={handleHoverEnd}
                 >
-                    {fieldName} :{" "}
+                    <span className="capitalize mr-2">{fieldName}:</span> {" "}
                     {isPhoto ? (
                         <img
                             src={fieldData}
@@ -56,12 +57,15 @@ export default function EditableField({ fieldName, fieldData, isPhoto = false })
                         fieldData || "--- Change ---"
                     )}
                 </button>
-                <IoPencil
+                <button onClick={handleClick}
                     className={
                         "text-xl duration-300 ease-in-out transition-all mb-6 -ml-2  " +
                         visibility[hovering]
                     }
-                />
+                >
+                    <IoPencil
+                    />
+                </button>
             </div>
         );
     }

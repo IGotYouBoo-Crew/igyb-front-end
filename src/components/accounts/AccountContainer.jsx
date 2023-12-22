@@ -38,6 +38,7 @@ export default function AccountContainer({ accountData }) {
     async function handleSubmit(event) {
         event.preventDefault();
         let newData = getDataFromListOfInputs(editableFieldsKeys);
+        console.log(newData)
         let validationError =
             (newData.password && passwordCheckFailed(newData.password)) ||
             (newData.email && emailCheckFailed(newData.email)) ||
@@ -105,7 +106,7 @@ export default function AccountContainer({ accountData }) {
                   })
                 : Object.keys(accountData).map((key, index) => {
                       return (
-                          <p
+                          <div
                               key={index}
                               className="text-left w-full mb-1 md:w-1/2 md:text-lg md:mb-2 duration-1000 transition-all ease-in-out "
                           >
@@ -119,11 +120,11 @@ export default function AccountContainer({ accountData }) {
                                       />
                                   </div>
                               ) : (
-                                  <div>
+                                  <p>
                                       <span className="capitalize">{key}</span>: {accountData[key]}
-                                  </div>
+                                  </p>
                               )}
-                          </p>
+                          </div>
                       );
                   })}
 

@@ -4,6 +4,7 @@ import { FiEdit2, FiTrash } from "react-icons/fi";
 import UpdateEventForm from "../../../components/events/UpdateEventForm";
 import DeleteEventForm from "../../../components/events/DeleteEventForm";
 import UserContext from "../../../contexts/UserContext";
+import { updateEvent } from "../../../components/events/updateEvent";
 
 const SingleEventContainer = ({ event }) => {
   let { userData } = useContext(UserContext);
@@ -108,25 +109,8 @@ const SingleEventContainer = ({ event }) => {
             )}
             {isEditing && (
               <UpdateEventForm
-                formSubmitHandler={(
-                  title,
-                  host,
-                  image,
-                  start,
-                  finish,
-                  ticketLink,
-                  content
-                ) =>
-                  handleSubmit(
-                    title,
-                    host,
-                    image,
-                    start,
-                    finish,
-                    ticketLink,
-                    content
-                  )
-                }
+                formSubmitHandler={(title, host, image, start, finish, ticketLink, content) =>
+                  handleSubmit(title, host, image, start, finish, ticketLink, content)}
                 formCancelHandler={() => setAffectedEvent(null)}
                 event={event}
                 titleInitialText={event.title}

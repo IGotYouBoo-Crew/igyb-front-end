@@ -38,7 +38,10 @@
 ## - React
 ## - Node
 
-Yep, we did it guys! Our MERN app uses all those four building blocks and more 🙌🏽
+Yep, we did it guys! Our MERN app uses all those four building blocks and more 🙌🏽 
+
+You can see it in action in both our [Frontend Repo](https://github.com/IGotYouBoo-Crew/igyb-front-end) and our [Backend Repo](https://github.com/IGotYouBoo-Crew/igyb-back-end).
+
 
 
 # R2: Write well designed code that:
@@ -170,7 +173,7 @@ Within the 'bulkier' items on our cards, we could add descriptions of what was r
 
 ![Trello card](docs/trelloCard.png)
 
-# *NOTE: Need to add git to trello board*
+# <span style="color:red"> *NOTE: Need to add git to trello board and update screenshots before submission* </span>
 
 We weren't about sticking to a rigid plan, because it wasn't realistic and didn't feel like 'us'. Instead, we found our process was about embracing change, learning, and refining based on insights gained through meetings, discussions and collaborative feedback.
 
@@ -195,6 +198,12 @@ FINISHED DEPLOYED PAGES FOR FORUM/POSTS:
 
 We're very proud of the I Got You, Boo forum (as are DudeBros Inc. and our users!). The IGYB page can be found here: https://igotyouboo.netlify.app/
 
+Once the majority of our site was deployed and functional, we were able to cross reference with an easy-to-read production testing table (based on the *Revised User Stories* that were completed in Part A), and ensure that we covered all bases:
+
+![Production testing table](docs/production_test_progress.png)
+
+# <span style="color:red"> *ADD UPDATED/COMPLETE PRODUCTION TESTING TABLE BEFORE SUBMISSION* </span>
+
 <br>
 
 # R6: Deploy the application to a cloud hosting service
@@ -210,7 +219,6 @@ We've utilised Netlify for the front end, and Heroku for the back end - so hoste
 # R8: Provides evidence of user testing:
 ## - In the development environment
 ## - In the production environment
-
 <br>
 
 # R9: A link (URL) to your deployed website

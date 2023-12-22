@@ -5,6 +5,7 @@ import UpdateEventForm from "../../../components/events/UpdateEventForm";
 import DeleteEventForm from "../../../components/events/DeleteEventForm";
 import UserContext from "../../../contexts/UserContext";
 import { updateEvent } from "../../../components/events/updateEvent";
+import { deleteEvent } from "../../../components/events/deleteEvent";
 
 const SingleEventContainer = ({ event }) => {
   let { userData } = useContext(UserContext);

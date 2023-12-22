@@ -28,7 +28,7 @@ export default function SignInContainer() {
     console.log(fade)
 
     return (
-        <div className={containerStyle[createAccount] + (fade ? " animate-fade-away" : " animate-fade-in")}>
+        <div className={containerStyle[createAccount] + (fade ? " animate-fade-away" : " animate-fade-towards")}>
             {createAccount ? <CreateAccountForm /> : <SignInForm fade={()=>setFade(true)}  />}
             <p className="my-2">--------------- or ---------------</p>
             <button

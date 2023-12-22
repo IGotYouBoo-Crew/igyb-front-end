@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import colourways from "../../constants/colourways";
-import { buttonStyle, containerStyle, disneyStudios, imageStyle } from "../../constants/styles";
+import { buttonStyle, containerStyle, imageStyle } from "../../constants/styles";
 import EditableField from "./EditableField";
 import { IoClose, IoPencil } from "react-icons/io5";
 import UserContext from "../../contexts/UserContext";
@@ -19,7 +19,7 @@ import ErrorMessage from "../ErrorMessage";
  * @param {{ accountData: {_id:string, username:string, role:string, email:string, profilePicture:string, pronouns:string} } }  
  * @returns {HTMLElement}
  */
-export default function AccountContainer({ accountData, fade }) {
+export default function AccountContainer({ accountData }) {
     let [editable, setEditable] = useState(false);
     let [formData, setFormData] = useState({});
     let [errorMessage, setErrorMessage] = useState(false);
@@ -75,7 +75,7 @@ export default function AccountContainer({ accountData, fade }) {
     }, [formData]);
 
     return (
-        <form className={containerStyle.account + colourways.accounts.container + disneyStudios.fadeAway[fade]}>
+        <form className={containerStyle.account + colourways.accounts.container}>
             <div className="flex flex-row justify-between items-center w-full min-w-fit md:w-1/2 mb-2 duration-1000 transition-all ease-in-out">
                 {/* Title alternates between edit state */}
                 <h1 className="text-xl md:text-2xl mb-4">

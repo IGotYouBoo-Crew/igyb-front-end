@@ -29,7 +29,7 @@ export default function SignInContainer() {
 
     return (
         <div className={containerStyle[createAccount] + (fade ? " animate-fade-away" : " animate-fade-towards")}>
-            {createAccount ? <CreateAccountForm /> : <SignInForm fade={()=>setFade(!fade)}  />}
+            {createAccount ? <CreateAccountForm fade={()=>setFade(!fade)} /> : <SignInForm fade={()=>setFade(!fade)}  />}
             <p className="my-2">--------------- or ---------------</p>
             <button
                 className={buttonStyle.default + colourways.accounts.outlineButton}

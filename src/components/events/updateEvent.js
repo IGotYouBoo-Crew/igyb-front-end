@@ -1,5 +1,5 @@
-async function updateEvent(title, host, image, start, finish, ticketLink, content, date) {
-    console.log(title, host, image, start, finish, ticketLink, content, date);
+async function updateEvent(title, host, image, start, finish, ticketLink, content, date, event) {
+    console.log(title, host, image, start, finish, ticketLink, content, date, event);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/events/" + event._id + "/" + event.author._id,

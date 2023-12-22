@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import BreadCrumbs from "../../../components/BreadCrumbs";
 import { FiEdit2, FiTrash } from "react-icons/fi";
-import EventContext from "../../../contexts/EventContext";
 import UpdateEventForm from "../../../components/events/UpdateEventForm";
 import DeleteEventForm from "../../../components/events/DeleteEventForm";
+import UserContext from "../../../contexts/UserContext";
 
 const SingleEventContainer = ({ event }) => {
-  let { userData } = useContext(EventContext);
+  let { userData } = useContext(UserContext);
   console.log(event.author);
   const eventBelongsToUser = event && userData.username === event.author.username;
   const [affectedEvent, setAffectedEvent] = useState({});
@@ -20,8 +20,8 @@ const SingleEventContainer = ({ event }) => {
     affectedEvent.type === "deleting" &&
     affectedEvent._id === event._id;
 
-  const handleSubmit = async function (host, image, title, start, finish, ticketLink, content) {
-    await updateEvent(host, image, title, start, finish, ticketLink, content);
+  const handleSubmit = async function (title, host, image, start, finish, ticketLink, content) {
+    await updateEvent(title, host, image, start, finish, ticketLink, content);
     setAffectedEvent(null);
   };
 
@@ -39,7 +39,7 @@ const SingleEventContainer = ({ event }) => {
   return (
     <div>
       <section className="flex-1 bg-indigo rounded-3xl relative flex flex-col pb-5 px-8 text-center text-white ">
-        <BreadCrumbs data={breadCrumbsData} className="uppercase" />
+        <BreadCrumbs data={breadCrumbsData} />
         {event ? (
           <>
             <div className="text-white text-lg flex items-center gap-x-5 mt-3 justify-end md:px-20 lg:px-12 relative z-20">
@@ -65,19 +65,6 @@ const SingleEventContainer = ({ event }) => {
                   </button>
                 </>
               )}
-            </div>
-
-            <div className="flex items-center md:px-20 lg:px-12 pb-3 pt-5 -mt-7">
-              <img
-                src={post.author.profilePicture || images.ProfileDefault}
-                alt="profile"
-                className="rounded-full h-9 mr-1"
-              />
-              <div className="ml-2">
-                <h4 className="text-sm font-bold text-white opacity-70">
-                  By @{post.author.username || "deleteduser"}
-                </h4>
-              </div>
             </div>
 
             {!isEditing && !isDeleting && (
@@ -122,18 +109,18 @@ const SingleEventContainer = ({ event }) => {
             {isEditing && (
               <UpdateEventForm
                 formSubmitHandler={(
+                  title,
                   host,
                   image,
-                  title,
                   start,
                   finish,
                   ticketLink,
                   content
                 ) =>
                   handleSubmit(
+                    title,
                     host,
                     image,
-                    title,
                     start,
                     finish,
                     ticketLink,
@@ -142,9 +129,9 @@ const SingleEventContainer = ({ event }) => {
                 }
                 formCancelHandler={() => setAffectedEvent(null)}
                 event={event}
+                titleInitialText={event.title}
                 hostInitialText={event.host}
                 imageInitialText={event.image}
-                titleInitialText={event.title}
                 startInitialText={event.start}
                 finishInitialText={event.finish}
                 ticketLinkInitialText={event.ticketLink}

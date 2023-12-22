@@ -37,9 +37,7 @@ const PostContainer = ({post}) => {
   return (
     <div>
       <article className="flex-1 bg-honey rounded-3xl relative flex flex-col px-6 py-1">
-        <BreadCrumbs data={breadCrumbsData} 
-          className="capitalize"
-        />
+        <BreadCrumbs data={breadCrumbsData} />
         {post ? (
           <>
             <div className='text-white text-lg flex items-center gap-x-5 mt-3 justify-end md:px-20 lg:px-12 relative z-20'>

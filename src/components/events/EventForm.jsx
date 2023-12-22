@@ -5,14 +5,13 @@ import { createEvent } from "./createEvent";
 import Datepicker from "react-tailwindcss-datepicker";
 
 const EventForm = ({ isVisible, onClose }) => {
+  const [title, setTitle] = useState("");
   const [host, setHost] = useState("");
   const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
   const [date, setDate] = useState({
     startDate: null,
     endDate: null,
   });
-
   const [start, setStart] = useState("");
   const [finish, setFinish] = useState("");
   const [ticketLink, setTicketLink] = useState("");
@@ -29,9 +28,9 @@ const EventForm = ({ isVisible, onClose }) => {
     try {
       let eventDate = date.startDate;
       await createEvent(
+        title,
         host,
         image,
-        title,
         eventDate,
         start,
         finish,
@@ -40,9 +39,9 @@ const EventForm = ({ isVisible, onClose }) => {
       );
 
       // Clear the form fields after submission
+      setTitle("");
       setHost("");
       setImage("");
-      setTitle("");
       setDate("");
       setStart("");
       setFinish("");
@@ -78,6 +77,16 @@ const EventForm = ({ isVisible, onClose }) => {
           onSubmit={handleSubmit}
           className="flex flex-col py-2 items-center "
         >
+
+          <label></label>
+          <input
+            type="text"
+            placeholder="Event title*"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            className="formInput "
+          />
+
           <label></label>
           <input
             type="text"
@@ -96,15 +105,6 @@ const EventForm = ({ isVisible, onClose }) => {
             placeholder="Cover image url"
             value={image}
             onChange={(event) => setImage(event.target.value)}
-            className="formInput "
-          />
-
-          <label></label>
-          <input
-            type="text"
-            placeholder="Event title*"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
             className="formInput "
           />
 
@@ -153,10 +153,7 @@ const EventForm = ({ isVisible, onClose }) => {
             className="formContentInput "
           />
 
-          <div>
-            <h1 className="mt-2 font-bold text-lg md:text-xl text-center uppercase ">
-                Be careful! You won't be able to edit this date later!
-            </h1>
+          <div className="">
             <Datepicker
               primaryColor={"amber"}
               asSingle={true}
@@ -168,8 +165,10 @@ const EventForm = ({ isVisible, onClose }) => {
                 setDate(chosenDate);
               }}
             />
-            
-
+            <h1 className="my-2 font-bold text-base md:text-lg text-center uppercase ">
+                careful: You won't be able to edit this date later!
+            </h1>
+        
           </div>
           <button type="submit" className="buttonSubmit ">
             Submit

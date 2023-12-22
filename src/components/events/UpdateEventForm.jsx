@@ -22,16 +22,13 @@ const UpdateEventForm = ({
   const [ticketLink, setTicketLink] = useState(ticketLinkInitialText);
   const [content, setContent] = useState(contentInitialText);
 
-  
-
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try{
-    formSubmitHandler(title, caption, body, photo);
+    formSubmitHandler(host, image, title, start, finish, ticketLink, content);
 
-    // reload page so we can 
+    // reload page so we can see the fresh stuff!
       window.location.reload();
 
     } catch (error) {
@@ -43,14 +40,14 @@ const UpdateEventForm = ({
     <form onSubmit={handleSubmit} className="flex justify-center">
         <div className="pt-2 px-6 bg-indigo text-white w-3/4  mt-5 mb-8 py-3 lg:px-10 rounded-3xl">
             <h1 className="mt-2 font-bold text-2xl text-center uppercase mb-4">
-                Update your post
+                Update your event
             </h1>
-            <div className='w-full lg:flex lg:justify-between lg:gap-x-6'>
+
+            <div className="w-full lg:flex lg:justify-between lg:gap-x-6">
                 <div className="w-full">
                     <label
                         for="titleInput"
-                        className="w-full"
-                    >
+                        className="w-full uppercase ">
                         Title
                     </label>
                     <input
@@ -59,73 +56,114 @@ const UpdateEventForm = ({
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
-                        placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mb-5 mt-2 focus:outline-periwinkle 
-                        w-full placeholder:uppercase"
+                        className="formInput "
                         rows="2"
                     />
                 </div>
+
                 <div className="w-full">
                     <label
-                        for="photoInput"
-                        className="w-full"
-                    >
-                        Image URL
+                        for="hostInput"
+                        className="w-full uppercase ">
+                        Host
                     </label>
                     <input
-                        id="photoInput"
-                        name="photoInput"
+                        id="hostInput"
+                        name="hostInput"
                         type="text"
-                        value={photo}
-                        onChange={(e) => setPhoto(e.target.value)}
-                        className="truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
-                        placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mb-5 mt-2 focus:outline-periwinkle 
-                        w-full placeholder:uppercase"
+                        value={host}
+                        onChange={(e) => setHost(e.target.value)}
+                        className="formInput "
                         rows="2"
                     />
                 </div>
             </div>
+
             <label
-                for="captionInput"
-            >
-                Caption
+                for="imageInput"
+                className="w-full uppercase ">
+                Image URL
             </label>
             <input
-                id="captionInput"
-                name="captionInput"
+                id="imageInput"
+                name="imageInput"
                 type="text"
-                value={caption}
-                onChange={(e) => setCaption(e.target.value)}
-                className="truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
-                    placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mb-5 mt-2 focus:outline-periwinkle 
-                    w-full placeholder:uppercase"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                className="formInput "
                 rows="2"
             />
+
             <label
-                for="bodyInput"
-            >
-                Body
+                for="startInput"
+                className="w-full uppercase ">
+                Start Time
+            </label>
+            <input
+                id="startInput"
+                name="startInput"
+                type="text"
+                value={start}
+                onChange={(e) => setStart(e.target.value)}
+                className="formInput "
+                rows="2"
+            />
+
+            <label
+                for="finishInput"
+                className="w-full uppercase ">
+                Finish Time
+            </label>
+            <input
+                id="finishInput"
+                name="finishInput"
+                type="text"
+                value={finish}
+                onChange={(e) => setFinish(e.target.value)}
+                className="formInput "
+                rows="2"
+            />
+
+            <label
+                for="ticketLinkInput"
+                className="w-full uppercase ">
+                Link for Tickets / RSVP
+            </label>
+            <input
+                id="ticketLinkInput"
+                name="ticketLinkInput"
+                type="text"
+                value={ticketLink}
+                onChange={(e) => setTicketLink(e.target.value)}
+                className="formInput "
+                rows="2"
+            />
+
+            <label
+                for="contentInput"
+                className="w-full uppercase ">
+                Event details
             </label>
             <textarea
-                id="bodyInput"
-                name="bodyInput"
+                id="contentInput"
+                name="contentInput"
                 type="text"
-                value={body}
-                onChange={(e) => setBody(e.target.value)}
-                className="block placeholder:font-bold text-black text-sm placeholder:text-sm placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mb-5 mt-2 focus:outline-periwinkle w-full placeholder:uppercase"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                className="formContentInput "
                 rows="5"
             />
             <div className="flex flex-col-reverse gap-y-2 items-center gap-x-4 pt-2 min-[420px]:flex-row min-[420px]:justify-center">
                 {formCancelHandler && (
                     <button
                     onClick={formCancelHandler}
-                    className="px-6 py-2.5 rounded-3xl border-2 border-red-500 bg-white font-bold text-red-500"
+                    className=" bg-white text-red-500"
                     >
                     Cancel
                     </button>
                 )}
                 <button
-                    className="px-6 py-2.5 rounded-3xl bg-white border-2 border-periwinkle font-bold text-periwinkle"
+                    className=" border-white text-white"
                     type="submit"
                     disabled={loading}
                 >

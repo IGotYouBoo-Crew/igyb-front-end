@@ -44,7 +44,6 @@ You can see it in action in both our [Frontend Repo](https://github.com/IGotYouB
 
 Additional libraries that we incorporated across both front and backend for additional functionality such as date handling, routing, icon integration, and testing are detailed below:
 
-
 IN ALPHABETICAL ORDER:
 - **bcrypt** - everyone's favourite library for hashing passwords
 - **cookie-parser** - this is the middleware that we chose to utilise for parsing cookies in Express
@@ -58,7 +57,7 @@ IN ALPHABETICAL ORDER:
 - **mongoose** - again, M is in the MERN name! mongoose is the tool we used for object modelling
 - **nodemon** - So. Helpful. This here is a tool that helped us by automatically restarting the app (as it's a Node application) when file changes in the directory were detected
 - **react-icons** - a big, beautiful collection of React icons that were perfect for IGYB. This is where we got our icons for everything from the phone and email for our Contact Page, to the pencil on editable fields, or arrows on buttons to view more posts.
-- **react-router-dom** - the good old standard routing library for a lot of React apps (if it ain't broke, don't fix it!). This was easy to integrate, and we were all familiar with it, so made sense to utilise for enabling navigation.
+- **react-router-dom** - the good old standard routing library for a lot of React apps (if it ain't broke, don't fix it!). This was easy to integrate, and we were all familiar with it, so made sense to utilise for enabling navigation
 - **react-tailwindcss-datepicker** - this was a nightmare to work with intially, as it's typically a date *range* picker. In order to select just a single date and shoot that through to the backend took a little tweaking, as did being able to view the pop up calendar in different screensizes, as forms were in modals - which cuts overflow! 
 - **supertest** and **supertest-session** - these libraries were used for testing HTTP assertions, and managing the sessions in supertest
 
@@ -93,6 +92,7 @@ We were able to set files out in bite sized chunks, and follow a pattern for bui
 The real beauty of this was that files weren't crazy large and hard to follow; they made sense, and tackling the overall project piece by piece like this worked like a charm.
 
 More details on the libraries used is back in R1 - figured you probably wouldn't want to read it twice, so left it with 'technologies' question.
+
 <br>
 
 # R3: Employ and utilise proper source control methodology (git)
@@ -109,6 +109,8 @@ The approach we took was to stay away from anyone working in the **main branch**
 
 We each created our **own branches** off the main based on our individual focus/features. Within these branches, we would make our changes and commits.
 
+![branches](docs/branches.png)
+
 When we were ready to merge into main, we'd **rebase our branch** first. This ensured that any pull requests that happened *while* we were working on our branch would automatically be incorporated in the merge, and no one accidentally 'undoes' any of the progress we had collectively been making.
 
 Once this rebase was complete, we'd make a **pull request**. We decided to include a requirement for a second team member to approve any pull request: this way, it just covered our butts having a second set of eyes scanning over the additions and deletions that were being brought into the main code for additional peace of mind.
@@ -116,6 +118,10 @@ Once this rebase was complete, we'd make a **pull request**. We decided to inclu
 In order to flag with one another that there was a pull request waiting, we'd use the good old **pull-requests** channel in Discord:
 
 ![Discord pull requests](docs/discordPR.png)
+
+Once that pull request was **squashed and merged** (squashing being the term for taking every commit made on a single branch and 'squashing' them into what appears to be one commit, which keeps code cleaner!), we would delete the branch and then create a new one.
+
+This approach ensured that work was completed in more of a step by step 'sprint' fashion. We would discuss daily the sections and features each of us were working on, help each other where needed, and then bring our changes to the main branch in order to work efficiently and effectively.
 
 <br>
 
@@ -253,7 +259,7 @@ FINISHED DEPLOYED PAGES FOR FORUM/POSTS:
 
 # R5: Produce a working application that meets client and user needs
 
-We're very proud of the I Got You, Boo forum (as are DudeBros Inc. and our users!). 
+We're very proud of the I Got You, Boo forum (as are the big dawgs DudeBros Inc. and all of our users!). 
 
 The IGYB page can be found here: https://igotyouboo.netlify.app/
 

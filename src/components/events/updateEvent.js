@@ -1,10 +1,10 @@
-async function createEvent(host, image, title, eventDate, start, finish, ticketLink, content) {
-    console.log(host, image, title, eventDate, start, finish, ticketLink, content);
+async function updateEvent(host, image, title, date, start, finish, ticketLink, content) {
+    console.log(host, image, title, date, start, finish, ticketLink, content);
 
     let result = await fetch(
-        process.env.REACT_APP_BACKEND_URL + "/events",
+        process.env.REACT_APP_BACKEND_URL + "/events/" + event._id + "/" + event.author._id,
         {
-            method: "POST",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -22,12 +22,12 @@ async function createEvent(host, image, title, eventDate, start, finish, ticketL
         }
     );
 
-    let event = await result.json();
+    let updatedEvent = await result.json();
 
-    console.log(event);
+    console.log(updatedEvent);
 
-    return event;
+    return updatedEvent;
 
 }
 
-module.exports = {createEvent};
+module.exports = {updateEvent};

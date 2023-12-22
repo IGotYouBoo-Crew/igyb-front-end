@@ -154,6 +154,9 @@ const EventForm = ({ isVisible, onClose }) => {
           />
 
           <div>
+            <h1 className="mt-2 font-bold text-lg md:text-xl text-center uppercase ">
+                Be careful! You won't be able to edit this date later!
+            </h1>
             <Datepicker
               primaryColor={"amber"}
               asSingle={true}
@@ -165,6 +168,8 @@ const EventForm = ({ isVisible, onClose }) => {
                 setDate(chosenDate);
               }}
             />
+            
+
           </div>
           <button type="submit" className="buttonSubmit ">
             Submit

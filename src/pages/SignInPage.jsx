@@ -12,7 +12,7 @@ export default function SignInPage() {
     
     return (
         <MainLayout>
-            <div className="bg-honey h-[calc(95vh)] py-24 my-auto flex flex-col justify-center items-center ">
+            <div className="bg-honey min-h-fit h-full py-24 my-auto flex flex-col justify-center items-center ">
                 {(userData && userData.role === "Admin") && <SearchBar />}
                 {userData ? (
                     <AccountPage />

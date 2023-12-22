@@ -10,7 +10,8 @@ import { deleteEvent } from "../../../components/events/deleteEvent";
 const SingleEventContainer = ({ event }) => {
   let { userData } = useContext(UserContext);
   console.log(event.author);
-  const eventBelongsToUser = event && userData.username === event.author.username;
+  const eventBelongsToUser =
+    event && userData.username === event.author.username;
   const [affectedEvent, setAffectedEvent] = useState({});
 
   const isEditing =
@@ -22,7 +23,15 @@ const SingleEventContainer = ({ event }) => {
     affectedEvent.type === "deleting" &&
     affectedEvent._id === event._id;
 
-  const handleSubmit = async function (title, host, image, start, finish, ticketLink, content) {
+  const handleSubmit = async function (
+    title,
+    host,
+    image,
+    start,
+    finish,
+    ticketLink,
+    content
+  ) {
     await updateEvent(title, host, image, start, finish, ticketLink, content);
     setAffectedEvent(null);
   };
@@ -90,28 +99,36 @@ const SingleEventContainer = ({ event }) => {
                   <div className="mt-6 text-center lg:text-left ">
                     <div className="text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 py-3 ">
                       <p>{event.content}</p>
-                      <h4 className="text-sm font-bold opacity-70 md:px-20 lg:px-12 mt-4 ">
+                      <h4 className="text-sm font-bold opacity-70 md:px-20 lg:px-12 lg:pl-0 mt-4 lg:text-left ">
                         Event created by @
                         {event.author.username || " one of our Superstars!"}
                       </h4>
                     </div>
                   </div>
                 </div>
-                <div>
-                  {event.ticketLink ? (
-                    <a target="_blank" href={event.ticketLink} rel="noreferrer">
-                      <button className="bg-white text-indigo font-bold rounded-3xl px-6 py-2 my-5 uppercase ">
-                        Tickets/RSVP
-                      </button>
-                    </a>
-                  ) : null}
-                </div>
               </div>
             )}
             {isEditing && (
               <UpdateEventForm
-                formSubmitHandler={(title, host, image, start, finish, ticketLink, content) =>
-                  handleSubmit(title, host, image, start, finish, ticketLink, content)}
+                formSubmitHandler={(
+                  title,
+                  host,
+                  image,
+                  start,
+                  finish,
+                  ticketLink,
+                  content
+                ) =>
+                  handleSubmit(
+                    title,
+                    host,
+                    image,
+                    start,
+                    finish,
+                    ticketLink,
+                    content
+                  )
+                }
                 formCancelHandler={() => setAffectedEvent(null)}
                 event={event}
                 titleInitialText={event.title}
@@ -129,6 +146,15 @@ const SingleEventContainer = ({ event }) => {
                 formCancelHandler={() => setAffectedEvent(null)}
               />
             )}
+            <div>
+              {event.ticketLink ? (
+                <a target="_blank" href={event.ticketLink} rel="noreferrer">
+                  <button className="bg-white text-indigo font-bold rounded-3xl px-6 py-2 my-5 uppercase ">
+                    Tickets/RSVP
+                  </button>
+                </a>
+              ) : null}
+            </div>
           </>
         ) : (
           "We're either busy loading the event, or it doesn't exist... Hang tight, Superstar (or try another event)!"

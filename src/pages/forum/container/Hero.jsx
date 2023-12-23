@@ -1,5 +1,4 @@
 import React from 'react'
-import { FiSearch } from "react-icons/fi"
 import { images } from '../../../constants'
 import PostFormContainer from '../../../components/posts/PostFormContainer'
 import SearchBar from '../../../components/SearchBar'

@@ -11,15 +11,15 @@ export default function AccountPage() {
     let { userData, setUserData } = useContext(UserContext);
     let [signedInUserData, setSignedInUserData] = useState(false);
     let [showConfirmation, setShowConfirmation] = useState(false);
-    let [fade, setFade] = useState(false)
+    let [fade, setFade] = useState(false);
 
     async function handleClickLogOut(e) {
         e.preventDefault();
         await fetch(backendUrl + "/account/signOut", { method: "POST", credentials: "include" });
-        setFade(true)
+        setFade(true);
         setTimeout(() => {
             setUserData(null);
-            setFade(false)
+            setFade(false);
         }, 800);
     }
 
@@ -45,8 +45,16 @@ export default function AccountPage() {
 
     // TODO: fix up all this
     return (
-        <div className={"flex flex-col justify-start h-screen w-9/12 items-center pt-16 " + (fade ? " animate-fade-away " : " animate-fade-towards ")}>
-            <ConfirmationModal isVisible={showConfirmation} handleClose={() => setShowConfirmation(false)} />
+        <div
+            className={
+                "flex flex-col justify-start h-screen w-9/12 items-center pt-16 " +
+                (fade ? " animate-fade-away " : " animate-fade-towards ")
+            }
+        >
+            <ConfirmationModal
+                isVisible={showConfirmation}
+                handleClose={() => setShowConfirmation(false)}
+            />
             {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
 
             <button

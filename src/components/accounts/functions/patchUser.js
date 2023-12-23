@@ -8,8 +8,8 @@
  * @param {{(username:string):optional, (password:string):optional, (profilePicture:string):optional, (pronouns:string):optional, (email:string):optional,   }} formData Must contain at least one of the optional values
  * @returns {{message:object}} Returns updatedUser details
  */
-export default async function patchUser(accountData, formData) {
-    let response = await fetch(process.env.REACT_APP_BACKEND_URL + "/account/" + accountData._id, {
+export default async function patchUser(accountData, formData, searchedUser="false") {
+    let response = await fetch(process.env.REACT_APP_BACKEND_URL + "/account/" + accountData._id + "/" + searchedUser, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",

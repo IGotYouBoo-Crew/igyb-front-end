@@ -20,7 +20,7 @@ import ProfilePicture from "../ProfilePicture";
  * @param {{ accountData: {_id:string, username:string, role:string, email:string, profilePicture:string, pronouns:string} } }  
  * @returns {HTMLElement}
  */
-export default function AccountContainer({ accountData }) {
+export default function AccountContainer({ accountData, searchedUser=false }) {
     let [editable, setEditable] = useState(false);
     let [formData, setFormData] = useState({});
     let [errorMessage, setErrorMessage] = useState(false);
@@ -56,7 +56,7 @@ export default function AccountContainer({ accountData }) {
 
             async function updateUser() {
                 // patchUser sends formData to API patch route
-                let responseData = await patchUser(accountData, formData);
+                let responseData = await patchUser(accountData, formData, searchedUser.toString());
 
                 // checks for error message and sets the errorMessage state to display.
                 if (checkErrorInResponse(responseData)) {
@@ -68,7 +68,7 @@ export default function AccountContainer({ accountData }) {
                 setUserData(cookieResponseData);
 
                 // refreshes the page to update the user data on display
-                window.location.reload();
+                // window.location.reload();
                 return responseData;
             }
         }

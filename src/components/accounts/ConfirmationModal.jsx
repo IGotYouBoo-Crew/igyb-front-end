@@ -3,9 +3,9 @@ import colourways from "../../constants/colourways";
 import { buttonStyle } from "../../constants/styles";
 import deleteUser from "./functions/deleteUser";
 
-export default function ConfirmationModal({ handleClose, isVisible }) {
+export default function ConfirmationModal({ handleClose, isVisible, searchedUserId=false }) {
     async function getDeleteAccount() {
-        await deleteUser();
+        searchedUserId ? await deleteUser(searchedUserId) : await deleteUser();
         window.location.reload();
     }
 

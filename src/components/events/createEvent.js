@@ -1,5 +1,5 @@
-async function createEvent(host, image, title, eventDate, start, finish, ticketLink, content) {
-    console.log(host, image, title, eventDate, start, finish, ticketLink, content);
+async function createEvent(title, host, image, eventDate, start, finish, ticketLink, content) {
+    console.log(title, host, image, eventDate, start, finish, ticketLink, content);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/events",
@@ -10,14 +10,15 @@ async function createEvent(host, image, title, eventDate, start, finish, ticketL
             },
             credentials: "include",
             body: JSON.stringify({
+                title: title, 
                 host: host, 
                 image: image, 
-                title: title, 
                 date: eventDate, 
                 start: start,
                 finish: finish,
                 ticketLink: ticketLink,
-                content: content}),
+                content: content
+            }),
         }
     );
 

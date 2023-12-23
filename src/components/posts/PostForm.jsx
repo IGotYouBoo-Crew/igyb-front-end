@@ -1,9 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { IoClose } from "react-icons/io5";
+import { NavLink, Navigate } from 'react-router-dom';
 
 import { createPost } from './createPost';
-import { NavLink, Navigate } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
+import ErrorMessage from '../ErrorMessage';
+import { 
+    titleCheckFailed, 
+    photoCheckFailed, 
+    captionCheckFailed 
+} from './postDataValidation';
 
 
 const PostForm = ({ isVisible, onClose }) => {
@@ -12,31 +18,38 @@ const PostForm = ({ isVisible, onClose }) => {
     const [caption, setCaption] = useState("")
     const [body, setBody] = useState("");
     const [route, setRoute] = useState("");
-    let { userData } = useContext(UserContext);
+    let [error, setError] = useState(false);
 
-    
+    let { userData } = useContext(UserContext);  
+
     const handleClose = (post) => {
         if (post.target.id === 'postForm') onClose();
     };
 
     const handleSubmit = async (post) => {
         post.preventDefault();
-        // Need to add validation for form fields
 
-        try {
-            let createdPost = await createPost(title, photo, caption, body);
-
-            setRoute("/forum/" + createdPost._id);
-
-            // Clear the form fields after submission
-            setTitle('');
-            setPhoto('');
-            setCaption('');
-            setBody('');
-
-        } catch (error) {
-            console.log('Looks like we have a problem:', error);
+        let validationError =
+            (title && titleCheckFailed(title)) ||
+            (photo && photoCheckFailed(photo)) ||
+            (caption && captionCheckFailed(caption));
+        
+        if (validationError) {
+            setError(validationError);
+            return;
+        } else if (!title) {
+            setError("Title is required*")
+        } else if (!photo) {
+            setError("Photo is required*")
+        } else if (!caption) {
+            setError("Caption is required*")
+        } else if (!body) {
+            setError("Body is required*")
+        } else {
+                let createdPost = await createPost(title, photo, caption, body);
+                setRoute("/forum/" + createdPost._id);
         }
+
     };
     
   if (!isVisible) return null;
@@ -65,32 +78,37 @@ const PostForm = ({ isVisible, onClose }) => {
             <h1 className="mt-2 font-bold text-2xl text-center uppercase">
                 Write your post
             </h1>
-            <form onSubmit={handleSubmit} className="flex flex-col py-2 items-center">
+            <form onSubmit={handleSubmit} className="flex flex-col py-2 items-center w-full">
 
                 <div className='w-full lg:flex lg:justify-between lg:gap-x-4'>
-                    <input 
-                        type="text" 
-                        name="titleInput" 
-                        id="titleInput" 
-                        placeholder="Post Title*"
-                        value={title} 
-                        onChange={(post) => setTitle(post.target.value)} 
-                        className="truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
-                        placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-3 lg:mt-5 focus:outline-periwinkle 
-                        w-full placeholder:uppercase" 
-                    />
-
-                    <input 
-                        type="text" 
-                        name="photoInput" 
-                        id="photoInput" 
-                        placeholder="Cover Photo URL*"
-                        value={photo} 
-                        onChange={(post) => setPhoto(post.target.value)} 
-                        className="truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
-                        placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-5 focus:outline-periwinkle 
-                        w-full placeholder:uppercase" 
-                    />
+                    <div className='w-full lg:w-1/2'>
+                        <label></label>
+                        <input 
+                            type="text" 
+                            name="titleInput" 
+                            id="titleInput" 
+                            placeholder="Post Title*"
+                            value={title} 
+                            onChange={(post) => setTitle(post.target.value)}   
+                            className="truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
+                            placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-3 lg:mt-5 focus:outline-periwinkle 
+                            w-full placeholder:uppercase" 
+                        /> 
+                    </div>
+                    <div className='w-full lg:w-1/2'>
+                        <label></label>
+                        <input 
+                            type="text" 
+                            name="photoInput" 
+                            id="photoInput" 
+                            placeholder="Cover Photo URL*"
+                            value={photo} 
+                            onChange={(post) => setPhoto(post.target.value)}
+                            className="truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
+                            placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 mt-5 focus:outline-periwinkle 
+                            w-full placeholder:uppercase" 
+                        />
+                    </div>
                 </div>
 
                 <label></label>
@@ -116,7 +134,11 @@ const PostForm = ({ isVisible, onClose }) => {
                     onChange={(post) => setBody(post.target.value)} 
                     className="block placeholder:font-bold text-black text-sm placeholder:text-sm placeholder:text-[#959EAD] rounded-3xl pl-5 pr-3 py-3 mt-5 focus:outline-periwinkle w-full placeholder:uppercase" 
                     placeholder="What would you like to say?*"
-                />  
+                /> 
+
+                <ErrorMessage error={error} 
+                    className="mt-2 text-lg"
+                />
 
                 <button 
                     type="submit"

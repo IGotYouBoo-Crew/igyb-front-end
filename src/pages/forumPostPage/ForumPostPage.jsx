@@ -9,7 +9,7 @@ const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 const ForumPostPage = () => {
   let [post, setPost] = useState("");
-  // let [error, setError] = useState(false);
+  let [error, setError] = useState("hold on, Superstar! We're loading this post...");
   let urlPostId = window.location.pathname.split("/")[2];
 
   useEffect(() => {
@@ -29,9 +29,10 @@ const ForumPostPage = () => {
     const responseData = await response.json();
 
     if(checkErrorInResponse(responseData)) {
-      // setError(responseData.errors);
+      setError(responseData.errors);
       return
     }
+    setError(false)
     setPost(responseData);
     return responseData;
   }
@@ -45,8 +46,8 @@ const ForumPostPage = () => {
         :
         <div className='bg-honey p-3 rounded-2xl relative z-10 flex justify-center text-center mt-2 h-[60vh]'>
           <div className='py-6'>
-            <ErrorMessage 
-                error="oops... this is not a page :("
+            <ErrorMessage className='!text-white' 
+                error={error}
             />
             <NavLink
               to="/forum"

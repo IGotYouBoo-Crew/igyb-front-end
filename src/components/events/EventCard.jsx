@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { images } from '../../constants'
+import ProfilePicture from '../ProfilePicture'
 
 const EventCard = ({className, eventData}) => {
   return (
@@ -17,7 +18,7 @@ const EventCard = ({className, eventData}) => {
             </div>
             <div className="mt-5 flex flex-wrap justify-between items-center gap-x-2 text-gray-400">
                 <div className="flex items-center justify-between">
-                    <img src={eventData.author.photo || images.PostProfile1} alt="event 1 author" className="rounded-full h-8 mr-1" />
+                    <ProfilePicture src={eventData.author.photo || images.PostProfile1} alt="event 1 author" className="rounded-full h-8 mr-1" />
                     <h4 className="italic text-xs">Event created by @{eventData.author.username || " one of our Superstars!"}</h4>
                 </div>
             </div>

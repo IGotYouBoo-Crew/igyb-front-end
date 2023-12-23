@@ -1,7 +1,6 @@
 import BreadCrumbs from "../../../components/BreadCrumbs";
 import {FiEdit2, FiTrash} from 'react-icons/fi'
 import CommentSection from "./CommentSection";
-import { images } from '../../../constants'
 import { useContext, useState } from "react";
 import UserContext from "../../../contexts/UserContext";
 import { updatePost } from "./updatePost";

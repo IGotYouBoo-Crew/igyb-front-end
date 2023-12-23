@@ -1,6 +1,7 @@
 import React from 'react'
 import { images } from '../constants'
 import { NavLink } from 'react-router-dom'
+import ProfilePicture from './ProfilePicture'
 
 const ArticleCard = ({className, postData}) => {
   return (
@@ -24,7 +25,8 @@ const ArticleCard = ({className, postData}) => {
             </div>
             <div className='flex justify-between flex-nowrap items-center mt-6'>
                 <div className='flex items-center gap-x-2 md:gap-x-2.5'>
-                    <img src={postData.author.profilePicture || images.ProfileDefault} alt="Post Author Profile" className='rounded-full object-scale-down h-9 w-9 md:h-10 md:w-10' />
+                    <ProfilePicture src={postData.author.profilePicture || images.ProfileDefault} alt="Post Author Profile" className='rounded-full object-scale-down h-9 w-9 md:h-10 md:w-10' />
+                    {/* <img src={postData.author.profilePicture || images.ProfileDefault} alt="Post Author Profile" className='rounded-full object-scale-down h-9 w-9 md:h-10 md:w-10' /> */}
                     <h4 className='italic text-sm md:text-xs' >
                         @{postData.author.username || "deleteduser"}
                     </h4>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { images } from '../constants'
 import { NavLink } from 'react-router-dom'
 import ProfilePicture from './ProfilePicture'
 

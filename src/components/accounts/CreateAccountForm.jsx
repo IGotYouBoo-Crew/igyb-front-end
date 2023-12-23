@@ -12,6 +12,7 @@ import {
 import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
 import checkErrorInResponse from "../functions/checkErrorInResponse";
 import postNewUser from "./functions/postNewUser";
+import { photoCheckFailed } from "../posts/postDataValidation";
 
 export default function CreateAccountForm({ fade }) {
     let [formData, setFormData] = useState({ username: "", password: "" });
@@ -22,11 +23,12 @@ export default function CreateAccountForm({ fade }) {
         event.preventDefault();
         let newFormData = getDataFromListOfInputs(inputsList);
         let validationError =
-            (newFormData.password && passwordCheckFailed(newFormData.password)) ||
-            (newFormData.email && emailCheckFailed(newFormData.email)) ||
-            (newFormData.username && usernameCheckFailed(newFormData.username));
+            usernameCheckFailed(newFormData.username) ||
+            passwordCheckFailed(newFormData.password) ||
+            emailCheckFailed(newFormData.email) ||
+            (newFormData.profilePicture && photoCheckFailed(newFormData.profilePicture));
         if (!(formData.username && formData.username.length > 0)) {
-            setError("Username required")
+            setError("Username required");
         }
         if (validationError) {
             setError(validationError);
@@ -39,7 +41,7 @@ export default function CreateAccountForm({ fade }) {
     useEffect(() => {
         if (formData.username && formData.username.length > 0) {
             createAccount();
-            setError(false)
+            setError(false);
         }
 
         async function createAccount() {

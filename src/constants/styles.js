@@ -8,7 +8,7 @@ export const inputStyle = {
     default:
         "focus:outline text-black placeholder:text-sm md:placeholder:text-base mx-2 rounded-3xl pl-5 pr-3 py-3 mt-2 mb-4 placeholder:uppercase ",
     smaller:
-        "focus:outline text-black placeholder:text-sm md:placeholder:text-base mx-2 rounded-3xl pl-4 py-1  md:py-2 mt-2 mb-4 placeholder:uppercase ",
+        "focus:outline text-black placeholder:text-sm md:placeholder:text-base mx-2 rounded-3xl pl-4 py-1 min-w-32 w-full md:py-2 mt-2 mb-4 placeholder:uppercase ",
     search: "outline-indigo"
 };
 
@@ -21,15 +21,4 @@ export const containerStyle = {
 
 export const imageStyle = {
     profilePicture: "ml-2 h-9 w-9 rounded-full object-cover ",
-};
-
-export const disneyStudios = {
-    fadeAway: {
-        true: " animate-fade-away [&>*]:animate-fade-away ",
-        false: "",
-    },
-    fadeAndGrow: {
-        true: "",
-        false: ""
-    }
 };

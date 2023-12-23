@@ -25,6 +25,9 @@ export default function CreateAccountForm({ fade }) {
             (newFormData.password && passwordCheckFailed(newFormData.password)) ||
             (newFormData.email && emailCheckFailed(newFormData.email)) ||
             (newFormData.username && usernameCheckFailed(newFormData.username));
+        if (!(formData.username && formData.username.length > 0)) {
+            setError("Username required")
+        }
         if (validationError) {
             setError(validationError);
             return;
@@ -37,8 +40,6 @@ export default function CreateAccountForm({ fade }) {
         if (formData.username && formData.username.length > 0) {
             createAccount();
             setError(false)
-        } else {
-            setError("Username required")
         }
 
         async function createAccount() {

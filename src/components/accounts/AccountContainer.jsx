@@ -24,11 +24,13 @@ export default function AccountContainer({ accountData, searchedUser=false }) {
     let [editable, setEditable] = useState(false);
     let [formData, setFormData] = useState({});
     let [errorMessage, setErrorMessage] = useState(false);
-    let { setUserData } = useContext(UserContext);
+    let { userData, setUserData } = useContext(UserContext);
 
     let editableFields = { ...accountData };
     delete editableFields._id;
-    delete editableFields.role;
+    console.log(userData)
+    console.log(editableFields)
+    userData.role != "Admin" && delete editableFields.role;
     editableFields.password = "";
     let editableFieldsKeys = Object.keys(editableFields);
 

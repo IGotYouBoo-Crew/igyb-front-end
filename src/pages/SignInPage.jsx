@@ -16,6 +16,7 @@ export default function SignInPage() {
         console.log(searchText);
         let fetchedUserData = await getUserByUsername(searchText);
         fetchedUserData = fetchedUserData.data;
+        console.log(fetchedUserData)
         fetchedUserData.role = fetchedUserData.role.name;
         setSearchUserData(fetchedUserData);
     }

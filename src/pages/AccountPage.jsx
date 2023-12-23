@@ -4,6 +4,8 @@ import { buttonStyle } from "../constants/styles";
 import colourways from "../constants/colourways";
 import AccountContainer from "../components/accounts/AccountContainer";
 import ConfirmationModal from "../components/accounts/ConfirmationModal";
+import checkErrorInResponse from "../components/functions/checkErrorInResponse";
+import ErrorMessage from "../components/ErrorMessage";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -11,6 +13,7 @@ export default function AccountPage() {
     let { userData, setUserData } = useContext(UserContext);
     let [signedInUserData, setSignedInUserData] = useState(false);
     let [showConfirmation, setShowConfirmation] = useState(false);
+    let [errorMessage, setErrorMessage] = useState(false);
     let [fade, setFade] = useState(false);
 
     async function handleClickLogOut(e) {
@@ -29,7 +32,7 @@ export default function AccountPage() {
     }
 
     useEffect(() => {
-        getSignedInUserData();
+        let responseData = getSignedInUserData();
         // eslint-disable-next-line
     }, []);
 
@@ -38,6 +41,10 @@ export default function AccountPage() {
             credentials: "include",
         });
         let responseData = await response.json();
+        if (checkErrorInResponse(responseData)) {
+            setErrorMessage(responseData.errors);
+            return;
+        }
         responseData = responseData.data;
         responseData.role = responseData.role.name;
         setSignedInUserData(responseData);
@@ -56,6 +63,7 @@ export default function AccountPage() {
                 handleClose={() => setShowConfirmation(false)}
             />
             {signedInUserData ? <AccountContainer accountData={signedInUserData} /> : ""}
+            <ErrorMessage error={errorMessage} />
 
             <button
                 className={buttonStyle.default + colourways.accounts.redWarningButton}
@@ -63,12 +71,16 @@ export default function AccountPage() {
             >
                 LogOut
             </button>
-            <button
-                className={buttonStyle.default + colourways.accounts.redWarningButton}
-                onClick={(e) => handleClickDelete(e)}
-            >
-                Delete Account
-            </button>
+            {errorMessage ? (
+                ""
+            ) : (
+                <button
+                    className={buttonStyle.default + colourways.accounts.redWarningButton}
+                    onClick={(e) => handleClickDelete(e)}
+                >
+                    Delete Account
+                </button>
+            )}
         </div>
     );
 }

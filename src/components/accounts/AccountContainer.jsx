@@ -20,15 +20,15 @@ import ProfilePicture from "../ProfilePicture";
  * @param {{ accountData: {_id:string, username:string, role:string, email:string, profilePicture:string, pronouns:string} } }  
  * @returns {HTMLElement}
  */
-export default function AccountContainer({ accountData }) {
+export default function AccountContainer({ accountData, searchedUser=false }) {
     let [editable, setEditable] = useState(false);
     let [formData, setFormData] = useState({});
     let [errorMessage, setErrorMessage] = useState(false);
-    let { setUserData } = useContext(UserContext);
+    let { userData, setUserData } = useContext(UserContext);
 
     let editableFields = { ...accountData };
     delete editableFields._id;
-    delete editableFields.role;
+    userData.role !== "Admin" && delete editableFields.role;
     editableFields.password = "";
     let editableFieldsKeys = Object.keys(editableFields);
 
@@ -56,7 +56,7 @@ export default function AccountContainer({ accountData }) {
 
             async function updateUser() {
                 // patchUser sends formData to API patch route
-                let responseData = await patchUser(accountData, formData);
+                let responseData = await patchUser(accountData, formData, searchedUser.toString());
 
                 // checks for error message and sets the errorMessage state to display.
                 if (checkErrorInResponse(responseData)) {

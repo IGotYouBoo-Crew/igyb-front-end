@@ -20,7 +20,7 @@ export default function SearchBar({
                             : `Search ${location} for ${searchTarget}s`
                     }
                     className=" h-full w-full px-9 py-3 rounded-3xl text-base focus:outline-indigo capitalize shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]"
-                    onChange={onChange}
+                    onChange={(e)=>onChange(e)}
                 />
 
                 <button

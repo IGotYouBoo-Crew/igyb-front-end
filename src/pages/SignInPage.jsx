@@ -3,20 +3,18 @@ import MainLayout from "../components/MainLayout";
 import SignInContainer from "../components/accounts/SignInContainer";
 import UserContext from "../contexts/UserContext";
 import AccountPage from "./AccountPage";
-
-
+import SearchBar from "../components/SearchBar";
 
 export default function SignInPage() {
     let { userData } = useContext(UserContext);
-    
+
     return (
         <MainLayout>
-            <div className="bg-honey h-[calc(95vh)] py-24 my-auto flex flex-col justify-center items-center ">
-                {userData ? (
-                    <AccountPage />
-                ) : (
-                    <SignInContainer />
-                )}
+            <div className="bg-honey min-h-[700px] h-full py-8 ">
+                <div className="my-auto flex flex-col justify-center items-center ">
+                    {userData && userData.role === "Admin" && <SearchBar />}
+                    {userData ? <AccountPage /> : <SignInContainer />}
+                </div>
             </div>
         </MainLayout>
     );

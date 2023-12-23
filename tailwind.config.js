@@ -9,6 +9,8 @@ module.exports = ({
         'background': '#FFEBAD',
         'honey': '#FEB737',
         'periwinkle': '#A7B5FE',
+        'periwinkle-dark': '#7e89fb',
+        'search-border': '#953D96',
         'sea': '#37939F',
         'indigo': '#543786',
         'grey': '#C5C5C5',

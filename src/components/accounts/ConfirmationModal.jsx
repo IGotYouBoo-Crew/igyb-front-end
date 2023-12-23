@@ -28,7 +28,7 @@ export default function ConfirmationModal({ handleClose, isVisible, searchedUser
                 </button>
                 <div className="flex flex-row items-start justify-center ">
                     <h1 className="mt-4 -mr-2 w-9/12 font-bold text-2xl text-center uppercase">
-                        Are you sure you want to delete your account?
+                        Are you sure you want to delete this account?
                     </h1>
                 </div>
 

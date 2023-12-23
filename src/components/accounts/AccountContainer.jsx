@@ -68,7 +68,7 @@ export default function AccountContainer({ accountData, searchedUser=false }) {
                 setUserData(cookieResponseData);
 
                 // refreshes the page to update the user data on display
-                // window.location.reload();
+                window.location.reload();
                 return responseData;
             }
         }

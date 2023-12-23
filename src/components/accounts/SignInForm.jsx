@@ -16,10 +16,7 @@ export default function SignInForm({ fade = false }) {
     async function handleClick(event) {
         event.preventDefault();
         let formData = getDataFromListOfInputs(inputs);
-        fade()
-        setTimeout(() => {
-            setStateData(formData);
-        }, 600);
+        setStateData(formData);
     }
 
     useEffect(() => {
@@ -32,7 +29,11 @@ export default function SignInForm({ fade = false }) {
                     setError(responseData.errors);
                     return;
                 }
-                setUserData(responseData);
+                fade()
+                setTimeout(() => {
+                    setUserData(responseData);
+                    
+                }, 300);
                 return responseData;
             }
         }

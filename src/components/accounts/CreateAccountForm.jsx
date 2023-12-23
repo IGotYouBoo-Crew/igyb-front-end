@@ -4,12 +4,16 @@ import { buttonStyle } from "../../constants/styles";
 import colourways from "../../constants/colourways";
 import FormInput from "../FormInput";
 import ErrorMessage from "../ErrorMessage";
-import { emailCheckFailed, passwordCheckFailed, usernameCheckFailed } from "./functions/accountDataValidation";
+import {
+    emailCheckFailed,
+    passwordCheckFailed,
+    usernameCheckFailed,
+} from "./functions/accountDataValidation";
 import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
 import checkErrorInResponse from "../functions/checkErrorInResponse";
 import postNewUser from "./functions/postNewUser";
 
-export default function CreateAccountForm() {
+export default function CreateAccountForm({ fade }) {
     let [formData, setFormData] = useState({ username: "", password: "" });
     let { setUserData } = useContext(UserContext);
     let [error, setError] = useState(false);
@@ -40,10 +44,13 @@ export default function CreateAccountForm() {
                 setError(responseData.errors);
                 return;
             }
+            fade();
             let newUserData = {};
             newUserData.username = responseData.username;
             newUserData.role = responseData.role;
-            setUserData(newUserData);
+            setTimeout(() => {
+                setUserData(newUserData);
+            }, 300);
             return newUserData;
         }
         // eslint-disable-next-line

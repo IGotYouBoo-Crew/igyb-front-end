@@ -172,7 +172,6 @@ const EventForm = ({ isVisible, onClose }) => {
               placeholder={"EVENT DATE*"}
               value={date}
               onChange={(chosenDate) => {
-                console.log("chosen date:", chosenDate);
                 setDate(chosenDate);
               }}
             />

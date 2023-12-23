@@ -7,7 +7,6 @@
  * @returns {JSON}
  */
 async function deleteComment(commentData) {
-    console.log(commentData);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/comments/" + commentData._id + "/" + commentData.author._id,
@@ -21,8 +20,6 @@ async function deleteComment(commentData) {
     );
 
     let deletedComment = await result.json();
-
-    console.log(deletedComment);
 
     return deletedComment;
 

@@ -1,5 +1,4 @@
 async function createPost(title, photo, caption, body) {
-    console.log(title, photo, caption, body);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/posts/",
@@ -18,8 +17,6 @@ async function createPost(title, photo, caption, body) {
     );
 
     let post = await result.json();
-
-    console.log(post);
 
     return post;
 

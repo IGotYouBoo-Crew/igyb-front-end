@@ -11,7 +11,6 @@ const ForumPostPage = () => {
   let [post, setPost] = useState("");
   // let [error, setError] = useState(false);
   let urlPostId = window.location.pathname.split("/")[2];
-  console.log(urlPostId);
 
   useEffect(() => {
     getPost();
@@ -33,13 +32,9 @@ const ForumPostPage = () => {
       // setError(responseData.errors);
       return
     }
-
-    console.log(responseData);
     setPost(responseData);
     return responseData;
   }
-
-  console.log(post)
   return (
     <MainLayout>
       <section className=''>

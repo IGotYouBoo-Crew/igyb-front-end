@@ -1,33 +1,19 @@
 
-async function updateEvent(title, host, image, start, finish, ticketLink, content, event) {
-    console.log(title, host, image, start, finish, ticketLink, content, event);
-
+export default async function updateEvent(updatedEventData, currentEventData) {
     let result = await fetch(
-        process.env.REACT_APP_BACKEND_URL + "/events/" + event._id + "/" + event.author._id,
+        process.env.REACT_APP_BACKEND_URL + "/events/" + currentEventData._id + "/" + currentEventData.author._id,
         {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
             credentials: "include",
-            body: JSON.stringify({
-                title: title, 
-                host: host, 
-                image: image, 
-                start: start,
-                finish: finish,
-                ticketLink: ticketLink,
-                content: content,
-            }),
+            body: JSON.stringify(updatedEventData),
         }
     );
 
     let updatedEvent = await result.json();
 
-    console.log(updatedEvent);
-
     return updatedEvent;
 
 }
-
-module.exports = {updateEvent};

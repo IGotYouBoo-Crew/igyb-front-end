@@ -20,8 +20,6 @@ const EventsList = () => {
     });
 
     const responseData = await response.json();
-
-    console.log(responseData);
     setListOfEvents(responseData);
     return responseData;
   }

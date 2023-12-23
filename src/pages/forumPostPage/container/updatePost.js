@@ -1,5 +1,4 @@
 async function updatePost(title, caption, body, photo, post) {
-    console.log(title, caption, body, photo, post);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/posts/" + post._id + "/" + post.author._id,
@@ -19,8 +18,6 @@ async function updatePost(title, caption, body, photo, post) {
     );
 
     let updatedPost = await result.json();
-
-    console.log(updatedPost);
 
     return updatedPost;
 

@@ -25,7 +25,6 @@ export default function SignInContainer() {
             setFade(false)
         }, 600);
     }
-    console.log(fade)
 
     return (
         <div className={containerStyle[createAccount] + (fade ? " animate-fade-away" : " animate-fade-towards")}>

@@ -8,7 +8,7 @@ const CommentUpdateForm = ({commentData, initialText = "", formCancelHandler = n
     e.preventDefault()
 
     try{
-    formSubmitHandler(desc);
+    await formSubmitHandler(desc);
 
     // reload page so we can 
       window.location.reload();

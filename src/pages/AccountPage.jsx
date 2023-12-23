@@ -32,7 +32,7 @@ export default function AccountPage() {
     }
 
     useEffect(() => {
-        let responseData = getSignedInUserData();
+        getSignedInUserData();
         // eslint-disable-next-line
     }, []);
 

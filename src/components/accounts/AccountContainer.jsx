@@ -28,8 +28,6 @@ export default function AccountContainer({ accountData, searchedUser=false }) {
 
     let editableFields = { ...accountData };
     delete editableFields._id;
-    console.log(userData)
-    console.log(editableFields)
     userData.role != "Admin" && delete editableFields.role;
     editableFields.password = "";
     let editableFieldsKeys = Object.keys(editableFields);

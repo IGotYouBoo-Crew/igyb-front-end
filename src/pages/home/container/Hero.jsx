@@ -22,7 +22,7 @@ const Hero = () => {
         </div>
         <div className='md:h-160 -mt-6 w-screen bg-cover bg-center flex flex-col justify-center items-center md:flex-row-reverse'>
             <img className= 'md:w-1/2 md:h-full md:object-cover' src={images.EventsHero} alt="Girls laughing" />
-            <div className='h-full bg-background  text-sea flex flex-col px-10 lg:px-20 py-12 justify-center items-center md:items-start'>
+            <div className='h-full md:w-1/2 bg-background  text-sea flex flex-col px-10 lg:px-20 pt-12 pb-20 justify-center items-center md:items-start'>
                 <h2 className='text-center md:text-left md:mt-6 font-bold uppercase'>Wanting to meet like-minded people?</h2>
                 <h1 className='mt-2 font-bold text-2xl md:text-3xl text-center md:text-left uppercase'>Come to one of our meet up events</h1>
                 <p className='mt-4 text-center md:text-left'>

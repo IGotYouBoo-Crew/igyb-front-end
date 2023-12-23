@@ -64,7 +64,7 @@ const PostContainer = ({post}) => {
               <ProfilePicture 
                 src={post.author.profilePicture } 
                 alt="profile"
-                className="rounded-full h-9 w-9 mr-1"
+                className="rounded-full h-9 w-9 object-cover mr-1"
               />
               <div className="ml-2">
                 <h4 className="text-sm font-bold text-white opacity-70">
@@ -83,12 +83,12 @@ const PostContainer = ({post}) => {
                   alt="post title"
                   className="rounded-3xl mt-2 w-full h-auto object-cover lg:w-1/2"
                 />
-                <div className="text-white mt-6 text-center lg:text-left">
+                <div className="text-white mt-6 text-center lg:text-left lg:w-1/2">
                   <h1 className="text-2xl font-bold md:text-3xl capitalize">
                     {post.title}
                   </h1>
-                  <div className="text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 py-3">
-                    <p className="mb-4 lg:mb-0">{post.body}</p>
+                  <div className="text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 pt-1 pb-3">
+                    <p className="mb-4 lg:mb-0 whitespace-pre-wrap">{post.body}</p>
                   </div>
                 </div>
               </div>

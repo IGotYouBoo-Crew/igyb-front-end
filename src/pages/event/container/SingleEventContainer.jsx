@@ -98,7 +98,7 @@ const SingleEventContainer = ({ event }) => {
                   </h3>
                   <div className="mt-6 text-center lg:text-left ">
                     <div className="text-sm md:text-base px-4 md:px-0 lg:pl-0 lg:pr-16 py-3 ">
-                      <p>{event.content}</p>
+                      <p className="whitespace-pre-wrap ">{event.content}</p>
                       <h4 className="text-sm font-bold opacity-70 md:px-20 lg:px-12 lg:pl-0 mt-4 lg:text-left ">
                         Event created by @
                         {event.author.username || " one of our Superstars!"}

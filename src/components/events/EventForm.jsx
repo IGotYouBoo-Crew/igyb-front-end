@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { createEvent } from "./createEvent";
-
-// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import React, { useState, useContext } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 import { IoClose } from "react-icons/io5";
+import { NavLink, Navigate } from 'react-router-dom';
+
+import { createEvent } from "./createEvent";
+import UserContext from "../../contexts/UserContext";
 
 const EventForm = ({ isVisible, onClose }) => {
   const [title, setTitle] = useState("");
@@ -18,6 +19,10 @@ const EventForm = ({ isVisible, onClose }) => {
   const [ticketLink, setTicketLink] = useState("");
   const [content, setContent] = useState("");
 
+  const [route, setRoute] = useState("");
+  let { userData } = useContext(UserContext);
+
+
   const handleClose = (event) => {
     if (event.target.id === "eventForm") onClose();
   };
@@ -28,6 +33,8 @@ const EventForm = ({ isVisible, onClose }) => {
 
     try {
       let eventDate = date.startDate;
+
+      let createdEvent =
       await createEvent(
         title,
         host,
@@ -38,6 +45,8 @@ const EventForm = ({ isVisible, onClose }) => {
         ticketLink,
         content
       );
+
+      setRoute("/forum/" + createdEvent._id);
 
       // Clear the form fields after submission
       setTitle("");
@@ -57,6 +66,9 @@ const EventForm = ({ isVisible, onClose }) => {
 
   if (!isVisible) return null;
   return (
+    <>
+    {userData ? 
+
     <div
       className="z-10 fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center "
       id="eventForm"
@@ -172,9 +184,15 @@ const EventForm = ({ isVisible, onClose }) => {
           <button type="submit" className="buttonSubmit ">
             Submit
           </button>
+          {route ? <Navigate to={route}/> : ""}
         </form>
       </div>
     </div>
+    :
+    <NavLink to="/sign-in" className="underline text-center uppercase mt-2 font-bold ">
+        Please sign in for this
+    </NavLink>
+    } </>
   );
 };
 

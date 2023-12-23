@@ -34,8 +34,11 @@ export default function CreateAccountForm({ fade }) {
 
     // creates an account when formData is updated
     useEffect(() => {
-        if (formData.username.length > 0) {
+        if (formData.username && formData.username.length > 0) {
             createAccount();
+            setError(false)
+        } else {
+            setError("Username required")
         }
 
         async function createAccount() {
@@ -56,7 +59,7 @@ export default function CreateAccountForm({ fade }) {
         // eslint-disable-next-line
     }, [formData]);
 
-    const inputsList = ["username", "password", "email", "pronouns"];
+    const inputsList = ["username", "password", "email", "pronouns", "profilePicture"];
 
     return (
         <form className="flex flex-col mb-2">

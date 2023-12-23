@@ -10,6 +10,7 @@ import getCookieResponse from "./functions/getCookieResponse";
 import getDataFromListOfInputs from "../functions/getDataFromListOfInputs";
 import { emailCheckFailed, passwordCheckFailed, usernameCheckFailed } from "./functions/accountDataValidation";
 import ErrorMessage from "../ErrorMessage";
+import ProfilePicture from "../ProfilePicture";
 
 /**
  * A container for holding editable account data
@@ -112,11 +113,7 @@ export default function AccountContainer({ accountData }) {
                               {key === "profilePicture" ? (
                                   <div className="flex flex-row justify-start items-center">
                                       <span className="capitalize">{key}</span> :{" "}
-                                      <img
-                                          src={accountData[key]}
-                                          alt="Profile Pic"
-                                          className={imageStyle.profilePicture}
-                                      />
+                                      <ProfilePicture userData={accountData} className={imageStyle.profilePicture} />
                                   </div>
                               ) : (
                                   <p>

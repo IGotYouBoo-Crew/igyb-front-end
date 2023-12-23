@@ -6,11 +6,11 @@ export default function SearchBar({
     onChange = () => {},
     onSearch = () => {},
     searchableValues = {},
-    width = "",
+    className = "",
 }) {
     return (
-        <div className={"py-4" + width || "w-full"}>
-            <div className="flex flex-row justify-center items-center w-10/12 md:w-3/4 2xl:w-1/2 mx-auto my-auto  rounded-3xl">
+        <div className={className}>
+            <div className="flex flex-row justify-center items-center w-10/12 md:w-3/4 2xl:w-1/2 mx-auto my-auto pt-4  rounded-3xl">
                 <FiSearch className="h-6 w-6 -mr-8 z-10 text-[#959EAD] " />
                 <input
                     type="search"

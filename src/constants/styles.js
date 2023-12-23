@@ -20,7 +20,7 @@ export const containerStyle = {
 };
 
 export const imageStyle = {
-    profilePicture: "ml-2 h-9 rounded-full ",
+    profilePicture: "ml-2 h-9 w-9 rounded-full object-cover ",
 };
 
 export const disneyStudios = {

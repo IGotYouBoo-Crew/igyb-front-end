@@ -1,6 +1,6 @@
 import React from 'react'
-import { images } from '../constants'
 import { NavLink } from 'react-router-dom'
+import ProfilePicture from './ProfilePicture'
 
 const PostCard = ({className, postData}) => {
   return (
@@ -17,7 +17,7 @@ const PostCard = ({className, postData}) => {
             </div>
             <div className='mt-5 flex justify-between flex-wrap items-center gap-x-4 text-gray-400'>
                 <div className='flex items-center justify-between'>
-                    <img src={postData.author.profilePicture || images.ProfileDefault} alt="post 1 author" className='rounded-full h-8 mr-1' />
+                    <ProfilePicture src={postData.author.profilePicture} alt="Author Profile Picture" className='rounded-full h-8 w-8 mr-1' />
                     <h4 className='italic text-xs'>
                         By @{postData.author.username || "deleteduser"}
                     </h4>

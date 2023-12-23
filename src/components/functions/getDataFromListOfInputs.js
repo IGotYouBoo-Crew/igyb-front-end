@@ -7,16 +7,15 @@
  * @returns Object: key=inputName value=document.getElementByName[0].value
  */
 export default function getDataFromListOfInputs(inputNames) {
-
     // inputNames.forEach((inputName) => {
     //     formData[inputName] = document.getElementsByName(inputName)[0].value;
     // });
     let formData = {};
-        inputNames.forEach((inputName) => {
-            let checkValue = document.getElementsByName(inputName);
-            if (checkValue.length > 0 && checkValue[0].value) {
-                formData[inputName] = checkValue[0].value;
-            }
-        });
-    return formData
+    inputNames.forEach((inputName) => {
+        let checkValue = document.getElementsByName(inputName);
+        if (checkValue && checkValue.length > 0 && checkValue[0].value) {
+            formData[inputName] = checkValue[0].value;
+        }
+    });
+    return formData;
 }

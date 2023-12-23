@@ -1,5 +1,3 @@
-import { imageStyle } from "../constants/styles";
-
 export default function ProfilePicture({ userData, className }) {
     function defaultImage( {target} ) {
         target.onError = null;

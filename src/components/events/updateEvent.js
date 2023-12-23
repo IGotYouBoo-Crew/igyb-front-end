@@ -17,7 +17,6 @@ async function updateEvent(title, host, image, start, finish, ticketLink, conten
                 finish: finish,
                 ticketLink: ticketLink,
                 content: content,
-                date: date
             }),
         }
     );

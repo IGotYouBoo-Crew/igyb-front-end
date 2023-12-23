@@ -42,7 +42,6 @@ export default function AccountPage() {
         responseData.role = responseData.role.name;
         setSignedInUserData(responseData);
     }
-    console.log(signedInUserData.profilePicture)
 
     // TODO: fix up all this
     return (

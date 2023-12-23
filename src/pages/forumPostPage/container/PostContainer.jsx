@@ -11,7 +11,6 @@ import PostDeleteForm from "./PostDeleteForm";
 
 const PostContainer = ({post}) => {
   let { userData } = useContext(UserContext);
-  console.log(post.author)
   const postBelongsToUser = post && userData.username === post.author.username; 
   const [affectedPost, setAffectedPost] = useState({});
 

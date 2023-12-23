@@ -23,8 +23,6 @@ async function getAllPosts() {
     });
     
     const responseData = await response.json();
-
-    console.log(responseData);
     setListOfPosts(responseData);
     return responseData;
 }

@@ -38,7 +38,6 @@ export default function AccountContainer({ accountData }) {
     async function handleSubmit(event) {
         event.preventDefault();
         let newData = getDataFromListOfInputs(editableFieldsKeys);
-        console.log(newData)
         let validationError =
             (newData.password && passwordCheckFailed(newData.password)) ||
             (newData.email && emailCheckFailed(newData.email)) ||

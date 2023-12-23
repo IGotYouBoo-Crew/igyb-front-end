@@ -21,8 +21,6 @@ const Posts = () => {
       });
       
       const responseData = await response.json();
-  
-      console.log(responseData);
       setListOfPosts(responseData);
       return responseData;
   }

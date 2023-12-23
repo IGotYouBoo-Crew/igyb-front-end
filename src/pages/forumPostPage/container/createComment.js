@@ -1,5 +1,4 @@
 async function createComment(desc, parentPostId) {
-    console.log(desc, parentPostId);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/comments/",
@@ -16,8 +15,6 @@ async function createComment(desc, parentPostId) {
     );
 
     let post = await result.json();
-
-    console.log(post);
 
     return post;
 

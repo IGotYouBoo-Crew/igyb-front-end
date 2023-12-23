@@ -11,7 +11,6 @@ const backendURL = process.env.REACT_APP_BACKEND_URL;
 const SingleEventPage = () => {
   let [event, setEvent] = useState("");
   let urlEventId = window.location.pathname.split("/")[2];
-  console.log(urlEventId);
 
   useEffect(() => {
     getEvent();
@@ -33,13 +32,9 @@ const SingleEventPage = () => {
         // setError(responseData.errors);
         return
     }
-
-    console.log(responseData);
     setEvent(responseData);
     return responseData;
   }
-
-  console.log(event)
 
   return (
     <MainLayout>

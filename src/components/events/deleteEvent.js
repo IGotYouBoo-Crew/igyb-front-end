@@ -1,6 +1,5 @@
 
 async function deleteEvent(event) {
-    console.log(event);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/events/" + event._id + "/" + event.author._id,
@@ -14,8 +13,6 @@ async function deleteEvent(event) {
     );
 
     let deletedEvent = await result.json();
-
-    console.log(deletedEvent);
 
     return deletedEvent;
 

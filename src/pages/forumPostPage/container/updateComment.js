@@ -8,7 +8,6 @@
  * @returns {JSON} responseData
  */
 async function updateComment(desc, commentData) {
-    console.log(desc, commentData);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/comments/" + commentData._id + "/" + commentData.author._id,
@@ -25,8 +24,6 @@ async function updateComment(desc, commentData) {
     );
 
     let updatedComment = await result.json();
-
-    console.log(updatedComment);
 
     return updatedComment;
 

@@ -1,5 +1,4 @@
 async function createEvent(title, host, image, eventDate, start, finish, ticketLink, content) {
-    console.log(title, host, image, eventDate, start, finish, ticketLink, content);
 
     let result = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/events",
@@ -23,8 +22,6 @@ async function createEvent(title, host, image, eventDate, start, finish, ticketL
     );
 
     let event = await result.json();
-
-    console.log(event);
 
     return event;
 

@@ -25,7 +25,8 @@ const UpdateEventForm = ({
     e.preventDefault();
 
     try {
-      formSubmitHandler(host, image, title, start, finish, ticketLink, content);
+      console.log(event._id)
+        formSubmitHandler(host, image, title, start, finish, ticketLink, content, event);
 
       // reload page so we can see the fresh stuff!
       window.location.reload();

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import BreadCrumbs from "../../../components/BreadCrumbs";
 import { FiEdit2, FiTrash } from "react-icons/fi";
-import UpdateEventForm from "../../../components/events/UpdateEventForm";
-import DeleteEventForm from "../../../components/events/DeleteEventForm";
 import UserContext from "../../../contexts/UserContext";
+import UpdateEventForm from "../../../components/events/UpdateEventForm";
 import { updateEvent } from "../../../components/events/updateEvent";
+import DeleteEventForm from "../../../components/events/DeleteEventForm";
 import { deleteEvent } from "../../../components/events/deleteEvent";
 
 const SingleEventContainer = ({ event }) => {
@@ -30,9 +30,10 @@ const SingleEventContainer = ({ event }) => {
     start,
     finish,
     ticketLink,
-    content
+    content,
+    event
   ) {
-    await updateEvent(title, host, image, start, finish, ticketLink, content);
+    await updateEvent(title, host, image, start, finish, ticketLink, content, event);
     setAffectedEvent(null);
   };
 
@@ -125,8 +126,9 @@ const SingleEventContainer = ({ event }) => {
                     image,
                     start,
                     finish,
-                    ticketLink,
-                    content
+                    ticketLink, 
+                    content,
+                    event
                   )
                 }
                 formCancelHandler={() => setAffectedEvent(null)}

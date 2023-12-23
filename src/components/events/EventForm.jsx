@@ -5,6 +5,9 @@ import { NavLink, Navigate } from 'react-router-dom';
 
 import { createEvent } from "./createEvent";
 import UserContext from "../../contexts/UserContext";
+import ErrorMessage from '../ErrorMessage';
+import { titleCheckFailed, hostCheckFailed, imageCheckFailed, ticketLinkCheckFailed } from "./EventDataValidation";
+
 
 const EventForm = ({ isVisible, onClose }) => {
   const [title, setTitle] = useState("");
@@ -21,15 +24,45 @@ const EventForm = ({ isVisible, onClose }) => {
 
   const [route, setRoute] = useState("");
   let { userData } = useContext(UserContext);
+  let [error, setError] = useState(false);
 
 
   const handleClose = (event) => {
     if (event.target.id === "eventForm") onClose();
   };
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Need to add validation for form fields
+
+    let validationError =
+        titleCheckFailed(title) ||
+        hostCheckFailed(host) ||
+        imageCheckFailed(image) ||
+        date ||
+        start ||
+        finish ||
+        ticketLinkCheckFailed(ticketLink) ||
+        content;
+
+    if (validationError) {
+        setError(validationError);
+        return;
+    } else if (!title) {
+        setError("Title is required*")
+    } else if (!host) {
+        setError("a Host is required*")
+    } else if (!image) {
+        setError("Image is required*")
+    } else if (!date) {
+        setError("We need a date for this event!")
+    } else if (!start) {
+        setError("What time is it starting?")
+    } else if (!finish) {
+        setError("What time should it finish up?")
+    } else if (!content) {
+        setError("Please give us some more deets about this in content!")
+    } else {
 
     try {
       let eventDate = date.startDate;
@@ -59,10 +92,11 @@ const EventForm = ({ isVisible, onClose }) => {
       setContent("");
 
       onClose();
-    } catch (error) {
-      console.log("Looks like we have a problem:", error);
-    }
-  };
+        } catch (error) {
+        console.log("Looks like we have a problem:", error);
+        }
+    };
+    };
 
   if (!isVisible) return null;
   return (
@@ -180,6 +214,11 @@ const EventForm = ({ isVisible, onClose }) => {
             </h1>
         
           </div>
+
+          <ErrorMessage error={error} 
+            className="mt-2 text-lg"
+          />
+
           <button type="submit" className="buttonSubmit ">
             Submit
           </button>

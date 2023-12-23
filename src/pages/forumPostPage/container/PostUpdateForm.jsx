@@ -14,7 +14,7 @@ const PostUpdateForm = ({post, titleInitialText = "", captionInitialText = "", b
     try{
     formSubmitHandler(title, caption, body, photo);
 
-    // reload page so we can 
+    // reload page so we can see the edits
       window.location.reload();
 
     } catch (error) {

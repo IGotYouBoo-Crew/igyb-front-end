@@ -8,6 +8,7 @@ import { updatePost } from "./updatePost";
 import PostUpdateForm from "./PostUpdateForm";
 import { deletePost } from "./deletePost";
 import PostDeleteForm from "./PostDeleteForm";
+import ProfilePicture from "../../../components/ProfilePicture";
 
 const PostContainer = ({post}) => {
   let { userData } = useContext(UserContext);
@@ -61,10 +62,10 @@ const PostContainer = ({post}) => {
             </div>
             
             <div className="flex items-center md:px-20 lg:px-12 pb-3 pt-5 -mt-7">
-              <img 
-                src={post.author.profilePicture || images.ProfileDefault} 
+              <ProfilePicture 
+                src={post.author.profilePicture } 
                 alt="profile"
-                className="rounded-full h-9 mr-1"
+                className="rounded-full h-9 w-9 mr-1"
               />
               <div className="ml-2">
                 <h4 className="text-sm font-bold text-white opacity-70">

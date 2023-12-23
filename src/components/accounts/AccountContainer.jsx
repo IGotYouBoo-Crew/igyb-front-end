@@ -113,7 +113,7 @@ export default function AccountContainer({ accountData }) {
                               {key === "profilePicture" ? (
                                   <div className="flex flex-row justify-start items-center">
                                       <span className="capitalize">{key}</span> :{" "}
-                                      <ProfilePicture userData={accountData} className={imageStyle.profilePicture} />
+                                      <ProfilePicture src={accountData[key]} className={imageStyle.profilePicture} />
                                   </div>
                               ) : (
                                   <p>

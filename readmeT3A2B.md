@@ -335,7 +335,7 @@ We had to nail these tests *before* building the code, because as we've been tau
 
 ![npm reseed and test](docs/testReseed.png)
 
-From there, we'd be able to check and cross check all of our routes, and we included about a hundred (not really but it felt like it!) `console.logs` to track exactly where we were, or what would go through, in order to troubleshoot when things *didn't* pass.
+From there, we'd be able to check and cross check all of our routes, and we included about a hundred (not really but it felt like it!) `console.logs` to track exactly where we were, or what would go through, in order to troubleshoot when things *didn't* pass. Better unit testing even *more* early on would've reduced the number of `console.log`-ing that would've been needed, but hindsight is 20-20!
 
 ![test routes](docs/testRoutes.png)
 

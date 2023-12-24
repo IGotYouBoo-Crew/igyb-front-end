@@ -64,8 +64,8 @@ IN ALPHABETICAL ORDER:
 - **react-icons** - a big, beautiful collection of React icons that were perfect for IGYB. This is where we got our icons for everything from the phone and email for our Contact Page, to the pencil on editable fields, or arrows on buttons to view more posts.
 - **react-router-dom** - the good old standard routing library for a lot of React apps (if it ain't broke, don't fix it!). This was easy to integrate, and we were all familiar with it, so made sense to utilise for enabling navigation
 - **react-tailwindcss-datepicker** - this was a nightmare to work with intially, as it's typically a date _range_ picker. In order to select just a single date and shoot that through to the backend took a little tweaking, as did being able to view the pop up calendar in different screensizes, as forms were in modals - which cuts overflow!
-- **supertest** and **supertest-session** - these libraries were used for testing HTTP assertions, and managing the sessions in supertest
 - **validator** - The Validator package is for data validation. It provides a set of utility functions to validate various data types, including URLs, email addresses, credit card numbers, and more. We have used this package to validate the input in a photo field to ensure it is a valid URL link. The validator package is typically distributed under the MIT license, which is a permissive open-source license. The MIT license allows you to use, modify, and distribute the software freely, but it comes with no warranty. 
+- **supertest** and **supertest-session** - these libraries were used for testing HTTP assertions, and managing the sessions in supertest to test our cookie authorisation
 
 <br>
 

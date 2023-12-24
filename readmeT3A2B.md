@@ -6,7 +6,7 @@
 
 [Backend Repo](https://github.com/IGotYouBoo-Crew/igyb-back-end)
 
-[Assignment Part A README Repository](https://github.com/IGotYouBoo-Crew/T3A2-A)
+[Assignment Part A Repository](https://github.com/IGotYouBoo-Crew/T3A2-A)
 
 [Trello Project Management Board](https://trello.com/b/y0rODp16/got-you-boo)
 
@@ -28,10 +28,13 @@
 
 [R8: Evidence of user testing](#r8-provides-evidence-of-user-testing)
 
-[R9: A link (URL) to your deployed website](#r9-a-link-url-to-your-deployed-website)
+[R9: Utilises a formal testing framework](#r9-utilises-a-formal-testing-framework)
 
-[R10: A link to your GitHub repository (repo)](#r10-a-link-to-your-github-repository-repo)
+[R10: A link (URL) to your deployed website](#r9-a-link-url-to-your-deployed-website)
 
+[R11: A link to your GitHub repository (repo)](#r10-a-link-to-your-github-repository-repo)
+
+[R12: ](#r12)
 # R1: At a minimum use the following technologies:
 
 ## - MongoDB
@@ -264,8 +267,6 @@ Within the 'bulkier' items on our cards, we could add descriptions of what was r
 
 ![Trello card2](docs/trelloCard2.png)
 
-# <span style="color:red"> _NOTE: Need to add git to trello board and update screenshots before submission_ </span>
-
 We weren't about sticking to a rigid plan, because it wasn't realistic and didn't feel like 'us'. Instead, we found our process was about embracing change, learning, and refining based on insights gained through meetings, discussions and collaborative feedback.
 
 With that said, the [Figma Wireframes](https://www.figma.com/file/ygmt0g4Y5Q87a7FHad6Xll/I-Got-You%2C-Boo?type=design&node-id=0-1&mode=design&t=SttEmwEa2vDQyqSZ-0) for our overall design and therefore game plan of how to bring it to life were AMAZING!
@@ -279,9 +280,10 @@ WIREFRAMES FOR FORUM/POSTS:
 ![Figma close up](docs/figmaClose.png)
 
 FINISHED DEPLOYED PAGES FOR FORUM/POSTS:
-[Screenshots have been relegated to the end of the README to avoid having to scrolling past them](#screenshots)
 
 ![Forum page](docs/forum.png)
+
+And there are a heck of a lot more screenshots that have been relegated to [the end of the README](#screenshots) to avoid you having to scroll past them #youarewelcome 🥳
 
 We've been exceptionally lucky that we each have different strengths we could bring to the table, that complemented one another and was invaluable to the project.
 
@@ -295,7 +297,7 @@ Jack was our Wizard of Code (and felt like our very own Educator at times!); cre
 
 Naomi was Guru of documentation, pulling together all the words, screenshots, and explanations that should lock in top marks for this assignment (surely, Educators?!).
 
-Together, we did an amazing job, and learnt a heck of a lot along the way.
+There have been too many 2am Discord Meeting Room troubleshooting sessions, shifts at work given up, and even a delayed trip to be with family for Christmas in order to finish this project strong. We'd say that 'finish strong' is exactly what we've done here. Together, we did an amazing job, and learnt a heck of a lot along the way.
 
 <br>
 
@@ -378,19 +380,13 @@ So, some validation testing was ran through the actual test suites in the back e
 
 This was largely due to two very different approaches. 
 
-As mentioned above, Jack is our Wizard of Code, and has his own super impressive, natural style of coding. Meanwhile Ella had found what *appeared* to be great tutorials for almost *exactly* what we were wanting to achieve, and that what she and Naomi based most of the *Posts* and *Events* around. However, in the long run, we can all admit that those tutorials almost caused more headaches!
+As mentioned above, Jack is our Wizard of Code, and has his own super impressive, natural style of coding. Meanwhile Ella had found what *appeared* to be great tutorials for almost *exactly* what we were wanting to achieve, and that's what she and Naomi based most of the *Posts* and *Events* code on. However, in the long run, we can all admit that those tutorials almost caused more headaches!
 
 We got there though, and have all learned SO MUCH from all the back and forth of helping each other and having to figure out what one another were trying to do and how they were trying to get there... So, with the aim of this entire assignment being for us to learn how to work in a team and create something functional and beautiful, we'd all agree that we nailed this! 🥳
 
 Back to the testing...
 
 Like we said: there were a lot of tests in order to be thorough.
-
-It's worth mentioning that some branch coverage appears low, but this is largely due to a lot of them only being available *outside* of the test environment (in development or production). 
-
-Some other branches were for catching specific cases which later changes to the code made (theoretically) unreachable. With some error handling being coded directly into the functions (mentioned above - with the front end form validation), the tests being completed cannot cover some of the error-handling branches. Hence, when we run coverage, it pretty much says *"You tested this function, but you only tested half the branches"*.
-
-![test coverage](docs/testCoverage.png)
 
 Once the majority of our site was deployed and functional, we were able to cross reference with an easy-to-read production testing table (based on the _Revised User Stories_ that were completed in Part A), and ensure that we covered all bases:
 
@@ -401,11 +397,21 @@ UPDATED TESTING TABLE
 ![Production testing updated table](docs/production_test_update.png)
 
 
+<br>
 
+# R9: Utilises a formal testing framework
+
+We've gone over a whole lot of the testing information above already, so no need to repeat ourselves too much here, right? (README's should be DRY too, I reckon!)
+
+However, it's still worth mentioning here perhaps that some branch coverage appears low. This is largely due to a lot of them only being available *outside* of the test environment (in development or production). 
+
+Some other branches were for catching specific cases which later changes to the code made (theoretically) unreachable. With some error handling being coded directly into the functions (mentioned above - with the front end form validation), the tests being completed cannot cover some of the error-handling branches. Hence, when we run coverage, it pretty much says *"You tested this function, but you only tested half the branches"*.
+
+![test coverage](docs/testCoverage.png)
 
 <br>
 
-# R9: A link (URL) to your deployed website
+# R10: A link (URL) to your deployed website
 
 You've got a few links to this already, but just making we tick the right boxes at this point!
 
@@ -415,7 +421,7 @@ Link: https://igotyouboo.netlify.app/ 💛😉
 
 <br>
 
-# R10: A link to your GitHub repository (repo)
+# R11: A link to your GitHub repository (repo)
 
 ## Ensure the repo is accessible by your educators!
 
@@ -426,6 +432,76 @@ You got it, folks!
 [Backend Repository can be found here](https://github.com/IGotYouBoo-Crew/igyb-back-end)
 
 
-# Screenshots
-These are tucked away at the end here because there are a LOT of them
-![Desktop About](./docs/desktopAbout.png) ![Desktop Account](./docs/desktopAccount.png) ![Desktop Comments](./docs/desktopComments.png) ![Desktop Contact](./docs/desktopContact.png) ![Desktop CreateEvent](./docs/desktopCreateEvent.png) ![Desktop CreatePost](./docs/desktopCreatePost.png) ![Desktop Event](./docs/desktopEvent.png) ![Desktop Events](./docs/desktopEvents.png) ![Desktop Forum](./docs/desktopForum.png) ![Desktop Home](./docs/DesktopHome.png) ![Desktop Home2](./docs/desktopHome2.png) ![Desktop Home3](./docs/desktopHome3.png) ![Desktop Post](./docs/desktopPost.png) ![Desktop PP](./docs/desktopPP.png) ![Desktop SelectDate](./docs/desktopSelectDate.png) ![Desktop TCs](./docs/desktopTCs.png) ![Desktop UpdateAccount](./docs/desktopUpdateAccount.png) ![Desktop UpdateEvent](./docs/desktopUpdateEvent.png) ![Desktop UpdatePost](./docs/desktopUpdatePost.png) ![Phone Account](./docs/phoneAccount.png) ![Phone CreateAccount](./docs/phoneCreateAccount.png) ![Phone CreateEvent](./docs/phoneCreateEvent.png) ![Phone CreatePost](./docs/phoneCreatePost.png) ![Phone Event](./docs/phoneEvent.png) ![Phone Events](./docs/phoneEvents.png) ![Phone Forum](./docs/phoneForum.png) ![Phone Home](./docs/phoneHome.png) ![Phone Post](./docs/phonePost.png) ![Phone SignIn](./docs/phoneSignIn.png) ![Phone UpdateAccount](./docs/phoneUpdateAccount.png) ![Phone UpdateEvent](./docs/phoneUpdateEvent.png)
+<br>
+
+# R12: The contents of your `README.md` as submitted for `Full Stack App - Part A`
+
+We tossed up trying to include the *entire* Part A README, but came to the conclusion that that would be ridiculous, suuurely.
+
+Based on Alex's answer in Discord to that same/similar question, we hope that all the information above and the comments in our user test spreadsheet cover the minor changes we've made as we've progressed through.
+
+![Alex's answer](docs/alex.png)
+
+
+And again, just to be safe, the link for the actual Part A README is here: https://github.com/IGotYouBoo-Crew/T3A2-A/blob/main/README.md
+
+<br>
+
+___
+
+<br>
+
+It's been a wild ride, guys.
+
+Thank you to everyone at Coder Academy who got us this far - we look forward to seeing your in the future and continuing to make you proud!
+
+Ella, Jack and Naomi
+
+aka. the IGYB Crew x
+
+<br>
+
+___
+
+<br>
+
+# Deployed site screenshots from R4
+
+These are tucked away at the end here because there are a LOT of them! 
+
+DESKTOP VIEW SCREENSHOTS:
+
+![Desktop Home](./docs/DesktopHome.png) 
+![Desktop Home2](./docs/desktopHome2.png) 
+![Desktop Home3](./docs/desktopHome3.png) 
+![Desktop Account](./docs/desktopAccount.png) 
+![Desktop UpdateAccount](./docs/desktopUpdateAccount.png) 
+![Desktop About](./docs/desktopAbout.png) 
+![Desktop Forum](./docs/desktopForum.png) 
+![Desktop CreatePost](./docs/desktopCreatePost.png) 
+![Desktop Post](./docs/desktopPost.png) 
+![Desktop UpdatePost](./docs/desktopUpdatePost.png) 
+![Desktop Comments](./docs/desktopComments.png) 
+![Desktop Events](./docs/desktopEvents.png) 
+![Desktop CreateEvent](./docs/desktopCreateEvent.png) 
+![Desktop SelectDate](./docs/desktopSelectDate.png) 
+![Desktop Event](./docs/desktopEvent.png) 
+![Desktop UpdateEvent](./docs/desktopUpdateEvent.png) 
+![Desktop Contact](./docs/desktopContact.png) 
+![Desktop TCs](./docs/desktopTCs.png) 
+![Desktop PP](./docs/desktopPP.png) 
+
+and a few extra MOBILE/TABLET VIEW SCREENSHOTS:
+
+![Phone Home](./docs/phoneHome.png) 
+![Phone SignIn](./docs/phoneSignIn.png) 
+![Phone CreateAccount](./docs/phoneCreateAccount.png) 
+![Phone Account](./docs/phoneAccount.png) 
+![Phone UpdateAccount](./docs/phoneUpdateAccount.png) 
+![Phone Forum](./docs/phoneForum.png) 
+![Phone CreatePost](./docs/phoneCreatePost.png) 
+![Phone Post](./docs/phonePost.png) 
+![Phone Events](./docs/phoneEvents.png) 
+![Phone CreateEvent](./docs/phoneCreateEvent.png) 
+![Phone Event](./docs/phoneEvent.png) 
+![Phone UpdateEvent](./docs/phoneUpdateEvent.png)

@@ -81,8 +81,8 @@ const EventForm = ({ isVisible, onClose }) => {
         setError(createdEvent.errors);
         return;
       }
-      
-      setRoute("/forum/" + createdEvent._id);
+
+      setRoute("/events/" + createdEvent._id);
 
       // Clear the form fields after submission
       setTitle("");
@@ -94,7 +94,7 @@ const EventForm = ({ isVisible, onClose }) => {
       setTicketLink("");
       setContent("");
 
-      onClose();
+    //   onClose();
         } catch (error) {
         console.log("Looks like we have a problem:", error);
         }
@@ -146,8 +146,8 @@ const EventForm = ({ isVisible, onClose }) => {
             className="formInputHalf "
           />
           </div>
-
-          <div className='w-full lg:flex lg:justify-between lg:gap-x-4'>
+          
+          <div className='w-full lg:flex lg:justify-between lg:gap-x-4 '>
           <input
             type="text"
             name="startInput"
@@ -168,6 +168,10 @@ const EventForm = ({ isVisible, onClose }) => {
             className="formInputHalf "
           />
           </div>
+
+          <h1 className="mt-0 mb-2 font-bold text-base md:text-lg text-center uppercase ">
+                Don't forget: those times must be in 24hr format
+            </h1>
 
           <input
             type="text"
@@ -201,7 +205,7 @@ const EventForm = ({ isVisible, onClose }) => {
             className="formContentInput "
           />
 
-          <div className="">
+          <div className="py-3 ">
             <Datepicker
               primaryColor={"amber"}
               asSingle={true}
@@ -231,7 +235,7 @@ const EventForm = ({ isVisible, onClose }) => {
     </div>
     :
     <NavLink to="/sign-in" className="underline text-center uppercase mt-2 font-bold ">
-        Please sign in for this
+        Please sign in!
     </NavLink>
     } </>
   );

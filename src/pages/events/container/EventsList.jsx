@@ -35,9 +35,6 @@ const EventsList = () => {
             })
           : ""}
       </div>
-      <button className="mx-auto flex items-center gap-x-2 font-bold text-white border-2 border-white px-10 py-2 mt-12 mb-3 rounded-3xl uppercase ">
-        Load more
-      </button>
     </section>
   );
 };

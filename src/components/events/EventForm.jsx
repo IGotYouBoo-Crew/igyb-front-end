@@ -5,6 +5,10 @@ import { NavLink, Navigate } from 'react-router-dom';
 
 import { createEvent } from "./createEvent";
 import UserContext from "../../contexts/UserContext";
+import ErrorMessage from '../ErrorMessage';
+import { titleCheckFailed, hostCheckFailed, imageCheckFailed, ticketLinkCheckFailed } from "./EventDataValidation";
+import checkErrorInResponse from "../functions/checkErrorInResponse";
+
 
 const EventForm = ({ isVisible, onClose }) => {
   const [title, setTitle] = useState("");
@@ -21,18 +25,45 @@ const EventForm = ({ isVisible, onClose }) => {
 
   const [route, setRoute] = useState("");
   let { userData } = useContext(UserContext);
+  let [error, setError] = useState(false);
 
 
   const handleClose = (event) => {
     if (event.target.id === "eventForm") onClose();
   };
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Need to add validation for form fields
+    let eventDate = date.startDate;
+
+    let validationError =
+        titleCheckFailed(title) ||
+        hostCheckFailed(host) ||
+        imageCheckFailed(image) ||
+        (ticketLink && ticketLinkCheckFailed(ticketLink));
+        
+
+    if (validationError) {
+        setError(validationError);
+        return;
+    } else if (!title) {
+        setError("Title is required*")
+    } else if (!host) {
+        setError("a Host is required*")
+    } else if (!image) {
+        setError("Image is required*")
+    } else if (!eventDate) {
+        setError("We need a date for this event!")
+    } else if (!start) {
+        setError("What time is it starting?")
+    } else if (!finish) {
+        setError("What time should it finish up?")
+    } else if (!content) {
+        setError("Please give us some more deets about this in content!")
+    } else {
 
     try {
-      let eventDate = date.startDate;
 
       let createdEvent =
       await createEvent(
@@ -46,7 +77,12 @@ const EventForm = ({ isVisible, onClose }) => {
         content
       );
 
-      setRoute("/forum/" + createdEvent._id);
+      if (checkErrorInResponse(createdEvent)) {
+        setError(createdEvent.errors);
+        return;
+      }
+
+      setRoute("/events/" + createdEvent._id);
 
       // Clear the form fields after submission
       setTitle("");
@@ -58,11 +94,12 @@ const EventForm = ({ isVisible, onClose }) => {
       setTicketLink("");
       setContent("");
 
-      onClose();
-    } catch (error) {
-      console.log("Looks like we have a problem:", error);
-    }
-  };
+    //   onClose();
+        } catch (error) {
+        console.log("Looks like we have a problem:", error);
+        }
+    };
+    };
 
   if (!isVisible) return null;
   return (
@@ -109,8 +146,8 @@ const EventForm = ({ isVisible, onClose }) => {
             className="formInputHalf "
           />
           </div>
-
-          <div className='w-full lg:flex lg:justify-between lg:gap-x-4'>
+          
+          <div className='w-full lg:flex lg:justify-between lg:gap-x-4 '>
           <input
             type="text"
             name="startInput"
@@ -131,6 +168,10 @@ const EventForm = ({ isVisible, onClose }) => {
             className="formInputHalf "
           />
           </div>
+
+          <h1 className="mt-0 mb-2 font-bold text-base md:text-lg text-center uppercase ">
+                Don't forget: those times must be in 24hr format
+            </h1>
 
           <input
             type="text"
@@ -164,7 +205,7 @@ const EventForm = ({ isVisible, onClose }) => {
             className="formContentInput "
           />
 
-          <div className="">
+          <div className="py-3 ">
             <Datepicker
               primaryColor={"amber"}
               asSingle={true}
@@ -180,6 +221,11 @@ const EventForm = ({ isVisible, onClose }) => {
             </h1>
         
           </div>
+
+          <ErrorMessage error={error} 
+            className="mt-2 text-lg"
+          />
+
           <button type="submit" className="buttonSubmit ">
             Submit
           </button>
@@ -189,7 +235,7 @@ const EventForm = ({ isVisible, onClose }) => {
     </div>
     :
     <NavLink to="/sign-in" className="underline text-center uppercase mt-2 font-bold ">
-        Please sign in for this
+        Please sign in!
     </NavLink>
     } </>
   );

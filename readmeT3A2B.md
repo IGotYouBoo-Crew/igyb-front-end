@@ -59,8 +59,8 @@ IN ALPHABETICAL ORDER:
 - **helmet** - collection of middleware that allowed us to secure our app by setting HTTP headers
 - **jest** - our chosen JavaScript testing framework. This was exceptional in helping find our testing coverage of code as well!
 - **jsonwebtoken** - the library for generating and verifying JSON Web Tokens (JWTs), for security
-- **mongoose** - again, M is in the MERN name! mongoose is the tool we used for object modelling
-- **nodemon** - So. Helpful. This here is a tool that helped us by automatically restarting the app (as it's a Node application) when file changes in the directory were detected
+- **mongoose** - mongoose was the ODM of choice for us, smoothing over the otherwise convoluted process of making MQL requests from JS, by letting us treat our documents as objects
+- **nodemon** - So. Helpful. This here is a tool that helped us by automatically restarting the app (as it's a Node application) when file changes in the directory were detected. 
 - **react-icons** - a big, beautiful collection of React icons that were perfect for IGYB. This is where we got our icons for everything from the phone and email for our Contact Page, to the pencil on editable fields, or arrows on buttons to view more posts.
 - **react-router-dom** - the good old standard routing library for a lot of React apps (if it ain't broke, don't fix it!). This was easy to integrate, and we were all familiar with it, so made sense to utilise for enabling navigation
 - **react-tailwindcss-datepicker** - this was a nightmare to work with intially, as it's typically a date _range_ picker. In order to select just a single date and shoot that through to the backend took a little tweaking, as did being able to view the pop up calendar in different screensizes, as forms were in modals - which cuts overflow!
@@ -346,7 +346,7 @@ Our backend testing has integration tests for the server itself, some of the for
 
 Watching all those green words pop up was something we never thought we'd be so excited about!
 
-Interestingly, we had validation for different forms in front *and* back end.
+We included validation for forms in front *and* back end. The front-end validation reduced the overall number of database calls that were required, while the back-end validation ensured that there was no way to circumvent the front-end and add data that could cause issues later. 
 
 FRONT END:
 ![form validation from front end](docs/testFrontEnd.png)
@@ -369,9 +369,9 @@ Back to the testing...
 
 Like we said: there were a lot of tests in order to be thorough.
 
-It's worth mentioning that some branches appear low, but this is simply due to a lot of them only being available *outside* of the test environment (in development or production). 
+It's worth mentioning that some branch coverage appears low, but this is largely due to a lot of them only being available *outside* of the test environment (in development or production). 
 
-With some error handling being coded directly into the functions (mentioned above - with the front end form validation), the tests being completed are only covering the 'success' condition; not the error itself. Hence, when we run coverage, it pretty much says *"You tested this function, but you only tested half the branches"*.
+Some other branches were for catching specific cases which later changes to the code made (theoretically) unreachable. With some error handling being coded directly into the functions (mentioned above - with the front end form validation), the tests being completed cannot cover some of the error-handling branches. Hence, when we run coverage, it pretty much says *"You tested this function, but you only tested half the branches"*.
 
 ![test coverage](docs/testCoverage.png)
 

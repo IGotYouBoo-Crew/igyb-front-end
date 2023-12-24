@@ -1,7 +1,7 @@
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import './App.css';
-import HomePage from './pages/home/HomePage';
+import "./App.css";
+import HomePage from "./pages/home/HomePage";
 import AboutPage from "./pages/AboutPage";
 import EventsPage from "./pages/events/EventsPage";
 import ContactPage from "./pages/ContactPage";
@@ -14,7 +14,6 @@ import { useEffect } from "react";
 import SingleEventPage from "./pages/event/SingleEventPage";
 
 function App() {
-
   const location = useLocation(); // import { useLocation } from 'react-router-dom';
 
   useEffect(() => {

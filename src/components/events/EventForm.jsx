@@ -7,6 +7,7 @@ import { createEvent } from "./createEvent";
 import UserContext from "../../contexts/UserContext";
 import ErrorMessage from '../ErrorMessage';
 import { titleCheckFailed, hostCheckFailed, imageCheckFailed, ticketLinkCheckFailed } from "./EventDataValidation";
+import checkErrorInResponse from "../functions/checkErrorInResponse";
 
 
 const EventForm = ({ isVisible, onClose }) => {
@@ -34,16 +35,14 @@ const EventForm = ({ isVisible, onClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    let eventDate = date.startDate;
 
     let validationError =
         titleCheckFailed(title) ||
         hostCheckFailed(host) ||
         imageCheckFailed(image) ||
-        date ||
-        start ||
-        finish ||
-        ticketLinkCheckFailed(ticketLink) ||
-        content;
+        (ticketLink && ticketLinkCheckFailed(ticketLink));
+        
 
     if (validationError) {
         setError(validationError);
@@ -54,7 +53,7 @@ const EventForm = ({ isVisible, onClose }) => {
         setError("a Host is required*")
     } else if (!image) {
         setError("Image is required*")
-    } else if (!date) {
+    } else if (!eventDate) {
         setError("We need a date for this event!")
     } else if (!start) {
         setError("What time is it starting?")
@@ -65,7 +64,6 @@ const EventForm = ({ isVisible, onClose }) => {
     } else {
 
     try {
-      let eventDate = date.startDate;
 
       let createdEvent =
       await createEvent(
@@ -79,6 +77,11 @@ const EventForm = ({ isVisible, onClose }) => {
         content
       );
 
+      if (checkErrorInResponse(createdEvent)) {
+        setError(createdEvent.errors);
+        return;
+      }
+      
       setRoute("/forum/" + createdEvent._id);
 
       // Clear the form fields after submission

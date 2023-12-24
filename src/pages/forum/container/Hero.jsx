@@ -1,11 +1,10 @@
 import React from 'react'
 import { images } from '../../../constants'
 import PostFormContainer from '../../../components/posts/PostFormContainer'
-import SearchBar from '../../../components/SearchBar'
 
 const Hero = () => {
   return (
-    <section className="relative bg-honey pb-10">
+    <section className="relative bg-honey pb-3">
         <img className='z-10 relative -mt-6 w-full' src={images.ForumImage} alt="Forum Header" />
         <div className='px-10 bg-honey rounded-t-3xl z-30 lg:px-28 py-10 text-white relative -mt-6 flex flex-col items-center md:flex-row md:items-start md:justify-between'>
             <div className="md:w-1/2 flex flex-col text-center md:text-left">
@@ -20,7 +19,6 @@ const Hero = () => {
             </div>
             <PostFormContainer />
         </div>
-        <SearchBar />
     </section>
   )
 }

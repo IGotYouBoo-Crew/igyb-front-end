@@ -11,17 +11,17 @@ import CatImage from "../assets/kitty.webp";
 import ProfileDefault from "../assets/posts/profileDefault.jpeg";
 
 const images = {
-  Logo,
-  HomeHeader,
-  EventsHero,
-  Post1Image,
-  PostProfile1,
-  AboutImage,
-  ContactImage,
-  EventHeader,
-  ForumImage,
-  CatImage,
-  ProfileDefault,
+    Logo,
+    HomeHeader,
+    EventsHero,
+    Post1Image,
+    PostProfile1,
+    AboutImage,
+    ContactImage,
+    EventHeader,
+    ForumImage,
+    CatImage,
+    ProfileDefault,
 };
 
 export default images;

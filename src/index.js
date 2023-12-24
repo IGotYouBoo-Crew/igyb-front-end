@@ -9,11 +9,11 @@ import { SearchUserProvider } from "./contexts/SearchUserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <UserProvider>
-        <SearchUserProvider>
-          <App />
-        </SearchUserProvider>
-    </UserProvider>
-  </BrowserRouter>
+    <BrowserRouter>
+        <UserProvider>
+            <SearchUserProvider>
+                <App />
+            </SearchUserProvider>
+        </UserProvider>
+    </BrowserRouter>
 );

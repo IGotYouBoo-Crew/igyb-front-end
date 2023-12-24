@@ -11,11 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <UserProvider>
-      {/* <PostProvider> */}
         <SearchUserProvider>
           <App />
         </SearchUserProvider>
-      {/* </PostProvider> */}
     </UserProvider>
   </BrowserRouter>
 );

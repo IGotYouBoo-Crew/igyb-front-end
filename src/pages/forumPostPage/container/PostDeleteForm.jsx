@@ -14,7 +14,7 @@ const PostDeleteForm = ({
     e.preventDefault();
 
     try {
-      formSubmitHandler();
+      await formSubmitHandler();
       setRoute("/forum/");
     } catch (error) {
       console.log("Looks like we have a problem:", error);

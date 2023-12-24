@@ -20,7 +20,7 @@ const PostUpdateForm = ({
     e.preventDefault();
 
     try {
-      formSubmitHandler(title, caption, body, photo);
+      await formSubmitHandler(title, caption, body, photo);
 
       // reload page so we can see the edits
       window.location.reload();

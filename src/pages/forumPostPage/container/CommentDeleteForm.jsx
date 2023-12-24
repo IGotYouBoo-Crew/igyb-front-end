@@ -11,7 +11,7 @@ const CommentDeleteForm = ({
     e.preventDefault();
 
     try {
-      formSubmitHandler();
+      await formSubmitHandler();
 
       // reload page so we can see that the comment
       // has been deleted

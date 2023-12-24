@@ -1,4 +1,4 @@
-import validator from 'validator'
+import validator from "validator";
 
 /**
  * Checks title exists and is not too long
@@ -38,7 +38,7 @@ export function photoCheckFailed(photo) {
     let photoRequirements = [
         {
             errorMessage: "Photo must be a valid URL",
-            test: validator.isURL(photo)
+            test: validator.isURL(photo),
         },
     ];
     for (const requirement of photoRequirements) {

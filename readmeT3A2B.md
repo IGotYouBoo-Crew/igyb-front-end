@@ -59,13 +59,13 @@ IN ALPHABETICAL ORDER:
 - **helmet** - collection of middleware that allowed us to secure our app by setting HTTP headers
 - **jest** - our chosen JavaScript testing framework. This was exceptional in helping find our testing coverage of code as well!
 - **jsonwebtoken** - the library for generating and verifying JSON Web Tokens (JWTs), for security
-- **mongoose** - again, M is in the MERN name! mongoose is the tool we used for object modelling
-- **nodemon** - So. Helpful. This here is a tool that helped us by automatically restarting the app (as it's a Node application) when file changes in the directory were detected
+- **mongoose** - mongoose was the ODM of choice for us, smoothing over the otherwise convoluted process of making MQL requests from JS, by letting us treat our documents as objects
+- **nodemon** - So. Helpful. This here is a tool that helped us by automatically restarting the app (as it's a Node application) when file changes in the directory were detected. 
 - **react-icons** - a big, beautiful collection of React icons that were perfect for IGYB. This is where we got our icons for everything from the phone and email for our Contact Page, to the pencil on editable fields, or arrows on buttons to view more posts.
 - **react-router-dom** - the good old standard routing library for a lot of React apps (if it ain't broke, don't fix it!). This was easy to integrate, and we were all familiar with it, so made sense to utilise for enabling navigation
 - **react-tailwindcss-datepicker** - this was a nightmare to work with intially, as it's typically a date _range_ picker. In order to select just a single date and shoot that through to the backend took a little tweaking, as did being able to view the pop up calendar in different screensizes, as forms were in modals - which cuts overflow!
-- **supertest** and **supertest-session** - these libraries were used for testing HTTP assertions, and managing the sessions in supertest
 - **validator** - The Validator package is for data validation. It provides a set of utility functions to validate various data types, including URLs, email addresses, credit card numbers, and more. We have used this package to validate the input in a photo field to ensure it is a valid URL link. The validator package is typically distributed under the MIT license, which is a permissive open-source license. The MIT license allows you to use, modify, and distribute the software freely, but it comes with no warranty. 
+- **supertest** and **supertest-session** - these libraries were used for testing HTTP assertions, and managing the sessions in supertest to test our cookie authorisation
 
 <br>
 
@@ -123,15 +123,18 @@ It's been fun to update this and see how the frequency of additions and deletion
 
 ![Frontend Updated graph](docs/frontendGraphUpdated.png)
 
-The approach we took was to stay away from anyone working in the **main branch**, in order to lessen any potential/accidental conflicts or overrides.
+We followed a **trunk-based** gitflow: While maintaining a centralised Main branch as our "trunk", we would develop small-scale additions and features in personal branches. Staying away from anyone working in the **main branch** in order to lessen any potential/accidental conflicts or overrides, as well as protecting our deployed sites from potential issues.
 
 We each created our **own branches** off the main based on our individual focus/features. Within these branches, we would make our changes and commits.
 
 ![branches](docs/branches.png)
+![branches2](docs/branches2.png)
 
 When we were ready to merge into main, we'd **rebase our branch** first. This ensured that any pull requests that happened _while_ we were working on our branch would automatically be incorporated in the merge, and no one accidentally 'undoes' any of the progress we had collectively been making.
 
 Once this rebase was complete, we'd make a **pull request**. We decided to include a requirement for a second team member to approve any pull request: this way, it just covered our butts having a second set of eyes scanning over the additions and deletions that were being brought into the main code for additional peace of mind.
+
+We also required that all **status checks** were clear before a merge could be made. For the front end, this meant ensuring that netlify successfully deployed the site without issue, while for the backend, we used **Github Actions** to automate testing our routes. 
 
 In order to flag with one another that there was a pull request waiting, we'd use the good old **pull-requests** channel in Discord:
 
@@ -160,7 +163,7 @@ Ella, Jack, and Naomi have successfully embodied these Agile values in our colla
 
 We initiated our teamwork through a single long message thread on Discord, quickly realizing the depth and complexity of the assignment Focused conversations, channels for specific topics/features, threads to go into depth on different matters, even just a place to quickly share resources, applicable tutorials, and relevant links were crucial to this running smoothly.
 
-We stuck with Discord as a central 'communication hub', but instead of a single messy message thread, created a Discord Server which was honestly a monumental win for us.
+We stuck with Discord as a central 'communication hub', but instead of a single messy message thread, we created a Discord Server so that we could separate discussions into different boards and threads which was honestly a monumental win for us. 
 
 The first value of Agile (being _Individuals and interactions over processes and tools_) was one that we really upheld well. Life has been crazy at moments for all of us this past month, so being flexible with each other and working together was key. We even had a timezone bot added, so that times for online meetings between the three of us would show in our local timezones (as all three of us were in different states!):
 
@@ -168,7 +171,13 @@ The first value of Agile (being _Individuals and interactions over processes and
 
 We had two categories in order to quickly separate conversations, with channels inside these, and threads for individual comments inside those!
 
-- INFORMATION - notes-resources - resources - tutorials - icons in use - tips-and-tricks - GitHub Desktop Rebasing
+- INFORMATION 
+  - notes-resources 
+  - resources 
+    - icons in use 
+    - tips-and-tricks 
+  - tutorials 
+    - GitHub Desktop Rebasing
   <br>
 
 - TEXT CHANNELS
@@ -197,7 +206,7 @@ We had two categories in order to quickly separate conversations, with channels 
 
 Obviously, these are labelled sensibly so they're easily understood and we knew exactly where to post different comments based on needs/topic.
 
-As we were at times simultaneously working in/on the same files, the **not-quite-stand-up** channel was to communicate exactly what we'd be doing and when, in order to lessen conflicts when eventually merging.
+As we were at times simultaneously working in/on the same files, the **not-quite-stand-up** channel was to communicate exactly what we'd be doing and when, in order to lessen conflicts when eventually merging and prevent two people from building the same feature at the same time.
 
 ![Not quite stand up channel](docs/discordStandUp.png)
 
@@ -222,6 +231,9 @@ CARDS:
 - Blocked
 
 ![Trello board](docs/trello.png)
+![Trello board](docs/Trello_wk1.png)
+![Trello board](docs/Trello_wk2.png)
+![Trello board](docs/Trello_Final.png)
 
 However, we did build up our labels from the beginning in order to better track workload:
 
@@ -236,7 +248,7 @@ ADDITIONAL LABELS:
 - Done!
 - HELP PLEASE
 - Front-End
-- Back-End
+- Back-End!
 - Coding
 - Level: EASY-PEASY
 - Level: MEDIUM RARE
@@ -267,10 +279,9 @@ WIREFRAMES FOR FORUM/POSTS:
 ![Figma close up](docs/figmaClose.png)
 
 FINISHED DEPLOYED PAGES FOR FORUM/POSTS:
+[Screenshots have been relegated to the end of the README to avoid having to scrolling past them](#screenshots)
 
 ![Forum page](docs/forum.png)
-
-# <span style="color:red"> _NOTE: wouldn't mind more screenshots before submission_ </span>
 
 We've been exceptionally lucky that we each have different strengths we could bring to the table, that complemented one another and was invaluable to the project.
 
@@ -298,7 +309,7 @@ The IGYB page can be found here: https://igotyouboo.netlify.app/
 
 # R6: Deploy the application to a cloud hosting service
 
-We've utilised Netlify for the front end, and Heroku for the back end - so hosted on both sides by cloud services and having a great time up here!
+We've utilised Netlify for the front end, and Heroku and Mongo Atlas for the back end - so hosted on both sides by cloud services and having a great time up here!
 
 Netlify allowed us to set environment variables. Obviously, these are automatically hidden from GitHub repositories for security, so the ability to set them in Netlify without having to make them public ensured the site functioned as intended:
 
@@ -309,6 +320,12 @@ Netlify further has automatic testing built in, which blocked a merge request if
 ![Netlify fail](docs/netlifyFail.png)
 
 The beauty of this meant that once we had the site up and running, it has basically stayed that way ever since!
+
+Our backend was a combination of Heroku for the business logic, and Mongo Atlas for the database hosting. Heroku had its own ENV variables, such as the database URI, encryption key and salt, and JWT key.
+
+Mongo Atlas didn't require any environment variables beyond a username and password, which are used in the database URI for heroku to connect securely.
+
+![Heroku Variables](./docs/herokuVariables.png)
 
 <br>
 
@@ -346,7 +363,7 @@ Our backend testing has integration tests for the server itself, some of the for
 
 Watching all those green words pop up was something we never thought we'd be so excited about!
 
-Interestingly, we had validation for different forms in front *and* back end.
+We included validation for forms in front *and* back end. The front-end validation reduced the overall number of database calls that were required, while the back-end validation ensured that there was no way to circumvent the front-end and add data that could cause issues later. 
 
 FRONT END:
 ![form validation from front end](docs/testFrontEnd.png)
@@ -369,9 +386,9 @@ Back to the testing...
 
 Like we said: there were a lot of tests in order to be thorough.
 
-It's worth mentioning that some branches appear low, but this is simply due to a lot of them only being available *outside* of the test environment (in development or production). 
+It's worth mentioning that some branch coverage appears low, but this is largely due to a lot of them only being available *outside* of the test environment (in development or production). 
 
-With some error handling being coded directly into the functions (mentioned above - with the front end form validation), the tests being completed are only covering the 'success' condition; not the error itself. Hence, when we run coverage, it pretty much says *"You tested this function, but you only tested half the branches"*.
+Some other branches were for catching specific cases which later changes to the code made (theoretically) unreachable. With some error handling being coded directly into the functions (mentioned above - with the front end form validation), the tests being completed cannot cover some of the error-handling branches. Hence, when we run coverage, it pretty much says *"You tested this function, but you only tested half the branches"*.
 
 ![test coverage](docs/testCoverage.png)
 
@@ -407,3 +424,8 @@ You got it, folks!
 [Frontend Repository can be found here](https://github.com/IGotYouBoo-Crew/igyb-front-end)
 
 [Backend Repository can be found here](https://github.com/IGotYouBoo-Crew/igyb-back-end)
+
+
+# Screenshots
+These are tucked away at the end here because there are a LOT of them
+![Desktop About](./docs/desktopAbout.png) ![Desktop Account](./docs/desktopAccount.png) ![Desktop Comments](./docs/desktopComments.png) ![Desktop Contact](./docs/desktopContact.png) ![Desktop CreateEvent](./docs/desktopCreateEvent.png) ![Desktop CreatePost](./docs/desktopCreatePost.png) ![Desktop Event](./docs/desktopEvent.png) ![Desktop Events](./docs/desktopEvents.png) ![Desktop Forum](./docs/desktopForum.png) ![Desktop Home](./docs/DesktopHome.png) ![Desktop Home2](./docs/desktopHome2.png) ![Desktop Home3](./docs/desktopHome3.png) ![Desktop Post](./docs/desktopPost.png) ![Desktop PP](./docs/desktopPP.png) ![Desktop SelectDate](./docs/desktopSelectDate.png) ![Desktop TCs](./docs/desktopTCs.png) ![Desktop UpdateAccount](./docs/desktopUpdateAccount.png) ![Desktop UpdateEvent](./docs/desktopUpdateEvent.png) ![Desktop UpdatePost](./docs/desktopUpdatePost.png) ![Phone Account](./docs/phoneAccount.png) ![Phone CreateAccount](./docs/phoneCreateAccount.png) ![Phone CreateEvent](./docs/phoneCreateEvent.png) ![Phone CreatePost](./docs/phoneCreatePost.png) ![Phone Event](./docs/phoneEvent.png) ![Phone Events](./docs/phoneEvents.png) ![Phone Forum](./docs/phoneForum.png) ![Phone Home](./docs/phoneHome.png) ![Phone Post](./docs/phonePost.png) ![Phone SignIn](./docs/phoneSignIn.png) ![Phone UpdateAccount](./docs/phoneUpdateAccount.png) ![Phone UpdateEvent](./docs/phoneUpdateEvent.png)

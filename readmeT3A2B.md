@@ -116,6 +116,12 @@ As of the 17th December, our code frequency graphs show how dedicated we've been
 
 ![Frontend graph](docs/frontendGraph.png)
 
+It's been fun to update this and see how the frequency of additions and deletions has changed as we've neared the end of the assignment:
+
+![Backend Updated graph](docs/backendGraphUpdated.png)
+
+![Frontend Updated graph](docs/frontendGraphUpdated.png)
+
 The approach we took was to stay away from anyone working in the **main branch**, in order to lessen any potential/accidental conflicts or overrides.
 
 We each created our **own branches** off the main based on our individual focus/features. Within these branches, we would make our changes and commits.
@@ -130,7 +136,7 @@ In order to flag with one another that there was a pull request waiting, we'd us
 
 ![Discord pull requests](docs/discordPR.png)
 
-Once that pull request was **squashed and merged** (squashing being the term for taking every commit made on a single branch and 'squashing' them into what appears to be one commit, which keeps code cleaner!), we would delete the branch and then create a new one.
+Once that pull request was **squashed and merged** (squashing being the term for taking every commit made on a single branch and 'squashing' them into what appears to be one commit, which keeps code cleaner!), we would **delete the branch** and then create a new one in order to keep the repos cleaner - with no redundant branches.
 
 This approach ensured that work was completed in more of a step by step 'sprint' fashion. We would discuss daily the sections and features each of us were working on, help each other where needed, and then bring our changes to the main branch in order to work efficiently and effectively.
 
@@ -321,11 +327,63 @@ We're extremely proud of the end product, and boasting about this to future empl
 
 ## - In the production environment
 
+Testing was a huuuge part of the entire build process.
+
+We cannot tell you how many times our poor terminals had to deal with `npm run reseed-and-test` when creating and testing our routes, but it was a LOT! 
+
+We had to nail these tests *before* building the code, because as we've been taught: it's a headache enough building tests in order to write code that passes. It's a lot worse though, to write code that you *think* is beautiful and functional, but will never pass a test once you catch up with that!
+
+![npm reseed and test](docs/testReseed.png)
+
+From there, we'd be able to check and cross check all of our routes, and we included about a hundred (not really but it felt like it!) `console.logs` to track exactly where we were, or what would go through, in order to troubleshoot when things *didn't* pass.
+
+![test routes](docs/testRoutes.png)
+
+Our backend testing has integration tests for the server itself, some of the form validation, and unit testing for functions too:
+
+![test suites](docs/testSuites.png)
+
+Watching all those green words pop up was something we never thought we'd be so excited about!
+
+Interestingly, we had validation for different forms in front *and* back end.
+
+FRONT END:
+![form validation from front end](docs/testFrontEnd.png)
+
+BACK END:
+
+![form validation from back end](docs/testBackEnd.png)
+
+So, some validation testing was ran through the actual test suites in the back end, and some was simply built into the code (ie. users couldn't submit invalid inputs), which took Ella and Naomi (and Jack, with troubleshooting help!) a whoooole lot of time simply with trial and error. Lesson learned for next time 😉
+
+![test validation from back end](docs/testValidation.png)
+
+This was largely due to two very different approaches. 
+
+As mentioned above, Jack is our Wizard of Code, and has his own super impressive, natural style of coding. Meanwhile Ella had found what *appeared* to be great tutorials for almost *exactly* what we were wanting to achieve, and that what she and Naomi based most of the *Posts* and *Events* around. However, in the long run, we can all admit that those tutorials almost caused more headaches!
+
+We got there though, and have all learned SO MUCH from all the back and forth of helping each other and having to figure out what one another were trying to do and how they were trying to get there... So, with the aim of this entire assignment being for us to learn how to work in a team and create something functional and beautiful, we'd all agree that we nailed this! 🥳
+
+Back to the testing...
+
+Like we said: there were a lot of tests in order to be thorough.
+
+It's worth mentioning that some branches appear low, but this is simply due to a lot of them only being available *outside* of the test environment (in development or production). 
+
+With some error handling being coded directly into the functions (mentioned above - with the front end form validation), the tests being completed are only covering the 'success' condition; not the error itself. Hence, when we run coverage, it pretty much says *"You tested this function, but you only tested half the branches"*.
+
+![test coverage](docs/testCoverage.png)
+
 Once the majority of our site was deployed and functional, we were able to cross reference with an easy-to-read production testing table (based on the _Revised User Stories_ that were completed in Part A), and ensure that we covered all bases:
 
 ![Production testing table](docs/production_test_progress.png)
 
-# <span style="color:red"> _ADD UPDATED/COMPLETE PRODUCTION TESTING TABLE BEFORE SUBMISSION_ </span>
+UPDATED TESTING TABLE
+
+![Production testing updated table](docs/production_test_update.png)
+
+
+
 
 <br>
 

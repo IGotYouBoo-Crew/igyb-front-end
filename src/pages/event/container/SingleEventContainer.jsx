@@ -74,7 +74,7 @@ const SingleEventContainer = ({ event }) => {
 								<img
 									src={event.image}
 									alt="oh no, there should be an event pic here! "
-									className="rounded-3xl mt-2 w-full h-auto object-cover md:mx-2 lg:w-3/5 "
+									className="rounded-3xl mt-2 w-full h-auto object-cover md:mx-2 lg:w-3/5 min-h-[35vh] max-h-[100vh]"
 								/>
 								<div className="mt-6 text-center lg:text-left ">
 									<h1 className="text-3xl font-bold lg:text-4xl pt-10 lg:pt-0 capitalize ">

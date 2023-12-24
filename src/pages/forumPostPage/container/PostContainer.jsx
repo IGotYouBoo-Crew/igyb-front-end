@@ -102,7 +102,7 @@ const PostContainer = ({ post }) => {
                                 <img
                                     src={post.photo}
                                     alt="post title"
-                                    className="rounded-3xl mt-2 w-full h-auto object-cover lg:w-1/2"
+                                    className="rounded-3xl mt-2 w-full h-auto max-h-[100vh] min-h-[35vh]  object-cover lg:w-1/2"
                                 />
                                 <div className="text-white mt-6 text-center lg:text-left lg:w-1/2">
                                     <h1 className="text-2xl font-bold md:text-3xl capitalize">

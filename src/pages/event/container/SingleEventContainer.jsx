@@ -68,7 +68,7 @@ const SingleEventContainer = ({ event }) => {
                             <div className="text-white lg:flex lg:flex-row-reverse lg:justify-between md:px-20 lg:px-12 lg:pb-10 ">
                                 <img
                                     src={event.image}
-                                    alt="event title"
+                                    alt="oh no, there should be an event pic here! "
                                     className="rounded-3xl mt-2 w-full h-auto object-cover md:mx-2 lg:w-3/5 "
                                 />
                                 <div className="mt-6 text-center lg:text-left ">

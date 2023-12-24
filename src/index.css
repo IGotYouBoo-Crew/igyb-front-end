@@ -3,53 +3,53 @@
 @tailwind utilities;
 
 body {
-  background-color: #543786;
+	background-color: #543786;
 }
 
 @layer components {
-  .formInput {
-    @apply bg-white rounded-3xl pl-5 pr-5 py-3 m-4 focus:outline-background w-full 
+	.formInput {
+		@apply bg-white rounded-3xl pl-5 pr-5 py-3 m-4 focus:outline-background w-full 
     text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD]
-    truncate placeholder:font-bold placeholder:uppercase ;
-  }
+    truncate placeholder:font-bold placeholder:uppercase;
+	}
 
-  .formInputHalf {
-    @apply truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
+	.formInputHalf {
+		@apply truncate placeholder:font-bold text-black text-sm placeholder:text-sm 
     placeholder:text-[#959EAD] rounded-3xl pl-5 py-3 my-4 focus:outline-background 
-    w-full placeholder:uppercase ;
-  }
+    w-full placeholder:uppercase;
+	}
 
-  .formContentInput {
-    @apply bg-white rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full placeholder:uppercase
+	.formContentInput {
+		@apply bg-white rounded-3xl pl-5 pr-3 py-3 m-4 focus:outline-background w-full placeholder:uppercase
     text-black text-sm md:text-base placeholder:text-sm md:placeholder:text-base placeholder:text-[#959EAD]
-    block placeholder:font-bold ;
-  }
+    block placeholder:font-bold;
+	}
 
-  .buttonSubmit {
-    @apply border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base uppercase;
-  }
+	.buttonSubmit {
+		@apply border border-white rounded-3xl px-5 py-2 m-4 w-32 text-white text-sm md:text-base uppercase;
+	}
 
-  .buttonUpdate {
-    @apply px-6 py-2.5 rounded-3xl bg-white border-2 font-bold;
-  }
+	.buttonUpdate {
+		@apply px-6 py-2.5 rounded-3xl bg-white border-2 font-bold;
+	}
 
-  .buttonCancel {
-    @apply px-6 py-2.5 rounded-3xl border-2 border-red-500 font-bold;
-  }
+	.buttonCancel {
+		@apply px-6 py-2.5 rounded-3xl border-2 border-red-500 font-bold;
+	}
 
-  .textPage {
-    @apply rounded-3xl relative px-20 py-14 md:px-40 lg:px-56 text-center;
-  }
+	.textPage {
+		@apply rounded-3xl relative px-20 py-14 md:px-40 lg:px-56 text-center;
+	}
 
-  .textH1 {
-    @apply text-2xl font-bold uppercase;
-  }
+	.textH1 {
+		@apply text-2xl font-bold uppercase;
+	}
 
-  .textH2 {
-    @apply text-xl font-bold uppercase mt-5;
-  }
+	.textH2 {
+		@apply text-xl font-bold uppercase mt-5;
+	}
 
-  .textP {
-    @apply text-base text-justify my-3;
-  }
+	.textP {
+		@apply text-base text-justify my-3;
+	}
 }

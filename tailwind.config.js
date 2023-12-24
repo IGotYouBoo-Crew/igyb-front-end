@@ -3,6 +3,7 @@
  
 module.exports = ({
   content: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/react-tailwindcss-datepicker/**/*.js'],
+  darkMode: 'false',
   theme: {
     extend: {
       colors: {
